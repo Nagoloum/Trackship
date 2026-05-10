@@ -70,15 +70,14 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-1">
+          {/* Track CTA — always visible. Short label on mobile, long on lg+. */}
           <Link
             href="/track"
-            className={cn(
-              buttonVariants({ size: "sm" }),
-              "hidden gap-2 md:inline-flex"
-            )}
+            className={cn(buttonVariants({ size: "sm" }), "gap-2")}
           >
             <Package className="h-4 w-4" />
-            {tc("trackShort")}
+            <span className="lg:hidden">{tc("trackShort")}</span>
+            <span className="hidden lg:inline">{tc("trackButton")}</span>
           </Link>
 
           <div className="hidden items-center gap-1 md:flex">
@@ -124,17 +123,6 @@ export function SiteHeader() {
               {t(item.key)}
             </NavLink>
           ))}
-          <Link
-            href="/track"
-            onClick={() => setOpen(false)}
-            className={cn(
-              buttonVariants({ size: "default" }),
-              "mt-2 w-full justify-center gap-2"
-            )}
-          >
-            <Package className="h-4 w-4" />
-            {tc("trackShort")}
-          </Link>
           <div className="mt-2 flex items-center justify-between border-t pt-3">
             <LanguageSwitcher />
           </div>
