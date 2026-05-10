@@ -68,7 +68,8 @@
       "createdAt": "Erstellt am",
       "updatedAt": "Aktualisiert am",
       "history": "Verlauf",
-      "noEvents": "Bisher keine Ereignisse erfasst."
+      "noEvents": "Bisher keine Ereignisse erfasst.",
+      "latest": "Aktuell"
     },
     "receipt": {
       "title": "Versandbeleg",

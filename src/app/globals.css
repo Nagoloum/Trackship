@@ -153,11 +153,16 @@
   }
   html {
     @apply font-sans;
-    scroll-behavior: smooth;
     scroll-padding-top: 5rem;
   }
+  /* Smooth scroll only when explicitly opted-in via the data attribute, so
+     Next.js can disable it during route transitions to avoid mid-flight
+     scroll animations that fight the router's restoration. */
+  html[data-scroll-behavior="smooth"] {
+    scroll-behavior: smooth;
+  }
   @media (prefers-reduced-motion: reduce) {
-    html {
+    html[data-scroll-behavior="smooth"] {
       scroll-behavior: auto;
     }
     *,

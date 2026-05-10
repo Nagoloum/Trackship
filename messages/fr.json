@@ -68,7 +68,8 @@
       "createdAt": "Créée le",
       "updatedAt": "Mise à jour le",
       "history": "Historique",
-      "noEvents": "Aucun événement enregistré pour le moment."
+      "noEvents": "Aucun événement enregistré pour le moment.",
+      "latest": "Dernier"
     },
     "receipt": {
       "title": "Bordereau d'envoi",

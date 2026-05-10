@@ -68,7 +68,8 @@
       "createdAt": "Creado el",
       "updatedAt": "Actualizado el",
       "history": "Historial",
-      "noEvents": "Aún no hay eventos registrados."
+      "noEvents": "Aún no hay eventos registrados.",
+      "latest": "Último"
     },
     "receipt": {
       "title": "Albarán de envío",

@@ -68,7 +68,8 @@
       "createdAt": "Created on",
       "updatedAt": "Updated on",
       "history": "History",
-      "noEvents": "No events recorded yet."
+      "noEvents": "No events recorded yet.",
+      "latest": "Latest"
     },
     "receipt": {
       "title": "Shipping receipt",
