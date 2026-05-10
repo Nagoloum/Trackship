@@ -17,6 +17,7 @@ export type InvoiceStrings = {
   origin: string;
   destination: string;
   weight: string;
+  declaredValue: string;
   qrCaption: string;
   scanNotice: string;
   vatNumber: string;
@@ -47,6 +48,7 @@ const STRINGS: Record<InvoiceLocale, InvoiceStrings> = {
     origin: "Origine",
     destination: "Destination",
     weight: "Poids",
+    declaredValue: "Valeur déclarée",
     qrCaption: "Scannez pour suivre votre colis",
     scanNotice:
       "Scannez le QR code pour consulter en temps réel le statut, la timeline et le détail de cette expédition. Le code-barres ci-dessus reproduit le numéro de suivi et peut être lu par un scanner logistique.",
@@ -76,6 +78,7 @@ const STRINGS: Record<InvoiceLocale, InvoiceStrings> = {
     origin: "Origin",
     destination: "Destination",
     weight: "Weight",
+    declaredValue: "Declared value",
     qrCaption: "Scan to track your parcel",
     scanNotice:
       "Scan the QR code to view this shipment's real-time status, timeline and details. The barcode above encodes the tracking number and can be read by any logistics scanner.",
@@ -105,6 +108,7 @@ const STRINGS: Record<InvoiceLocale, InvoiceStrings> = {
     origin: "Origen",
     destination: "Destino",
     weight: "Peso",
+    declaredValue: "Valor declarado",
     qrCaption: "Escanea para rastrear tu paquete",
     scanNotice:
       "Escanea el código QR para consultar en tiempo real el estado, la línea de tiempo y los detalles de este envío. El código de barras superior contiene el número de seguimiento y puede leerse con cualquier escáner logístico.",
@@ -134,6 +138,7 @@ const STRINGS: Record<InvoiceLocale, InvoiceStrings> = {
     origin: "Absendeort",
     destination: "Zielort",
     weight: "Gewicht",
+    declaredValue: "Deklarierter Wert",
     qrCaption: "Scannen, um die Sendung zu verfolgen",
     scanNotice:
       "Scannen Sie den QR-Code, um den aktuellen Status, die Zeitleiste und alle Details dieser Sendung in Echtzeit aufzurufen. Der Barcode oben enthält die Sendungsnummer und kann von jedem Logistik-Scanner gelesen werden.",

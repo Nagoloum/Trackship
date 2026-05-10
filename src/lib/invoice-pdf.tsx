@@ -53,20 +53,23 @@ const colors = {
   white: "#FFFFFF",
 };
 
+// A4 landscape working area: 842 × 595pt with 24pt margins → 794 × 547pt usable.
 const styles = StyleSheet.create({
   page: {
-    paddingTop: 36,
-    paddingHorizontal: 36,
-    paddingBottom: 56,
-    fontSize: 10,
+    paddingTop: 22,
+    paddingHorizontal: 24,
+    paddingBottom: 36,
+    fontSize: 9,
     fontFamily: "Helvetica",
     color: colors.text,
   },
+
+  // Header strip
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-start",
-    paddingBottom: 16,
+    paddingBottom: 10,
     borderBottomWidth: 2,
     borderBottomColor: colors.primary,
   },
@@ -77,16 +80,11 @@ const styles = StyleSheet.create({
     color: colors.primary,
     fontSize: 22,
     fontFamily: "Helvetica-Bold",
-    letterSpacing: 1,
-  },
-  brandLegal: {
-    marginTop: 2,
-    color: colors.muted,
-    fontSize: 9,
+    letterSpacing: 1.5,
   },
   brandLine: {
     color: colors.muted,
-    fontSize: 9,
+    fontSize: 8,
     marginTop: 1,
   },
   receiptMeta: {
@@ -94,168 +92,167 @@ const styles = StyleSheet.create({
   },
   receiptTitle: {
     color: colors.primary,
-    fontSize: 18,
+    fontSize: 16,
     fontFamily: "Helvetica-Bold",
     letterSpacing: 2,
   },
   receiptNumber: {
-    marginTop: 6,
+    marginTop: 4,
     fontFamily: "Helvetica-Bold",
-    fontSize: 12,
+    fontSize: 11,
   },
   receiptMetaLine: {
     color: colors.muted,
-    fontSize: 9,
+    fontSize: 8,
     marginTop: 2,
   },
 
-  // Tracking strip — large code + QR
-  trackingStrip: {
-    marginTop: 18,
+  // 3-column main row: tracking / recipient / qr
+  mainRow: {
+    marginTop: 10,
     flexDirection: "row",
-    gap: 16,
-    alignItems: "stretch",
+    gap: 10,
   },
-  trackingMain: {
-    flex: 1,
+  trackingCol: {
+    flex: 4,
     backgroundColor: colors.primary,
     color: colors.white,
     borderRadius: 6,
-    padding: 16,
+    padding: 12,
     flexDirection: "column",
     justifyContent: "space-between",
   },
-  trackingLabel: {
-    color: "rgba(255,255,255,0.85)",
-    fontSize: 9,
-    fontFamily: "Helvetica-Bold",
-    textTransform: "uppercase",
-    letterSpacing: 2,
-  },
-  trackingCode: {
-    color: colors.white,
-    fontSize: 28,
-    fontFamily: "Helvetica-Bold",
-    letterSpacing: 2,
-    marginTop: 4,
-  },
-  trackingStatusRow: {
-    marginTop: 12,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-end",
-  },
-  trackingStatus: {
-    color: "rgba(255,255,255,0.85)",
-    fontSize: 9,
-    fontFamily: "Helvetica-Bold",
-    textTransform: "uppercase",
-    letterSpacing: 1,
-  },
-  qrBox: {
-    width: 130,
-    backgroundColor: colors.white,
+  recipientCol: {
+    flex: 4,
+    backgroundColor: colors.card,
     borderRadius: 6,
+    padding: 12,
+  },
+  qrCol: {
+    width: 140,
+    backgroundColor: colors.white,
     borderWidth: 1,
     borderColor: colors.border,
+    borderRadius: 6,
     padding: 8,
     alignItems: "center",
     justifyContent: "center",
   },
+
+  trackingLabel: {
+    color: "rgba(255,255,255,0.85)",
+    fontSize: 8,
+    fontFamily: "Helvetica-Bold",
+    textTransform: "uppercase",
+    letterSpacing: 1.5,
+  },
+  trackingCode: {
+    color: colors.white,
+    fontSize: 22,
+    fontFamily: "Helvetica-Bold",
+    letterSpacing: 2,
+    marginTop: 4,
+  },
+  trackingStatusBadge: {
+    marginTop: 6,
+    alignSelf: "flex-start",
+    backgroundColor: "rgba(255,255,255,0.18)",
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 4,
+    color: colors.white,
+    fontSize: 8.5,
+    fontFamily: "Helvetica-Bold",
+    textTransform: "uppercase",
+    letterSpacing: 1,
+  },
+  trackingFooter: {
+    color: "rgba(255,255,255,0.85)",
+    fontSize: 7.5,
+    marginTop: 6,
+  },
+
+  partyTitle: {
+    color: colors.primary,
+    fontSize: 8,
+    fontFamily: "Helvetica-Bold",
+    textTransform: "uppercase",
+    letterSpacing: 1.2,
+    marginBottom: 4,
+  },
+  partyName: {
+    fontFamily: "Helvetica-Bold",
+    fontSize: 11,
+  },
+  partyLine: {
+    marginTop: 2,
+    fontSize: 8.5,
+  },
+  partyMutedLine: {
+    marginTop: 2,
+    color: colors.muted,
+    fontSize: 8,
+  },
+
   qrImage: {
     width: 110,
     height: 110,
   },
   qrCaption: {
     color: colors.muted,
-    fontSize: 7.5,
+    fontSize: 6.5,
     marginTop: 4,
     textAlign: "center",
-    letterSpacing: 0.5,
+    letterSpacing: 0.3,
   },
 
-  // Barcode strip
-  barcodeBlock: {
-    marginTop: 14,
+  // Barcode row
+  barcodeRow: {
+    marginTop: 8,
     backgroundColor: colors.white,
-    borderRadius: 6,
     borderWidth: 1,
     borderColor: colors.border,
-    padding: 8,
+    borderRadius: 6,
+    paddingVertical: 6,
     alignItems: "center",
   },
   barcodeImage: {
     width: 360,
-    height: 70,
+    height: 50,
   },
 
-  // Two-column block — recipient + sender
-  partiesRow: {
+  // Compact details grid (6 cells in one row)
+  detailsRow: {
+    marginTop: 8,
     flexDirection: "row",
-    gap: 14,
-    marginTop: 18,
-  },
-  partyCard: {
-    flex: 1,
-    backgroundColor: colors.card,
-    borderRadius: 6,
-    padding: 12,
-  },
-  partyTitle: {
-    color: colors.primary,
-    fontSize: 9,
-    fontFamily: "Helvetica-Bold",
-    textTransform: "uppercase",
-    letterSpacing: 1,
-    marginBottom: 6,
-  },
-  partyName: {
-    fontFamily: "Helvetica-Bold",
-    fontSize: 12,
-  },
-  partyLine: {
-    marginTop: 2,
-    fontSize: 9.5,
-  },
-  partyMutedLine: {
-    marginTop: 2,
-    color: colors.muted,
-    fontSize: 9,
-  },
-
-  // Shipment details grid
-  detailsGrid: {
-    marginTop: 14,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 10,
+    gap: 6,
   },
   detailCell: {
-    width: "31.5%",
+    flex: 1,
     backgroundColor: colors.card,
-    borderRadius: 6,
-    padding: 10,
+    borderRadius: 5,
+    padding: 7,
   },
   detailLabel: {
     color: colors.muted,
-    fontSize: 8,
+    fontSize: 6.5,
     fontFamily: "Helvetica-Bold",
     textTransform: "uppercase",
-    letterSpacing: 1,
+    letterSpacing: 0.8,
   },
   detailValue: {
-    marginTop: 4,
+    marginTop: 2,
     fontFamily: "Helvetica-Bold",
-    fontSize: 11,
-  },
-  detailValueSmall: {
-    marginTop: 4,
     fontSize: 10,
   },
+  detailValueSmall: {
+    marginTop: 2,
+    fontSize: 8.5,
+  },
 
-  // Items table
-  itemsTable: {
-    marginTop: 14,
+  // Items table (full width)
+  itemsBlock: {
+    marginTop: 8,
     borderWidth: 1,
     borderColor: colors.border,
     borderRadius: 6,
@@ -263,15 +260,14 @@ const styles = StyleSheet.create({
   },
   itemsHeaderRow: {
     flexDirection: "row",
-    backgroundColor: colors.card,
-    paddingVertical: 6,
-    paddingHorizontal: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
+    backgroundColor: colors.primary,
+    color: colors.white,
+    paddingVertical: 5,
+    paddingHorizontal: 8,
   },
   itemsHeaderCell: {
-    color: colors.muted,
-    fontSize: 8,
+    color: colors.white,
+    fontSize: 7,
     fontFamily: "Helvetica-Bold",
     textTransform: "uppercase",
     letterSpacing: 1,
@@ -279,51 +275,62 @@ const styles = StyleSheet.create({
   itemRow: {
     flexDirection: "row",
     alignItems: "flex-start",
-    paddingVertical: 8,
-    paddingHorizontal: 10,
+    paddingVertical: 5,
+    paddingHorizontal: 8,
     borderTopWidth: 1,
     borderTopColor: colors.border,
   },
-  itemRowFirst: {
-    borderTopWidth: 0,
+  itemRowAlt: {
+    backgroundColor: colors.card,
+  },
+  itemCellIndex: {
+    width: 22,
+    fontSize: 8,
+    color: colors.muted,
   },
   itemCellCategory: {
-    flex: 1,
-    fontSize: 9,
+    flex: 2,
+    fontSize: 8.5,
     color: colors.primary,
     fontFamily: "Helvetica-Bold",
   },
   itemCellDescription: {
-    flex: 2,
-    fontSize: 9.5,
+    flex: 4,
+    fontSize: 8.5,
     paddingHorizontal: 4,
   },
   itemCellQty: {
-    width: 50,
-    fontSize: 10,
+    width: 40,
+    fontSize: 9,
     fontFamily: "Helvetica-Bold",
     textAlign: "right",
   },
 
+  // Notice + tracking URL strip at the bottom
   notice: {
-    marginTop: 16,
+    marginTop: 8,
     color: colors.muted,
-    fontSize: 8.5,
+    fontSize: 7,
     fontStyle: "italic",
-    lineHeight: 1.4,
-    paddingHorizontal: 4,
+    lineHeight: 1.3,
+  },
+  trackingUrl: {
+    marginTop: 2,
+    color: colors.primary,
+    fontSize: 7,
+    fontFamily: "Helvetica-Bold",
   },
 
   footer: {
     position: "absolute",
-    bottom: 24,
-    left: 36,
-    right: 36,
+    bottom: 14,
+    left: 24,
+    right: 24,
     flexDirection: "row",
     justifyContent: "space-between",
     color: colors.muted,
-    fontSize: 8,
-    paddingTop: 8,
+    fontSize: 6.5,
+    paddingTop: 5,
     borderTopWidth: 1,
     borderTopColor: colors.border,
   },
@@ -344,25 +351,27 @@ export function ReceiptPdf({
 }) {
   const locale = (receipt.language || "en") as InvoiceLocale;
   const t = getInvoiceStrings(locale);
+  const items = order.items ?? [];
 
   return (
     <Document
-      title={`${t.documentTitle} ${receipt.invoice_number}`}
+      title={`${t.documentTitle} ${order.code}`}
       author={COMPANY.name}
       creator={COMPANY.name}
     >
-      <Page size="A4" style={styles.page}>
+      <Page size="A4" orientation="landscape" style={styles.page}>
         {/* Header */}
         <View style={styles.header}>
           <View style={styles.brandBlock}>
             <Text style={styles.brandName}>{COMPANY.name.toUpperCase()}</Text>
-            <Text style={styles.brandLegal}>{COMPANY.legalName}</Text>
-            <Text style={styles.brandLine}>{COMPANY.addressLine1}</Text>
+            <Text style={styles.brandLine}>{COMPANY.legalName}</Text>
             <Text style={styles.brandLine}>
-              {COMPANY.postalCode} {COMPANY.city}, {COMPANY.country}
+              {COMPANY.addressLine1} · {COMPANY.postalCode} {COMPANY.city},{" "}
+              {COMPANY.country}
             </Text>
-            <Text style={styles.brandLine}>{COMPANY.email}</Text>
-            <Text style={styles.brandLine}>{COMPANY.phone}</Text>
+            <Text style={styles.brandLine}>
+              {COMPANY.email} · {t.vatNumber}: {COMPANY.vatNumber}
+            </Text>
           </View>
 
           <View style={styles.receiptMeta}>
@@ -376,33 +385,20 @@ export function ReceiptPdf({
           </View>
         </View>
 
-        {/* Tracking strip */}
-        <View style={styles.trackingStrip}>
-          <View style={styles.trackingMain}>
+        {/* 3 columns: tracking · recipient · QR */}
+        <View style={styles.mainRow}>
+          <View style={styles.trackingCol}>
             <View>
               <Text style={styles.trackingLabel}>{t.trackingNumber}</Text>
               <Text style={styles.trackingCode}>{order.code}</Text>
-            </View>
-            <View style={styles.trackingStatusRow}>
-              <Text style={styles.trackingStatus}>
-                {t.status}: {getStatusLabel(order.current_status, locale)}
+              <Text style={styles.trackingStatusBadge}>
+                {getStatusLabel(order.current_status, locale)}
               </Text>
             </View>
+            <Text style={styles.trackingFooter}>{trackingUrl}</Text>
           </View>
-          <View style={styles.qrBox}>
-            <Image src={qrDataUrl} style={styles.qrImage} />
-            <Text style={styles.qrCaption}>{t.qrCaption}</Text>
-          </View>
-        </View>
 
-        {/* Barcode */}
-        <View style={styles.barcodeBlock}>
-          <Image src={barcodeDataUrl} style={styles.barcodeImage} />
-        </View>
-
-        {/* Recipient + sender */}
-        <View style={styles.partiesRow}>
-          <View style={styles.partyCard}>
+          <View style={styles.recipientCol}>
             <Text style={styles.partyTitle}>{t.billTo}</Text>
             <Text style={styles.partyName}>{order.recipient_name}</Text>
             {order.recipient_address && (
@@ -414,21 +410,27 @@ export function ReceiptPdf({
             {order.recipient_phone && (
               <Text style={styles.partyMutedLine}>{order.recipient_phone}</Text>
             )}
-          </View>
-
-          <View style={styles.partyCard}>
-            <Text style={styles.partyTitle}>{t.sender}</Text>
+            <Text style={[styles.partyTitle, { marginTop: 8 }]}>{t.sender}</Text>
             <Text style={styles.partyName}>{COMPANY.name}</Text>
             <Text style={styles.partyLine}>{COMPANY.addressLine1}</Text>
-            <Text style={styles.partyLine}>
+            <Text style={styles.partyMutedLine}>
               {COMPANY.postalCode} {COMPANY.city}, {COMPANY.country}
             </Text>
-            <Text style={styles.partyMutedLine}>{COMPANY.email}</Text>
+          </View>
+
+          <View style={styles.qrCol}>
+            <Image src={qrDataUrl} style={styles.qrImage} />
+            <Text style={styles.qrCaption}>{t.qrCaption}</Text>
           </View>
         </View>
 
-        {/* Shipment details grid */}
-        <View style={styles.detailsGrid}>
+        {/* Barcode strip */}
+        <View style={styles.barcodeRow}>
+          <Image src={barcodeDataUrl} style={styles.barcodeImage} />
+        </View>
+
+        {/* Compact 6-cell shipment grid: origin / destination / weight / value / created / status */}
+        <View style={styles.detailsRow}>
           <View style={styles.detailCell}>
             <Text style={styles.detailLabel}>{t.origin}</Text>
             <Text style={styles.detailValueSmall}>{order.origin}</Text>
@@ -447,26 +449,52 @@ export function ReceiptPdf({
               {order.weight_kg != null ? `${order.weight_kg} kg` : "—"}
             </Text>
           </View>
+          <View style={styles.detailCell}>
+            <Text style={styles.detailLabel}>{t.declaredValue}</Text>
+            <Text style={styles.detailValue}>
+              {order.declared_value != null
+                ? `${Number(order.declared_value).toFixed(2)} €`
+                : "—"}
+            </Text>
+          </View>
+          <View style={styles.detailCell}>
+            <Text style={styles.detailLabel}>{t.issueDate}</Text>
+            <Text style={styles.detailValueSmall}>
+              {formatInvoiceDate(receipt.issued_at, locale)}
+            </Text>
+          </View>
+          <View style={styles.detailCell}>
+            <Text style={styles.detailLabel}>{t.status}</Text>
+            <Text style={styles.detailValueSmall}>
+              {getStatusLabel(order.current_status, locale)}
+            </Text>
+          </View>
         </View>
 
-        {order.items && order.items.length > 0 && (
-          <View style={styles.itemsTable}>
+        {/* Items table */}
+        {items.length > 0 && (
+          <View style={styles.itemsBlock}>
             <View style={styles.itemsHeaderRow}>
-              <Text style={[styles.itemsHeaderCell, { flex: 1 }]}>
+              <Text style={[styles.itemsHeaderCell, { width: 22 }]}>#</Text>
+              <Text style={[styles.itemsHeaderCell, { flex: 2 }]}>
                 {t.itemsCategory}
               </Text>
-              <Text style={[styles.itemsHeaderCell, { flex: 2, paddingHorizontal: 4 }]}>
+              <Text style={[styles.itemsHeaderCell, { flex: 4, paddingHorizontal: 4 }]}>
                 {t.itemsDescription}
               </Text>
-              <Text style={[styles.itemsHeaderCell, { width: 50, textAlign: "right" }]}>
+              <Text style={[styles.itemsHeaderCell, { width: 40, textAlign: "right" }]}>
                 {t.itemsQuantity}
               </Text>
             </View>
-            {order.items.map((item, i) => (
+            {items.map((item, i) => (
               <View
                 key={i}
-                style={[styles.itemRow, i === 0 ? styles.itemRowFirst : {}]}
+                style={[
+                  styles.itemRow,
+                  i % 2 === 1 ? styles.itemRowAlt : {},
+                ]}
               >
+                <Text style={styles.itemCellIndex}>{i + 1}</Text>
                 <Text style={styles.itemCellCategory}>
                   {item.category && order.categoryLabel
                     ? order.categoryLabel(item.category)
@@ -482,7 +510,7 @@ export function ReceiptPdf({
         )}
 
         <Text style={styles.notice}>{t.scanNotice}</Text>
-        <Text style={[styles.notice, { marginTop: 4 }]}>{trackingUrl}</Text>
+        <Text style={styles.trackingUrl}>{trackingUrl}</Text>
 
         <View style={styles.footer} fixed>
           <Text>
@@ -499,3 +527,4 @@ export function ReceiptPdf({
     </Document>
   );
 }
+

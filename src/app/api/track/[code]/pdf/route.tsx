@@ -53,9 +53,9 @@ export async function GET(
       order={{
         code: order.code,
         recipient_name: order.recipient_name,
-        recipient_email: null,
-        recipient_phone: null,
-        recipient_address: null,
+        recipient_email: order.recipient_email,
+        recipient_phone: order.recipient_phone,
+        recipient_address: order.recipient_address,
         origin: order.origin,
         origin_country: order.origin_country,
         destination: order.destination,
