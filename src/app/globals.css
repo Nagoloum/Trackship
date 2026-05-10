@@ -202,3 +202,47 @@
 .ts-reveal[data-variant="fade"][data-visible="true"] {
   animation: ts-fade-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
+
+/* Tracking timeline — staggered entrance + pulsing latest dot. */
+@keyframes ts-timeline-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes ts-timeline-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--color-primary);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 0 6px transparent;
+    opacity: 0.85;
+  }
+}
+
+.ts-timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.ts-timeline-item {
+  animation: ts-timeline-enter 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.ts-timeline-pulse {
+  animation: ts-timeline-pulse 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ts-timeline-item,
+  .ts-timeline-pulse {
+    animation: none;
+  }
+}
