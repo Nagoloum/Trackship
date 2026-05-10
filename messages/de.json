@@ -213,22 +213,10 @@
       "title": "Da, wo Sie uns brauchen",
       "subtitle": "Vier Regionen, dutzende Partner, ein Versprechen: überall die gleiche Servicequalität.",
       "regions": [
-        {
-          "name": "Europa",
-          "countries": "Frankreich · Deutschland · Spanien · Italien · Belgien · Niederlande · Vereinigtes Königreich · Polen"
-        },
-        {
-          "name": "Amerika",
-          "countries": "USA · Kanada · Mexiko · Brasilien · Argentinien · Chile · Kolumbien"
-        },
-        {
-          "name": "Asien-Pazifik",
-          "countries": "China · Japan · Südkorea · Indien · Singapur · Australien · Vereinigte Arabische Emirate"
-        },
-        {
-          "name": "Afrika",
-          "countries": "Marokko · Senegal · Elfenbeinküste · Ägypten · Südafrika · Kenia · Nigeria"
-        }
+        { "name": "Europa", "countries": "In allen Ländern" },
+        { "name": "Amerika", "countries": "In allen Ländern" },
+        { "name": "Asien-Pazifik", "countries": "In allen Ländern" },
+        { "name": "Afrika", "countries": "In allen Ländern" }
       ]
     },
     "testimonials": {

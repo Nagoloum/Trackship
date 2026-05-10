@@ -213,22 +213,10 @@
       "title": "Là où vous en avez besoin",
       "subtitle": "Quatre régions, des dizaines de partenaires, une promesse : la même qualité de service partout.",
       "regions": [
-        {
-          "name": "Europe",
-          "countries": "France · Allemagne · Espagne · Italie · Belgique · Pays-Bas · Royaume-Uni · Pologne"
-        },
-        {
-          "name": "Amériques",
-          "countries": "États-Unis · Canada · Mexique · Brésil · Argentine · Chili · Colombie"
-        },
-        {
-          "name": "Asie-Pacifique",
-          "countries": "Chine · Japon · Corée du Sud · Inde · Singapour · Australie · Émirats arabes unis"
-        },
-        {
-          "name": "Afrique",
-          "countries": "Maroc · Sénégal · Côte d'Ivoire · Égypte · Afrique du Sud · Kenya · Nigeria"
-        }
+        { "name": "Europe", "countries": "Dans tous les pays" },
+        { "name": "Amériques", "countries": "Dans tous les pays" },
+        { "name": "Asie-Pacifique", "countries": "Dans tous les pays" },
+        { "name": "Afrique", "countries": "Dans tous les pays" }
       ]
     },
     "testimonials": {
