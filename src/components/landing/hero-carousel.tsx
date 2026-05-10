@@ -192,7 +192,7 @@ export function HeroCarousel() {
             type="button"
             onClick={() => setPaused((p) => !p)}
             aria-label={paused ? t("play") : t("pause")}
-            className="hover:bg-muted text-muted-foreground hover:text-foreground ml-2 flex h-9 w-9 items-center justify-center rounded-full border transition-colors"
+            className="hover:bg-muted text-muted-foreground hover:text-foreground ml-2 hidden h-9 w-9 items-center justify-center rounded-full border transition-colors sm:flex"
           >
             {paused ? <Play className="h-3.5 w-3.5" /> : <Pause className="h-3.5 w-3.5" />}
           </button>
