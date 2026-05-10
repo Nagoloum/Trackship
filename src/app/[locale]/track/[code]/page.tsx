@@ -10,7 +10,6 @@ import {
   Weight,
 } from "lucide-react";
 import Image from "next/image";
-import { headers } from "next/headers";
 import {
   getFormatter,
   getTranslations,
@@ -36,6 +35,11 @@ import { lookupTracking } from "@/lib/tracking-lookup";
 import { normalizeTrackingCode } from "@/lib/tracking-code";
 import { cn } from "@/lib/utils";
 
+// ISR: cache the rendered page for 30 s on the CDN edge. Admin order/event
+// updates already call revalidatePath, so changes propagate within seconds
+// without the page being recomputed for every visitor.
+export const revalidate = 30;
+
 export default async function TrackingDetailPage({
   params,
 }: {
@@ -56,14 +60,11 @@ export default async function TrackingDetailPage({
   const tCategory = await getTranslations("productCategory");
   const format = await getFormatter();
 
-  const headerStore = await headers();
-  const host = headerStore.get("host");
-  const proto =
-    headerStore.get("x-forwarded-proto") ??
-    (host?.startsWith("localhost") ? "http" : "https");
-  const origin = host ? `${proto}://${host}` : "";
+  // Use the configured app URL (set via NEXT_PUBLIC_APP_URL) so the QR points
+  // at the canonical domain and the page can be statically cached without
+  // touching headers() (which would force the route dynamic).
   const qrDataUrl = order
-    ? await generateQrDataUrl(publicTrackingUrl(origin, order.code, locale), 280)
+    ? await generateQrDataUrl(publicTrackingUrl("", order.code, locale), 280)
     : null;
   const pdfHref = order
     ? `/api/track/${order.code}/pdf?lang=${locale}&download=1`

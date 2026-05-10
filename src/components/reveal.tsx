@@ -33,7 +33,20 @@ export function Reveal({
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
-    if (typeof IntersectionObserver === "undefined") {
+
+    // Skip the observer entirely (and the animation) when JS isn't supported,
+    // when the user prefers reduced motion, OR when the element starts in the
+    // viewport (typical for the first sections after a fast load).
+    const reduceMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion || typeof IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
+
+    const rect = node.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.9) {
       setVisible(true);
       return;
     }

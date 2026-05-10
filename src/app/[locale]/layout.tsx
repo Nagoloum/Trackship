@@ -1,14 +1,20 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
-import { Chatbot } from "@/components/chatbot";
 import { ThemeProvider } from "@/components/theme-provider";
 import { routing } from "@/i18n/routing";
 
 import "../globals.css";
+
+// Defer the chatbot bundle (~10 kB gzipped of base-ui menu + matching logic)
+// — it never paints above the fold and isn't needed for first interaction.
+const Chatbot = dynamic(
+  () => import("@/components/chatbot").then((m) => m.Chatbot)
+);
 
 const inter = Inter({
   variable: "--font-sans",
