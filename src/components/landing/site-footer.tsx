@@ -25,7 +25,6 @@ const SUPPORT_LINKS: FooterLink[] = [
 const COMPANY_LINKS: FooterLink[] = [
   { key: "about", href: "#why-us" },
   { key: "careers", href: "#" },
-  { key: "press", href: "#" },
 ];
 
 export function SiteFooter() {

@@ -246,3 +246,110 @@
     animation: none;
   }
 }
+
+/* Newsletter card — gentle ambient animations to make the placeholder feel alive. */
+@keyframes ts-newsletter-halo {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(6px, 4px) scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes ts-newsletter-mail {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes ts-newsletter-spark {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.85) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) rotate(15deg);
+  }
+}
+
+@keyframes ts-newsletter-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  80%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.ts-newsletter-halo {
+  animation: ts-newsletter-halo 6s ease-in-out infinite;
+}
+
+.ts-newsletter-mail {
+  animation: ts-newsletter-mail 3.4s ease-in-out infinite;
+}
+
+.ts-newsletter-spark {
+  animation: ts-newsletter-spark 2.6s ease-in-out infinite;
+}
+
+.ts-newsletter-ping {
+  animation: ts-newsletter-ping 1.8s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ts-newsletter-halo,
+  .ts-newsletter-mail,
+  .ts-newsletter-spark,
+  .ts-newsletter-ping {
+    animation: none;
+  }
+}
+
+/* 404 / not-found floating parcel */
+@keyframes ts-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+
+@keyframes ts-float-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.ts-float {
+  animation: ts-float 4.5s ease-in-out infinite;
+}
+
+.ts-float-ring {
+  animation: ts-float-ring 14s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ts-float,
+  .ts-float-ring {
+    animation: none;
+  }
+}

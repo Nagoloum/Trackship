@@ -14,10 +14,12 @@ type NavLinkProps = {
 };
 
 /**
- * Anchor link used in the public site header. Smoothly scrolls to a
- * landing-page section without triggering a navigation when already on the
- * home page. From other pages it soft-navigates back to the home and the
- * `ScrollOnMount` companion picks the section up from sessionStorage.
+ * Anchor link used in the public site header. On the home page it smoothly
+ * scrolls to the matching landing-page section without triggering a
+ * navigation. From any other page it soft-navigates back to the home with
+ * `?to=<section>` — the `ScrollOnMount` companion picks the section up from
+ * the query string and scrolls there once the page has hydrated. We also
+ * mirror the value to sessionStorage as a belt-and-suspenders fallback.
  */
 export function NavLink({
   section,
@@ -30,7 +32,6 @@ export function NavLink({
   const isHome = pathname === "/";
 
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {
-    // Allow modifier-clicks (cmd/ctrl/shift) to behave like a normal link.
     if (
       event.metaKey ||
       event.ctrlKey ||
@@ -49,9 +50,9 @@ export function NavLink({
       try {
         sessionStorage.setItem(SCROLL_KEY, section);
       } catch {
-        /* private mode: fall back to hash */
+        /* private mode — query string still carries the target */
       }
-      router.push("/");
+      router.push(`/?to=${encodeURIComponent(section)}`);
     }
 
     onNavigate?.();
@@ -59,7 +60,7 @@ export function NavLink({
 
   return (
     <a
-      href={isHome ? `#${section}` : "/"}
+      href={isHome ? `#${section}` : `/?to=${encodeURIComponent(section)}`}
       onClick={handleClick}
       className={className}
     >
@@ -72,7 +73,6 @@ function scrollToSection(id: string) {
   const el = document.getElementById(id);
   if (!el) return;
   el.scrollIntoView({ behavior: "smooth", block: "start" });
-  // Reflect the section in the URL without triggering a navigation.
   if (window.history.replaceState) {
     window.history.replaceState(null, "", `#${id}`);
   }

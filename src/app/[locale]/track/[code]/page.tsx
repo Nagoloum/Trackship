@@ -1,11 +1,15 @@
 import {
-  AlertCircle,
+  ArrowLeft,
   Download,
   FileText,
   ImageIcon,
+  Lightbulb,
+  Mail,
   MapPin,
   Package,
+  PackageSearch,
   QrCode,
+  Search,
   User,
   Weight,
 } from "lucide-react";
@@ -29,6 +33,7 @@ import { Separator } from "@/components/ui/separator";
 import { SiteHeader } from "@/components/site-header";
 import { StatusBadge } from "@/components/status-badge";
 import { TrackingTimeline } from "@/components/tracking-timeline";
+import { COMPANY } from "@/lib/company";
 import { normalizeOrderItems } from "@/lib/order-items";
 import { generateQrDataUrl, publicTrackingUrl } from "@/lib/qr-barcode";
 import { lookupTracking } from "@/lib/tracking-lookup";
@@ -53,7 +58,6 @@ export default async function TrackingDetailPage({
   const orderItems = order ? normalizeOrderItems(order.items) : [];
 
   const tc = await getTranslations("common");
-  const tt = await getTranslations("track");
   const td = await getTranslations("track.details");
   const tr = await getTranslations("track.receipt");
   const tForm = await getTranslations("dashboard.orders.form");
@@ -87,21 +91,7 @@ export default async function TrackingDetailPage({
         </div>
 
         {!order ? (
-          <Card className="mx-auto max-w-2xl">
-            <CardHeader>
-              <div className="flex items-center gap-3">
-                <span className="bg-destructive/10 text-destructive flex h-10 w-10 items-center justify-center rounded-lg">
-                  <AlertCircle className="h-5 w-5" />
-                </span>
-                <div>
-                  <CardTitle>{tt("notFoundTitle")}</CardTitle>
-                  <CardDescription>
-                    {tt("notFoundBody", { code })}
-                  </CardDescription>
-                </div>
-              </div>
-            </CardHeader>
-          </Card>
+          <NotFoundView code={code} />
         ) : (
           // 12-col layout on lg+: main content (9/12) + receipt sidebar (3/12).
           // Stacks naturally on smaller screens.
@@ -316,6 +306,136 @@ function DetailRow({
         </p>
         <p className="mt-0.5 break-words font-medium">{value}</p>
       </div>
+    </div>
+  );
+}
+
+async function NotFoundView({ code }: { code: string }) {
+  const tt = await getTranslations("track");
+  const reasonKeys = ["typo", "notYet", "wrongLink"] as const;
+
+  return (
+    <div className="relative mx-auto max-w-3xl">
+      {/* Decorative blueprint */}
+      <div
+        aria-hidden
+        className="bg-destructive/10 pointer-events-none absolute -left-20 top-0 h-72 w-72 rounded-full blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="bg-primary/10 pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full blur-3xl"
+      />
+
+      <Card className="relative overflow-hidden">
+        {/* Top header band with floating package + magnifier badge */}
+        <div className="bg-muted/40 border-border/60 relative border-b px-6 py-10 sm:px-10 sm:py-12">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-50"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle, var(--color-border) 1px, transparent 1px)",
+              backgroundSize: "22px 22px",
+              maskImage:
+                "radial-gradient(ellipse at center, black 30%, transparent 80%)",
+              WebkitMaskImage:
+                "radial-gradient(ellipse at center, black 30%, transparent 80%)",
+            }}
+          />
+          <div className="relative flex flex-col items-center text-center">
+            <span className="bg-destructive/10 text-destructive inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium uppercase tracking-wider">
+              <PackageSearch className="h-3 w-3" />
+              {tt("notFoundEyebrow")}
+            </span>
+
+            <div className="ts-float relative mt-6 flex h-24 w-24 items-center justify-center sm:h-28 sm:w-28">
+              <span className="bg-card border-border/80 absolute inset-0 rounded-3xl border shadow-lg" />
+              <Package className="text-primary relative h-12 w-12 sm:h-14 sm:w-14" />
+              <span className="bg-destructive text-destructive-foreground absolute -bottom-2 -right-2 flex h-9 w-9 items-center justify-center rounded-full shadow-md ring-4 ring-card">
+                <Search className="h-4 w-4" />
+              </span>
+            </div>
+
+            <h1 className="font-heading mt-6 text-2xl font-semibold tracking-tight text-balance sm:text-3xl">
+              {tt("notFoundTitle")}
+            </h1>
+            <p className="text-muted-foreground mt-3 max-w-lg text-balance text-sm sm:text-base">
+              {tt("notFoundBody", { code })}
+            </p>
+
+            {/* Big mono code display */}
+            <div className="mt-6 inline-flex flex-col items-center">
+              <span className="text-muted-foreground text-[11px] font-medium uppercase tracking-widest">
+                {tt("notFoundCodeLabel")}
+              </span>
+              <span className="bg-card border-border/70 text-foreground mt-1.5 inline-flex items-center gap-2 rounded-lg border px-4 py-2 font-mono text-base sm:text-lg">
+                <span className="bg-destructive h-2 w-2 rounded-full" />
+                {code}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Reasons + CTAs */}
+        <CardContent className="p-6 sm:p-10">
+          <div className="grid gap-6 md:grid-cols-5">
+            <div className="md:col-span-3">
+              <div className="flex items-center gap-2">
+                <span className="bg-primary/10 text-primary flex h-7 w-7 items-center justify-center rounded-md">
+                  <Lightbulb className="h-4 w-4" />
+                </span>
+                <h2 className="text-sm font-semibold uppercase tracking-wider">
+                  {tt("notFoundReasonsTitle")}
+                </h2>
+              </div>
+              <ul className="mt-4 space-y-3">
+                {reasonKeys.map((key) => (
+                  <li
+                    key={key}
+                    className="bg-muted/30 border-border/60 flex items-start gap-3 rounded-lg border p-3"
+                  >
+                    <span className="bg-primary/15 text-primary mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                      {reasonKeys.indexOf(key) + 1}
+                    </span>
+                    <p className="text-sm leading-relaxed">
+                      {tt(`notFoundReasons.${key}`)}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="md:col-span-2">
+              <div className="bg-primary/5 border-primary/20 flex flex-col gap-3 rounded-lg border p-5">
+                <Link
+                  href="/track"
+                  className={cn(
+                    buttonVariants({ size: "default" }),
+                    "w-full justify-center gap-2"
+                  )}
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                  {tt("notFoundRetry")}
+                </Link>
+                <Link
+                  href={{ pathname: "/", query: { to: "contact" } }}
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "default" }),
+                    "w-full justify-center gap-2"
+                  )}
+                >
+                  <Mail className="h-4 w-4" />
+                  {tt("notFoundContact")}
+                </Link>
+                <p className="text-muted-foreground mt-1 text-center text-[11px] leading-relaxed">
+                  <MapPin className="mr-1 inline h-3 w-3" />
+                  {COMPANY.email}
+                </p>
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }

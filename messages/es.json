@@ -47,6 +47,16 @@
     "invalidFormat": "El número de seguimiento debe tener el formato TS + 9 dígitos + 2 letras (ej.: TS947261583FR).",
     "notFoundTitle": "No se encontró ningún pedido",
     "notFoundBody": "El número {code} no corresponde a ningún pedido. Verifica el dato o contacta con el remitente.",
+    "notFoundEyebrow": "Número no encontrado",
+    "notFoundCodeLabel": "Número buscado",
+    "notFoundReasonsTitle": "¿Por qué?",
+    "notFoundReasons": {
+      "typo": "Un error tipográfico en el número (TS + 9 dígitos + 2 letras de país).",
+      "notYet": "El pedido aún no ha sido registrado por el remitente.",
+      "wrongLink": "El enlace compartido tiene un error o está truncado."
+    },
+    "notFoundRetry": "Probar otro número",
+    "notFoundContact": "Contactar con soporte",
     "details": {
       "currentStatus": "Estado actual",
       "trackingCode": "Número de seguimiento",
@@ -348,7 +358,7 @@
         "emailLabel": "Email",
         "emailValue": "contact@trackship.com",
         "addressLabel": "Dirección",
-        "addressValue": "10 rue de la Logistique, 75001 París, Francia",
+        "addressValue": "París, Francia",
         "hoursLabel": "Horario",
         "hoursValue": "Lun-Vie: 9 h - 18 h"
       }
@@ -380,10 +390,9 @@
     },
     "newsletter": {
       "title": "Newsletter",
-      "body": "Recibe nuestras noticias y novedades de producto cada mes.",
-      "placeholder": "Tu dirección de email",
-      "submit": "Suscribirme",
-      "success": "¡Gracias, ya estás suscrito!"
+      "body": "Recibe nuestras noticias y novedades de producto directamente en tu buzón.",
+      "comingSoon": "Próximamente",
+      "notice": "El formulario de suscripción llegará muy pronto. En cuanto esté activo, recibirás por email todas las noticias, novedades y anuncios de Trackship."
     },
     "rights": "Todos los derechos reservados.",
     "legal": "Aviso legal"
@@ -735,6 +744,15 @@
         "body": "Tus datos están cifrados en tránsito (TLS) y en reposo. El acceso al panel de administración está protegido por autenticación y restringido a los administradores autorizados."
       }
     ]
+  },
+  "notFound": {
+    "code": "404",
+    "eyebrow": "Página no encontrada",
+    "title": "Hemos perdido este paquete…",
+    "subtitle": "La URL que has introducido no corresponde a ninguna página de nuestro sitio. Tranquilo: el resto de Trackship está justo al lado.",
+    "primaryCta": "Volver al inicio",
+    "secondaryCta": "Rastrear un paquete",
+    "support": "Si crees que es un error, escríbenos a {email}."
   },
   "chatbot": {
     "trigger": "Ayuda en línea",

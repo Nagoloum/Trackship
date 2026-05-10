@@ -47,6 +47,16 @@
     "invalidFormat": "Die Sendungsnummer muss dem Format TS + 9 Ziffern + 2 Buchstaben entsprechen (z. B. TS947261583FR).",
     "notFoundTitle": "Keine Sendung gefunden",
     "notFoundBody": "Die Nummer {code} entspricht keiner Sendung. Bitte überprüfen Sie die Eingabe oder wenden Sie sich an den Absender.",
+    "notFoundEyebrow": "Sendungsnummer nicht gefunden",
+    "notFoundCodeLabel": "Gesuchte Nummer",
+    "notFoundReasonsTitle": "Warum?",
+    "notFoundReasons": {
+      "typo": "Ein Tippfehler in der Nummer (TS + 9 Ziffern + 2 Länderbuchstaben).",
+      "notYet": "Die Sendung wurde vom Absender noch nicht erfasst.",
+      "wrongLink": "Der geteilte Link enthält einen Fehler oder ist abgeschnitten."
+    },
+    "notFoundRetry": "Andere Nummer versuchen",
+    "notFoundContact": "Support kontaktieren",
     "details": {
       "currentStatus": "Aktueller Status",
       "trackingCode": "Sendungsnummer",
@@ -348,7 +358,7 @@
         "emailLabel": "E-Mail",
         "emailValue": "contact@trackship.com",
         "addressLabel": "Adresse",
-        "addressValue": "10 rue de la Logistique, 75001 Paris, Frankreich",
+        "addressValue": "Paris, Frankreich",
         "hoursLabel": "Öffnungszeiten",
         "hoursValue": "Mo-Fr: 9 bis 18 Uhr"
       }
@@ -380,10 +390,9 @@
     },
     "newsletter": {
       "title": "Newsletter",
-      "body": "Erhalten Sie unsere Neuigkeiten und Produkt-Updates jeden Monat.",
-      "placeholder": "Ihre E-Mail-Adresse",
-      "submit": "Abonnieren",
-      "success": "Vielen Dank, Sie sind angemeldet!"
+      "body": "Erhalten Sie unsere Neuigkeiten und Produkt-Updates direkt in Ihr Postfach.",
+      "comingSoon": "Demnächst verfügbar",
+      "notice": "Das Anmeldeformular ist in Vorbereitung. Sobald es aktiv ist, erhalten Sie alle News, Produkt-Updates und Ankündigungen von Trackship per E-Mail."
     },
     "rights": "Alle Rechte vorbehalten.",
     "legal": "Impressum"
@@ -735,6 +744,15 @@
         "body": "Ihre Daten sind während der Übertragung (TLS) und im Ruhezustand verschlüsselt. Der Zugriff auf das Administrations-Dashboard ist durch Authentifizierung geschützt und auf autorisierte Administratoren beschränkt."
       }
     ]
+  },
+  "notFound": {
+    "code": "404",
+    "eyebrow": "Seite nicht gefunden",
+    "title": "Diese Sendung haben wir aus den Augen verloren…",
+    "subtitle": "Die eingegebene URL führt zu keiner Seite unserer Website. Keine Sorge — der Rest von Trackship ist nur einen Klick entfernt.",
+    "primaryCta": "Zur Startseite",
+    "secondaryCta": "Sendung verfolgen",
+    "support": "Sollten Sie der Meinung sein, dass es sich um einen Fehler handelt, schreiben Sie uns an {email}."
   },
   "chatbot": {
     "trigger": "Online-Hilfe",

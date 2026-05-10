@@ -366,8 +366,7 @@ export function ReceiptPdf({
             <Text style={styles.brandName}>{COMPANY.name.toUpperCase()}</Text>
             <Text style={styles.brandLine}>{COMPANY.legalName}</Text>
             <Text style={styles.brandLine}>
-              {COMPANY.addressLine1} · {COMPANY.postalCode} {COMPANY.city},{" "}
-              {COMPANY.country}
+              {COMPANY.city}, {COMPANY.country}
             </Text>
             <Text style={styles.brandLine}>
               {COMPANY.email} · {t.vatNumber}: {COMPANY.vatNumber}
@@ -412,10 +411,10 @@ export function ReceiptPdf({
             )}
             <Text style={[styles.partyTitle, { marginTop: 8 }]}>{t.sender}</Text>
             <Text style={styles.partyName}>{COMPANY.name}</Text>
-            <Text style={styles.partyLine}>{COMPANY.addressLine1}</Text>
-            <Text style={styles.partyMutedLine}>
-              {COMPANY.postalCode} {COMPANY.city}, {COMPANY.country}
+            <Text style={styles.partyLine}>
+              {COMPANY.city}, {COMPANY.country}
             </Text>
+            <Text style={styles.partyMutedLine}>{COMPANY.email}</Text>
           </View>
 
           <View style={styles.qrCol}>

@@ -47,6 +47,16 @@
     "invalidFormat": "Le numéro de suivi doit être au format TS + 9 chiffres + 2 lettres (ex : TS947261583FR).",
     "notFoundTitle": "Aucune commande trouvée",
     "notFoundBody": "Le numéro {code} ne correspond à aucune commande. Vérifiez la saisie ou contactez l'expéditeur.",
+    "notFoundEyebrow": "Numéro introuvable",
+    "notFoundCodeLabel": "Numéro recherché",
+    "notFoundReasonsTitle": "Pourquoi ?",
+    "notFoundReasons": {
+      "typo": "Une faute de frappe dans le numéro (TS + 9 chiffres + 2 lettres pays).",
+      "notYet": "La commande n'a pas encore été enregistrée par l'expéditeur.",
+      "wrongLink": "Le lien partagé contient une coquille ou est tronqué."
+    },
+    "notFoundRetry": "Réessayer un autre numéro",
+    "notFoundContact": "Contacter le support",
     "details": {
       "currentStatus": "Statut actuel",
       "trackingCode": "Numéro de suivi",
@@ -348,7 +358,7 @@
         "emailLabel": "Email",
         "emailValue": "contact@trackship.com",
         "addressLabel": "Adresse",
-        "addressValue": "10 rue de la Logistique, 75001 Paris, France",
+        "addressValue": "Paris, France",
         "hoursLabel": "Horaires",
         "hoursValue": "Lun-Ven : 9 h - 18 h"
       }
@@ -380,10 +390,9 @@
     },
     "newsletter": {
       "title": "Newsletter",
-      "body": "Recevez nos actualités et nos nouveautés produit chaque mois.",
-      "placeholder": "Votre adresse email",
-      "submit": "S'inscrire",
-      "success": "Merci, vous êtes inscrit·e !"
+      "body": "Recevez nos actualités et nos nouveautés produit, directement dans votre boîte mail.",
+      "comingSoon": "Bientôt disponible",
+      "notice": "Le formulaire d'inscription arrive très bientôt. Une fois activé, vous recevrez par email toutes les news, mises à jour produit et annonces de Trackship."
     },
     "rights": "Tous droits réservés.",
     "legal": "Mentions légales"
@@ -735,6 +744,15 @@
         "body": "Vos données sont chiffrées en transit (TLS) et au repos. L'accès au tableau de bord d'administration est protégé par authentification et restreint aux administrateurs autorisés."
       }
     ]
+  },
+  "notFound": {
+    "code": "404",
+    "eyebrow": "Page introuvable",
+    "title": "On a perdu ce colis…",
+    "subtitle": "L'URL que vous avez saisie ne correspond à aucune page de notre site. Pas d'inquiétude — le reste de Trackship est juste à côté.",
+    "primaryCta": "Retour à l'accueil",
+    "secondaryCta": "Suivre un colis",
+    "support": "Si vous pensez qu'il s'agit d'une erreur, écrivez-nous à {email}."
   },
   "chatbot": {
     "trigger": "Aide en ligne",

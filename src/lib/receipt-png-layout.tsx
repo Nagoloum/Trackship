@@ -101,11 +101,10 @@ export function ReceiptPngLayout({
             {COMPANY.name.toUpperCase()}
           </span>
           <span style={{ color: COLORS.muted, fontSize: 20, marginTop: 6 }}>
-            {COMPANY.legalName} · {COMPANY.addressLine1}
+            {COMPANY.legalName}
           </span>
           <span style={{ color: COLORS.muted, fontSize: 18, marginTop: 2 }}>
-            {COMPANY.postalCode} {COMPANY.city}, {COMPANY.country} ·{" "}
-            {COMPANY.email}
+            {COMPANY.city}, {COMPANY.country} · {COMPANY.email}
           </span>
         </div>
         <div
@@ -268,10 +267,10 @@ export function ReceiptPngLayout({
           </span>
           <span style={{ fontSize: 22, fontWeight: 700 }}>{COMPANY.name}</span>
           <span style={{ fontSize: 16, marginTop: 4 }}>
-            {COMPANY.addressLine1}, {COMPANY.postalCode} {COMPANY.city}
+            {COMPANY.city}, {COMPANY.country}
           </span>
           <span style={{ color: COLORS.muted, fontSize: 15, marginTop: 2 }}>
-            {COMPANY.country} · {COMPANY.email}
+            {COMPANY.email}
           </span>
         </div>
 

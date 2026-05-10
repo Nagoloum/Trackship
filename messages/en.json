@@ -47,6 +47,16 @@
     "invalidFormat": "The tracking number must follow the format TS + 9 digits + 2 letters (e.g. TS947261583FR).",
     "notFoundTitle": "No order found",
     "notFoundBody": "The number {code} does not match any order. Please double-check it or contact the sender.",
+    "notFoundEyebrow": "Tracking number not found",
+    "notFoundCodeLabel": "Searched number",
+    "notFoundReasonsTitle": "Why?",
+    "notFoundReasons": {
+      "typo": "A typo in the number (TS + 9 digits + 2 country letters).",
+      "notYet": "The order hasn't been registered by the sender yet.",
+      "wrongLink": "The shared link has a typo or is truncated."
+    },
+    "notFoundRetry": "Try another number",
+    "notFoundContact": "Contact support",
     "details": {
       "currentStatus": "Current status",
       "trackingCode": "Tracking number",
@@ -348,7 +358,7 @@
         "emailLabel": "Email",
         "emailValue": "contact@trackship.com",
         "addressLabel": "Address",
-        "addressValue": "10 rue de la Logistique, 75001 Paris, France",
+        "addressValue": "Paris, France",
         "hoursLabel": "Hours",
         "hoursValue": "Mon-Fri: 9 a.m. - 6 p.m."
       }
@@ -380,10 +390,9 @@
     },
     "newsletter": {
       "title": "Newsletter",
-      "body": "Get our news and product updates every month.",
-      "placeholder": "Your email address",
-      "submit": "Subscribe",
-      "success": "Thanks, you're subscribed!"
+      "body": "Get our news and product updates straight to your inbox.",
+      "comingSoon": "Coming soon",
+      "notice": "Our signup form is on its way. Once it's live, you'll receive all of Trackship's news, product updates and announcements by email."
     },
     "rights": "All rights reserved.",
     "legal": "Legal notice"
@@ -735,6 +744,15 @@
         "body": "Your data is encrypted in transit (TLS) and at rest. Access to the administration dashboard is protected by authentication and restricted to authorised administrators."
       }
     ]
+  },
+  "notFound": {
+    "code": "404",
+    "eyebrow": "Page not found",
+    "title": "We've lost track of this one…",
+    "subtitle": "The URL you entered doesn't match any page on our site. Don't worry — the rest of Trackship is right next door.",
+    "primaryCta": "Back to home",
+    "secondaryCta": "Track a parcel",
+    "support": "If you think this is a mistake, write to us at {email}."
   },
   "chatbot": {
     "trigger": "Online help",
