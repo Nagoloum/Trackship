@@ -1,0 +1,409 @@
+{
+  "common": {
+    "company": "Trackship",
+    "tagline": "Suivi de colis fiable et international",
+    "trackButton": "Tracker mon colis",
+    "trackPlaceholder": "Saisissez votre numéro de suivi (ex : TS947261583FR)",
+    "search": "Rechercher",
+    "loading": "Chargement…",
+    "back": "Retour",
+    "backToTracking": "Retour au suivi",
+    "learnMore": "En savoir plus",
+    "contactUs": "Nous contacter"
+  },
+  "nav": {
+    "home": "Accueil",
+    "track": "Suivi",
+    "services": "Services",
+    "about": "À propos",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "dashboard": "Tableau de bord",
+    "login": "Connexion",
+    "logout": "Déconnexion"
+  },
+  "theme": {
+    "toggle": "Changer de thème",
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
+  },
+  "language": {
+    "label": "Langue",
+    "fr": "Français",
+    "en": "Anglais",
+    "es": "Espagnol",
+    "de": "Allemand"
+  },
+  "track": {
+    "title": "Suivre un colis",
+    "subtitle": "Saisissez le numéro de suivi qui vous a été communiqué.",
+    "invalidFormat": "Le numéro de suivi doit être au format TS + 9 chiffres + 2 lettres (ex : TS947261583FR).",
+    "notFoundTitle": "Aucune commande trouvée",
+    "notFoundBody": "Le numéro {code} ne correspond à aucune commande. Vérifiez la saisie ou contactez l'expéditeur.",
+    "details": {
+      "currentStatus": "Statut actuel",
+      "trackingCode": "Numéro de suivi",
+      "recipient": "Destinataire",
+      "origin": "Origine",
+      "destination": "Destination",
+      "weight": "Poids",
+      "declaredValue": "Valeur déclarée",
+      "createdAt": "Créée le",
+      "updatedAt": "Mise à jour le",
+      "history": "Historique",
+      "noEvents": "Aucun événement enregistré pour le moment."
+    }
+  },
+  "status": {
+    "pending": "En attente",
+    "picked_up": "Collectée",
+    "in_transit": "En transit",
+    "out_for_delivery": "En cours de livraison",
+    "delivered": "Livrée",
+    "failed": "Échec de livraison",
+    "returned": "Retournée"
+  },
+  "landing": {
+    "hero": {
+      "ariaLabel": "Carrousel principal",
+      "previous": "Précédent",
+      "next": "Suivant",
+      "goToSlide": "Aller à la diapositive {n}",
+      "pause": "Mettre en pause",
+      "play": "Reprendre",
+      "slides": [
+        {
+          "eyebrow": "Suivi en temps réel",
+          "title": "Suivez vos colis à la seconde près",
+          "subtitle": "Visualisez chaque étape de votre expédition, du dépôt à la livraison, sur tous vos appareils.",
+          "primaryCta": "Tracker mon colis",
+          "secondaryCta": "Voir nos services"
+        },
+        {
+          "eyebrow": "Réseau international",
+          "title": "Une couverture sur 4 continents",
+          "subtitle": "Trackship gère vos envois nationaux et transfrontaliers avec les meilleurs partenaires logistiques.",
+          "primaryCta": "Découvrir notre réseau",
+          "secondaryCta": "Demander un devis"
+        },
+        {
+          "eyebrow": "Sécurité & transparence",
+          "title": "Vos colis, sans surprise",
+          "subtitle": "Tarifs clairs, données protégées et historique complet : vous gardez le contrôle de chaque expédition.",
+          "primaryCta": "Tracker mon colis",
+          "secondaryCta": "Lire notre charte"
+        }
+      ]
+    },
+    "stats": {
+      "parcels": { "value": "250K+", "label": "Colis livrés" },
+      "countries": { "value": "50+", "label": "Pays couverts" },
+      "onTime": { "value": "99,5 %", "label": "Livraisons à l'heure" },
+      "support": { "value": "24/7", "label": "Support client" }
+    },
+    "services": {
+      "eyebrow": "Nos services",
+      "title": "Une solution adaptée à chaque expédition",
+      "subtitle": "Du pli urgent au container, Trackship couvre l'ensemble de vos besoins logistiques.",
+      "items": {
+        "express": {
+          "title": "Livraison express",
+          "body": "Prise en charge sous 2 h et livraison en 24-48 h sur les grands axes nationaux et européens."
+        },
+        "international": {
+          "title": "Envois internationaux",
+          "body": "Acheminement door-to-door sur 4 continents, avec gestion des formalités douanières."
+        },
+        "ecommerce": {
+          "title": "Solutions e-commerce",
+          "body": "Intégrations API, étiquettes en lot et notifications client : connectez Trackship à votre boutique."
+        },
+        "custom": {
+          "title": "Transport sur mesure",
+          "body": "Volumes spéciaux, températures dirigées, marchandises sensibles : nous concevons la solution."
+        }
+      }
+    },
+    "howItWorks": {
+      "eyebrow": "Comment ça marche",
+      "title": "Quatre étapes, zéro surprise",
+      "subtitle": "Un parcours simplifié pour vous concentrer sur l'essentiel : votre activité.",
+      "steps": [
+        {
+          "title": "Créez votre commande",
+          "body": "Renseignez les informations expéditeur, destinataire et type de colis depuis votre dashboard."
+        },
+        {
+          "title": "Nous prenons en charge",
+          "body": "Un coursier collecte votre colis ou vous le déposez dans notre point relais le plus proche."
+        },
+        {
+          "title": "Suivez en temps réel",
+          "body": "Chaque étape s'affiche sur votre page de suivi, avec horodatage et localisation."
+        },
+        {
+          "title": "Livraison confirmée",
+          "body": "Le destinataire signe la réception et vous recevez la preuve de livraison."
+        }
+      ]
+    },
+    "whyUs": {
+      "eyebrow": "Pourquoi Trackship",
+      "title": "Six raisons d'expédier avec nous",
+      "subtitle": "Pensé pour les e-commerçants et les particuliers exigeants.",
+      "reasons": [
+        {
+          "title": "Réseau mondial",
+          "body": "Plus de 50 pays couverts par un maillage de partenaires audités chaque année."
+        },
+        {
+          "title": "Suivi temps réel",
+          "body": "Mises à jour automatiques à chaque scan, accessibles depuis tout terminal."
+        },
+        {
+          "title": "Sécurité des données",
+          "body": "Chiffrement de bout en bout et conformité RGPD sur l'ensemble du parcours."
+        },
+        {
+          "title": "Transparence totale",
+          "body": "Tarifs clairs sans frais cachés, historique consultable en un clic."
+        },
+        {
+          "title": "Support 24/7",
+          "body": "Une équipe humaine disponible jour et nuit, dans les quatre langues que nous parlons."
+        },
+        {
+          "title": "Tarifs compétitifs",
+          "body": "Des grilles tarifaires négociées sur l'ensemble des corridors stratégiques."
+        }
+      ]
+    },
+    "coverage": {
+      "eyebrow": "Couverture",
+      "title": "Là où vous en avez besoin",
+      "subtitle": "Quatre régions, des dizaines de partenaires, une promesse : la même qualité de service partout.",
+      "regions": [
+        {
+          "name": "Europe",
+          "countries": "France · Allemagne · Espagne · Italie · Belgique · Pays-Bas · Royaume-Uni · Pologne"
+        },
+        {
+          "name": "Amériques",
+          "countries": "États-Unis · Canada · Mexique · Brésil · Argentine · Chili · Colombie"
+        },
+        {
+          "name": "Asie-Pacifique",
+          "countries": "Chine · Japon · Corée du Sud · Inde · Singapour · Australie · Émirats arabes unis"
+        },
+        {
+          "name": "Afrique",
+          "countries": "Maroc · Sénégal · Côte d'Ivoire · Égypte · Afrique du Sud · Kenya · Nigeria"
+        }
+      ]
+    },
+    "testimonials": {
+      "eyebrow": "Ils nous font confiance",
+      "title": "La voix de nos clients",
+      "subtitle": "Des e-commerçants et professionnels qui s'appuient sur Trackship au quotidien.",
+      "items": [
+        {
+          "quote": "Depuis qu'on a basculé sur Trackship, notre taux de réclamations a chuté de 40 %. Les clients voient où en est leur colis et nous, on dort tranquilles.",
+          "name": "Camille Renard",
+          "role": "Co-fondatrice, Atelier des Toiles"
+        },
+        {
+          "quote": "Le dashboard est clair, l'API est solide et le support répond vraiment 24/7. Trois critères qu'on n'avait jamais réunis ailleurs.",
+          "name": "Mehdi Touati",
+          "role": "Responsable logistique, Riad Spices"
+        },
+        {
+          "quote": "On expédie chaque semaine vers 12 pays. La couverture internationale et la transparence des tarifs sont ce qui nous fait rester.",
+          "name": "Laura Schmidt",
+          "role": "Founder, Berlin Mode"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Prêt à expédier en toute confiance ?",
+      "body": "Tracez votre colis en un instant ou contactez-nous pour bâtir une offre sur mesure.",
+      "primary": "Tracker mon colis",
+      "secondary": "Nous contacter"
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Questions fréquentes",
+      "subtitle": "Si votre question ne figure pas ici, écrivez-nous : on revient vers vous sous 24 h.",
+      "items": [
+        {
+          "q": "Comment trouver mon numéro de suivi ?",
+          "a": "Le numéro vous est envoyé par email au moment de l'expédition. Il commence par TS, suivi de 9 chiffres et de 2 lettres correspondant au pays de destination (ex : TS947261583FR)."
+        },
+        {
+          "q": "Combien de temps prend une livraison internationale ?",
+          "a": "Les livraisons internationales standards prennent 3 à 7 jours ouvrés selon la destination. Une option express est disponible sur la plupart des corridors."
+        },
+        {
+          "q": "Que se passe-t-il si mon colis est perdu ou endommagé ?",
+          "a": "Tous nos envois sont assurés à hauteur de la valeur déclarée. Un dossier d'indemnisation peut être ouvert depuis votre dashboard ou via le formulaire de contact."
+        },
+        {
+          "q": "Puis-je suivre plusieurs colis en même temps ?",
+          "a": "Oui, depuis votre dashboard administrateur vous gérez l'ensemble de vos commandes et leurs événements de suivi en parallèle."
+        },
+        {
+          "q": "Vos services sont-ils accessibles aux particuliers ?",
+          "a": "Le suivi public l'est sans inscription. Pour expédier en tant que particulier, contactez-nous : nous vous orientons vers la formule la plus adaptée."
+        },
+        {
+          "q": "Comment sont protégées mes données ?",
+          "a": "Toutes les données sont chiffrées en transit et au repos, et stockées dans l'Union européenne conformément au RGPD. Seuls les administrateurs autorisés y accèdent."
+        }
+      ]
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "Parlons de votre projet",
+      "subtitle": "Une question, un devis, un partenariat ? Notre équipe vous répond sous 24 h ouvrées.",
+      "form": {
+        "name": "Nom complet",
+        "namePlaceholder": "Marie Dupont",
+        "email": "Email",
+        "emailPlaceholder": "marie@exemple.com",
+        "subject": "Sujet",
+        "subjectPlaceholder": "Demande de devis",
+        "message": "Message",
+        "messagePlaceholder": "Décrivez brièvement votre besoin…",
+        "submit": "Envoyer le message",
+        "sending": "Envoi en cours…",
+        "successTitle": "Message envoyé !",
+        "successBody": "Merci, nous revenons vers vous sous 24 h ouvrées.",
+        "errorTitle": "Erreur d'envoi",
+        "errorBody": "Une erreur est survenue. Merci de réessayer dans quelques instants.",
+        "missingFields": "Merci de remplir tous les champs obligatoires."
+      },
+      "info": {
+        "emailLabel": "Email",
+        "emailValue": "contact@trackship.com",
+        "phoneLabel": "Téléphone",
+        "phoneValue": "+33 1 23 45 67 89",
+        "addressLabel": "Adresse",
+        "addressValue": "10 rue de la Logistique, 75001 Paris, France",
+        "hoursLabel": "Horaires",
+        "hoursValue": "Lun-Ven : 9 h - 18 h"
+      }
+    }
+  },
+  "footer": {
+    "about": {
+      "title": "Trackship",
+      "description": "Solution complète de suivi de colis et de gestion d'expéditions, pensée pour les e-commerçants comme pour les particuliers."
+    },
+    "columns": {
+      "services": "Services",
+      "support": "Support",
+      "company": "Société"
+    },
+    "links": {
+      "express": "Livraison express",
+      "international": "Envois internationaux",
+      "ecommerce": "Solutions e-commerce",
+      "custom": "Transport sur mesure",
+      "track": "Suivre un colis",
+      "faq": "FAQ",
+      "contact": "Nous contacter",
+      "terms": "Conditions générales",
+      "privacy": "Politique de confidentialité",
+      "about": "À propos",
+      "careers": "Carrières",
+      "press": "Presse"
+    },
+    "newsletter": {
+      "title": "Newsletter",
+      "body": "Recevez nos actualités et nos nouveautés produit chaque mois.",
+      "placeholder": "Votre adresse email",
+      "submit": "S'inscrire",
+      "success": "Merci, vous êtes inscrit·e !"
+    },
+    "social": {
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "facebook": "Facebook",
+      "instagram": "Instagram"
+    },
+    "rights": "Tous droits réservés.",
+    "legal": "Mentions légales"
+  },
+  "auth": {
+    "login": {
+      "title": "Espace administrateur",
+      "subtitle": "Réservé à l'équipe Trackship",
+      "email": "Email",
+      "emailPlaceholder": "vous@trackship.com",
+      "password": "Mot de passe",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Se connecter",
+      "loggingIn": "Connexion…",
+      "errorInvalid": "Identifiants invalides. Vérifiez votre email et votre mot de passe.",
+      "errorMissing": "Merci de remplir l'email et le mot de passe.",
+      "errorServer": "Erreur serveur. Veuillez réessayer dans quelques instants.",
+      "notice": "Aucune inscription publique. Les comptes sont créés par un administrateur."
+    }
+  },
+  "dashboard": {
+    "nav": {
+      "home": "Accueil",
+      "orders": "Commandes",
+      "invoices": "Factures",
+      "messages": "Messages"
+    },
+    "topbar": {
+      "signedInAs": "Connecté",
+      "logout": "Déconnexion"
+    },
+    "home": {
+      "title": "Bienvenue sur votre tableau de bord",
+      "subtitle": "Vue d'ensemble de votre activité Trackship.",
+      "stats": {
+        "orders": "Commandes totales",
+        "inTransit": "En transit",
+        "invoices": "Factures émises",
+        "unreadMessages": "Messages non lus"
+      },
+      "nextSteps": {
+        "title": "Prochaines étapes",
+        "subtitle": "Les modules de gestion arrivent dans les prochaines mises à jour.",
+        "items": {
+          "orders": "Création et édition des commandes avec génération automatique du tracking code",
+          "invoices": "Module de facture multilingue avec téléchargement PDF",
+          "messages": "Messages de contact reçus depuis le formulaire public"
+        }
+      }
+    }
+  },
+  "chatbot": {
+    "trigger": "Aide en ligne",
+    "title": "Assistance Trackship",
+    "subtitle": "Réponses immédiates à vos questions",
+    "welcome": "Bonjour ! Je suis l'assistant Trackship. Posez-moi une question sur le suivi de votre colis ou cliquez sur l'une des suggestions ci-dessous.",
+    "placeholder": "Tapez votre question…",
+    "send": "Envoyer",
+    "close": "Fermer",
+    "suggestionsLabel": "Suggestions",
+    "suggestions": {
+      "how_to_track": "Comment suivre mon colis ?",
+      "format": "Quel est le format du numéro de suivi ?",
+      "statuses": "Que signifient les statuts ?",
+      "delivery_time": "Quels sont les délais de livraison ?",
+      "not_found": "Mon code est introuvable, que faire ?"
+    },
+    "answers": {
+      "how_to_track": "Cliquez sur \"Tracker mon colis\" sur la page d'accueil, saisissez votre numéro de suivi (au format TS + 9 chiffres + 2 lettres pays, ex : TS947261583FR) puis validez. Vous verrez le statut actuel et l'historique complet.",
+      "format": "Tous nos numéros de suivi suivent le format TS + 9 chiffres + 2 lettres correspondant au pays de destination (ISO). Exemple : TS947261583FR pour une livraison en France, TS123456789DE pour l'Allemagne.",
+      "statuses": "Les statuts possibles sont : En attente (commande créée), Collectée, En transit, En cours de livraison, Livrée, Échec de livraison ou Retournée. La timeline sur la page de suivi détaille chaque étape avec sa date et son lieu.",
+      "delivery_time": "Les délais dépendent du trajet : 24-72 h pour les envois nationaux, 3-7 jours ouvrés pour l'international. La date estimée s'affiche sur la page de suivi de votre colis.",
+      "not_found": "Vérifiez d'abord la saisie (TS + 9 chiffres + 2 lettres). Si le format est correct mais aucune commande ne s'affiche, contactez l'expéditeur — il se peut que la commande n'ait pas encore été enregistrée dans notre système.",
+      "unknown": "Je n'ai pas compris votre question. Voici les sujets que je connais — n'hésitez pas à cliquer sur l'un d'eux :"
+    }
+  }
+}

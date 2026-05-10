@@ -1,0 +1,409 @@
+{
+  "common": {
+    "company": "Trackship",
+    "tagline": "Zuverlässige internationale Paketverfolgung",
+    "trackButton": "Paket verfolgen",
+    "trackPlaceholder": "Sendungsnummer eingeben (z. B. TS947261583FR)",
+    "search": "Suchen",
+    "loading": "Lädt…",
+    "back": "Zurück",
+    "backToTracking": "Zurück zur Sendungsverfolgung",
+    "learnMore": "Mehr erfahren",
+    "contactUs": "Kontakt aufnehmen"
+  },
+  "nav": {
+    "home": "Startseite",
+    "track": "Verfolgen",
+    "services": "Leistungen",
+    "about": "Über uns",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "dashboard": "Dashboard",
+    "login": "Anmelden",
+    "logout": "Abmelden"
+  },
+  "theme": {
+    "toggle": "Thema wechseln",
+    "light": "Hell",
+    "dark": "Dunkel",
+    "system": "System"
+  },
+  "language": {
+    "label": "Sprache",
+    "fr": "Französisch",
+    "en": "Englisch",
+    "es": "Spanisch",
+    "de": "Deutsch"
+  },
+  "track": {
+    "title": "Paket verfolgen",
+    "subtitle": "Geben Sie die Sendungsnummer ein, die Ihnen mitgeteilt wurde.",
+    "invalidFormat": "Die Sendungsnummer muss dem Format TS + 9 Ziffern + 2 Buchstaben entsprechen (z. B. TS947261583FR).",
+    "notFoundTitle": "Keine Sendung gefunden",
+    "notFoundBody": "Die Nummer {code} entspricht keiner Sendung. Bitte überprüfen Sie die Eingabe oder wenden Sie sich an den Absender.",
+    "details": {
+      "currentStatus": "Aktueller Status",
+      "trackingCode": "Sendungsnummer",
+      "recipient": "Empfänger",
+      "origin": "Absendeort",
+      "destination": "Zielort",
+      "weight": "Gewicht",
+      "declaredValue": "Deklarierter Wert",
+      "createdAt": "Erstellt am",
+      "updatedAt": "Aktualisiert am",
+      "history": "Verlauf",
+      "noEvents": "Bisher keine Ereignisse erfasst."
+    }
+  },
+  "status": {
+    "pending": "Ausstehend",
+    "picked_up": "Abgeholt",
+    "in_transit": "Unterwegs",
+    "out_for_delivery": "In Zustellung",
+    "delivered": "Zugestellt",
+    "failed": "Zustellung fehlgeschlagen",
+    "returned": "Retourniert"
+  },
+  "landing": {
+    "hero": {
+      "ariaLabel": "Hauptkarussell",
+      "previous": "Zurück",
+      "next": "Weiter",
+      "goToSlide": "Zu Folie {n} wechseln",
+      "pause": "Pause",
+      "play": "Wiedergabe",
+      "slides": [
+        {
+          "eyebrow": "Sendungsverfolgung in Echtzeit",
+          "title": "Verfolgen Sie Ihre Pakete sekundengenau",
+          "subtitle": "Visualisieren Sie jeden Schritt Ihrer Sendung – von der Abholung bis zur Zustellung – auf jedem Gerät.",
+          "primaryCta": "Paket verfolgen",
+          "secondaryCta": "Unsere Leistungen ansehen"
+        },
+        {
+          "eyebrow": "Internationales Netzwerk",
+          "title": "Abdeckung auf 4 Kontinenten",
+          "subtitle": "Trackship wickelt Ihre nationalen und grenzüberschreitenden Sendungen mit den besten Logistikpartnern ab.",
+          "primaryCta": "Unser Netzwerk entdecken",
+          "secondaryCta": "Angebot anfragen"
+        },
+        {
+          "eyebrow": "Sicherheit & Transparenz",
+          "title": "Ihre Pakete – ohne Überraschungen",
+          "subtitle": "Klare Preise, geschützte Daten und vollständiger Verlauf: Sie behalten die Kontrolle über jede Sendung.",
+          "primaryCta": "Paket verfolgen",
+          "secondaryCta": "Unsere Charta lesen"
+        }
+      ]
+    },
+    "stats": {
+      "parcels": { "value": "250.000+", "label": "Zugestellte Pakete" },
+      "countries": { "value": "50+", "label": "Abgedeckte Länder" },
+      "onTime": { "value": "99,5 %", "label": "Pünktliche Zustellungen" },
+      "support": { "value": "24/7", "label": "Kundensupport" }
+    },
+    "services": {
+      "eyebrow": "Unsere Leistungen",
+      "title": "Eine Lösung für jede Sendung",
+      "subtitle": "Vom Eilbrief bis zum Container deckt Trackship alle Logistikbedürfnisse ab.",
+      "items": {
+        "express": {
+          "title": "Expresszustellung",
+          "body": "Abholung innerhalb von 2 Stunden und Zustellung in 24-48 Stunden auf den wichtigsten nationalen und europäischen Strecken."
+        },
+        "international": {
+          "title": "Internationale Sendungen",
+          "body": "Door-to-Door-Routing auf 4 Kontinenten, einschließlich Zollabwicklung."
+        },
+        "ecommerce": {
+          "title": "E-Commerce-Lösungen",
+          "body": "API-Integrationen, Mehrfach-Etiketten und Kundenbenachrichtigungen: Trackship an Ihren Shop anbinden."
+        },
+        "custom": {
+          "title": "Maßgeschneiderter Transport",
+          "body": "Sondervolumen, temperaturgeführt, empfindliche Güter: Wir entwickeln die passende Lösung."
+        }
+      }
+    },
+    "howItWorks": {
+      "eyebrow": "So funktioniert es",
+      "title": "Vier Schritte, keine Überraschungen",
+      "subtitle": "Ein optimierter Ablauf, damit Sie sich auf das Wesentliche konzentrieren können: Ihr Geschäft.",
+      "steps": [
+        {
+          "title": "Auftrag erstellen",
+          "body": "Erfassen Sie Absender-, Empfänger- und Sendungsdaten direkt in Ihrem Dashboard."
+        },
+        {
+          "title": "Wir übernehmen die Abholung",
+          "body": "Ein Kurier holt Ihr Paket ab oder Sie geben es an unserem nächsten Annahmepunkt ab."
+        },
+        {
+          "title": "In Echtzeit verfolgen",
+          "body": "Jeder Schritt erscheint auf Ihrer Verfolgungsseite – mit Zeitstempel und Standort."
+        },
+        {
+          "title": "Zustellung bestätigt",
+          "body": "Der Empfänger unterschreibt, und Sie erhalten den Zustellnachweis."
+        }
+      ]
+    },
+    "whyUs": {
+      "eyebrow": "Warum Trackship",
+      "title": "Sechs Gründe, mit uns zu versenden",
+      "subtitle": "Entwickelt für anspruchsvolle E-Merchants und Privatpersonen.",
+      "reasons": [
+        {
+          "title": "Globales Netzwerk",
+          "body": "Über 50 Länder abgedeckt durch jährlich auditierte Partner."
+        },
+        {
+          "title": "Echtzeit-Verfolgung",
+          "body": "Automatische Updates bei jedem Scan, abrufbar von jedem Gerät."
+        },
+        {
+          "title": "Datensicherheit",
+          "body": "Ende-zu-Ende-Verschlüsselung und vollständige DSGVO-Konformität auf der gesamten Strecke."
+        },
+        {
+          "title": "Volle Transparenz",
+          "body": "Klare Preise ohne versteckte Kosten, Verlauf mit einem Klick einsehbar."
+        },
+        {
+          "title": "24/7-Support",
+          "body": "Ein menschliches Team rund um die Uhr verfügbar – in vier Sprachen."
+        },
+        {
+          "title": "Wettbewerbsfähige Preise",
+          "body": "Preise, die auf allen strategischen Korridoren verhandelt wurden."
+        }
+      ]
+    },
+    "coverage": {
+      "eyebrow": "Abdeckung",
+      "title": "Da, wo Sie uns brauchen",
+      "subtitle": "Vier Regionen, dutzende Partner, ein Versprechen: überall die gleiche Servicequalität.",
+      "regions": [
+        {
+          "name": "Europa",
+          "countries": "Frankreich · Deutschland · Spanien · Italien · Belgien · Niederlande · Vereinigtes Königreich · Polen"
+        },
+        {
+          "name": "Amerika",
+          "countries": "USA · Kanada · Mexiko · Brasilien · Argentinien · Chile · Kolumbien"
+        },
+        {
+          "name": "Asien-Pazifik",
+          "countries": "China · Japan · Südkorea · Indien · Singapur · Australien · Vereinigte Arabische Emirate"
+        },
+        {
+          "name": "Afrika",
+          "countries": "Marokko · Senegal · Elfenbeinküste · Ägypten · Südafrika · Kenia · Nigeria"
+        }
+      ]
+    },
+    "testimonials": {
+      "eyebrow": "Sie vertrauen uns",
+      "title": "Was unsere Kunden sagen",
+      "subtitle": "E-Merchants und Profis, die täglich auf Trackship setzen.",
+      "items": [
+        {
+          "quote": "Seit dem Wechsel zu Trackship sind unsere Reklamationen um 40 % gesunken. Kunden sehen, wo ihr Paket ist – und wir schlafen ruhiger.",
+          "name": "Camille Renard",
+          "role": "Mitgründerin, Atelier des Toiles"
+        },
+        {
+          "quote": "Klares Dashboard, solide API und Support, der wirklich 24/7 erreichbar ist. Drei Dinge, die wir vorher nirgends gleichzeitig hatten.",
+          "name": "Mehdi Touati",
+          "role": "Logistikleiter, Riad Spices"
+        },
+        {
+          "quote": "Wir versenden jede Woche in 12 Länder. Die internationale Abdeckung und die Preistransparenz sind der Grund, warum wir bleiben.",
+          "name": "Laura Schmidt",
+          "role": "Gründerin, Berlin Mode"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Bereit, mit Vertrauen zu versenden?",
+      "body": "Verfolgen Sie Ihr Paket in Sekunden oder kontaktieren Sie uns für ein maßgeschneidertes Angebot.",
+      "primary": "Paket verfolgen",
+      "secondary": "Kontakt aufnehmen"
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Häufige Fragen",
+      "subtitle": "Sie finden Ihre Antwort nicht? Schreiben Sie uns – wir melden uns innerhalb von 24 Stunden.",
+      "items": [
+        {
+          "q": "Wie finde ich meine Sendungsnummer?",
+          "a": "Sie wird Ihnen per E-Mail beim Versand zugesandt. Sie beginnt mit TS, gefolgt von 9 Ziffern und 2 Buchstaben des Bestimmungslandes (z. B. TS947261583FR)."
+        },
+        {
+          "q": "Wie lange dauert eine internationale Zustellung?",
+          "a": "Standard-Auslandszustellungen dauern je nach Ziel 3 bis 7 Werktage. Auf den meisten Korridoren steht eine Express-Option zur Verfügung."
+        },
+        {
+          "q": "Was passiert, wenn mein Paket verloren oder beschädigt wird?",
+          "a": "Alle unsere Sendungen sind bis zum deklarierten Wert versichert. Ein Schadensfall kann über Ihr Dashboard oder das Kontaktformular eröffnet werden."
+        },
+        {
+          "q": "Kann ich mehrere Pakete gleichzeitig verfolgen?",
+          "a": "Ja, in Ihrem Admin-Dashboard verwalten Sie alle Bestellungen und deren Verfolgungsereignisse parallel."
+        },
+        {
+          "q": "Stehen Ihre Leistungen auch Privatpersonen offen?",
+          "a": "Die öffentliche Sendungsverfolgung ja, ohne Registrierung. Für private Sendungen kontaktieren Sie uns – wir empfehlen Ihnen das passende Modell."
+        },
+        {
+          "q": "Wie sind meine Daten geschützt?",
+          "a": "Alle Daten werden während der Übertragung und im Ruhezustand verschlüsselt und gemäß DSGVO in der Europäischen Union gespeichert. Nur autorisierte Administratoren haben Zugriff."
+        }
+      ]
+    },
+    "contact": {
+      "eyebrow": "Kontakt",
+      "title": "Sprechen wir über Ihr Projekt",
+      "subtitle": "Eine Frage, ein Angebot, eine Partnerschaft? Unser Team antwortet innerhalb von 24 Werktagsstunden.",
+      "form": {
+        "name": "Vollständiger Name",
+        "namePlaceholder": "Maria Müller",
+        "email": "E-Mail",
+        "emailPlaceholder": "maria@beispiel.de",
+        "subject": "Betreff",
+        "subjectPlaceholder": "Angebotsanfrage",
+        "message": "Nachricht",
+        "messagePlaceholder": "Beschreiben Sie kurz Ihren Bedarf…",
+        "submit": "Nachricht senden",
+        "sending": "Wird gesendet…",
+        "successTitle": "Nachricht gesendet!",
+        "successBody": "Vielen Dank – wir melden uns innerhalb von 24 Werktagsstunden.",
+        "errorTitle": "Senden fehlgeschlagen",
+        "errorBody": "Etwas ist schiefgelaufen. Bitte versuchen Sie es in Kürze erneut.",
+        "missingFields": "Bitte füllen Sie alle Pflichtfelder aus."
+      },
+      "info": {
+        "emailLabel": "E-Mail",
+        "emailValue": "contact@trackship.com",
+        "phoneLabel": "Telefon",
+        "phoneValue": "+33 1 23 45 67 89",
+        "addressLabel": "Adresse",
+        "addressValue": "10 rue de la Logistique, 75001 Paris, Frankreich",
+        "hoursLabel": "Öffnungszeiten",
+        "hoursValue": "Mo-Fr: 9 bis 18 Uhr"
+      }
+    }
+  },
+  "footer": {
+    "about": {
+      "title": "Trackship",
+      "description": "Eine vollständige Lösung für Sendungsverfolgung und Versandmanagement, entwickelt für E-Merchants und Privatpersonen."
+    },
+    "columns": {
+      "services": "Leistungen",
+      "support": "Support",
+      "company": "Unternehmen"
+    },
+    "links": {
+      "express": "Expresszustellung",
+      "international": "Internationale Sendungen",
+      "ecommerce": "E-Commerce-Lösungen",
+      "custom": "Maßgeschneiderter Transport",
+      "track": "Paket verfolgen",
+      "faq": "FAQ",
+      "contact": "Kontakt aufnehmen",
+      "terms": "Allgemeine Geschäftsbedingungen",
+      "privacy": "Datenschutzerklärung",
+      "about": "Über uns",
+      "careers": "Karriere",
+      "press": "Presse"
+    },
+    "newsletter": {
+      "title": "Newsletter",
+      "body": "Erhalten Sie unsere Neuigkeiten und Produkt-Updates jeden Monat.",
+      "placeholder": "Ihre E-Mail-Adresse",
+      "submit": "Abonnieren",
+      "success": "Vielen Dank, Sie sind angemeldet!"
+    },
+    "social": {
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "facebook": "Facebook",
+      "instagram": "Instagram"
+    },
+    "rights": "Alle Rechte vorbehalten.",
+    "legal": "Impressum"
+  },
+  "auth": {
+    "login": {
+      "title": "Admin-Anmeldung",
+      "subtitle": "Nur für das Trackship-Team",
+      "email": "E-Mail",
+      "emailPlaceholder": "sie@trackship.com",
+      "password": "Passwort",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Anmelden",
+      "loggingIn": "Anmeldung läuft…",
+      "errorInvalid": "Ungültige Anmeldedaten. Bitte E-Mail und Passwort prüfen.",
+      "errorMissing": "Bitte E-Mail und Passwort ausfüllen.",
+      "errorServer": "Serverfehler. Bitte in Kürze erneut versuchen.",
+      "notice": "Keine öffentliche Registrierung. Konten werden von einem Administrator erstellt."
+    }
+  },
+  "dashboard": {
+    "nav": {
+      "home": "Übersicht",
+      "orders": "Bestellungen",
+      "invoices": "Rechnungen",
+      "messages": "Nachrichten"
+    },
+    "topbar": {
+      "signedInAs": "Angemeldet als",
+      "logout": "Abmelden"
+    },
+    "home": {
+      "title": "Willkommen in Ihrem Dashboard",
+      "subtitle": "Überblick über Ihre Trackship-Aktivität.",
+      "stats": {
+        "orders": "Bestellungen insgesamt",
+        "inTransit": "Unterwegs",
+        "invoices": "Ausgestellte Rechnungen",
+        "unreadMessages": "Ungelesene Nachrichten"
+      },
+      "nextSteps": {
+        "title": "Demnächst",
+        "subtitle": "Die Verwaltungsmodule erscheinen in den nächsten Updates.",
+        "items": {
+          "orders": "Bestellungen anlegen und bearbeiten mit automatischer Sendungsnummer",
+          "invoices": "Mehrsprachiges Rechnungsmodul mit PDF-Download",
+          "messages": "Kontaktnachrichten aus dem öffentlichen Formular"
+        }
+      }
+    }
+  },
+  "chatbot": {
+    "trigger": "Online-Hilfe",
+    "title": "Trackship-Support",
+    "subtitle": "Sofortige Antworten auf Ihre Fragen",
+    "welcome": "Hallo! Ich bin der Trackship-Assistent. Stellen Sie mir eine Frage zur Sendungsverfolgung oder wählen Sie unten einen Vorschlag aus.",
+    "placeholder": "Frage eingeben…",
+    "send": "Senden",
+    "close": "Schließen",
+    "suggestionsLabel": "Vorschläge",
+    "suggestions": {
+      "how_to_track": "Wie verfolge ich mein Paket?",
+      "format": "Wie ist das Format der Sendungsnummer?",
+      "statuses": "Was bedeuten die Status?",
+      "delivery_time": "Wie lange dauert die Zustellung?",
+      "not_found": "Mein Code wird nicht gefunden — was tun?"
+    },
+    "answers": {
+      "how_to_track": "Klicken Sie auf \"Paket verfolgen\" auf der Startseite, geben Sie Ihre Sendungsnummer ein (Format: TS + 9 Ziffern + 2 Länderbuchstaben, z. B. TS947261583FR) und bestätigen Sie. Sie sehen den aktuellen Status und den vollständigen Verlauf.",
+      "format": "Alle Sendungsnummern folgen dem Format TS + 9 Ziffern + 2 Buchstaben des Bestimmungslandes (ISO). Beispiel: TS947261583FR für Frankreich, TS123456789DE für Deutschland.",
+      "statuses": "Mögliche Status: Ausstehend (erstellt), Abgeholt, Unterwegs, In Zustellung, Zugestellt, Zustellung fehlgeschlagen oder Retourniert. Die Zeitleiste auf der Verfolgungsseite zeigt jeden Schritt mit Datum und Ort.",
+      "delivery_time": "Die Zustellzeiten hängen von der Route ab: 24-72 Std. für Inlandssendungen, 3-7 Werktage für internationale Sendungen. Ein geschätztes Datum wird auf der Verfolgungsseite angezeigt.",
+      "not_found": "Prüfen Sie zunächst das Format (TS + 9 Ziffern + 2 Buchstaben). Stimmt es, erscheint aber keine Sendung, wenden Sie sich an den Absender — die Sendung wurde möglicherweise noch nicht in unserem System erfasst.",
+      "unknown": "Ich habe Ihre Frage nicht verstanden. Folgende Themen kann ich beantworten — klicken Sie einfach auf eines:"
+    }
+  }
+}
