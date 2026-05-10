@@ -2,19 +2,21 @@
 
 import { ArrowLeft, Save } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useActionState } from "react";
+import { useActionState, useMemo } from "react";
 
 import {
   createOrderAction,
   updateOrderAction,
   type OrderState,
 } from "@/app/actions/orders";
+import { ItemsEditor } from "@/components/dashboard/items-editor";
 import { Button, buttonVariants } from "@/components/ui/button";
+import { FormSelect } from "@/components/ui/form-select";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Link } from "@/i18n/navigation";
-import { PRODUCT_CATEGORIES } from "@/lib/product-categories";
+import type { OrderItem } from "@/lib/order-items";
 import { TRACKING_STATUSES, type TrackingStatus } from "@/lib/statuses";
 import { cn } from "@/lib/utils";
 
@@ -32,9 +34,7 @@ export type OrderFormDefaults = {
   destination_country?: string;
   weight_kg?: number | null;
   declared_value?: number | null;
-  product_category?: string | null;
-  product_description?: string | null;
-  quantity?: number | null;
+  items?: OrderItem[];
   current_status?: string;
   notes?: string | null;
 };
@@ -48,7 +48,6 @@ export function OrderForm({
 }) {
   const t = useTranslations("dashboard.orders.form");
   const tStatus = useTranslations("status");
-  const tCategory = useTranslations("productCategory");
   const locale = useLocale();
   const action = mode === "create" ? createOrderAction : updateOrderAction;
   const [state, formAction, pending] = useActionState(action, INITIAL_STATE);
@@ -63,6 +62,15 @@ export function OrderForm({
           }
         })()
       : null;
+
+  const statusOptions = useMemo(
+    () =>
+      TRACKING_STATUSES.map((s) => ({
+        value: s,
+        label: tStatus(s as TrackingStatus),
+      })),
+    [tStatus]
+  );
 
   return (
     <form action={formAction} className="space-y-6">
@@ -105,43 +113,12 @@ export function OrderForm({
         </div>
       </Section>
 
-      <Section title={t("sections.product")}>
-        <div className="space-y-2 sm:col-span-2">
-          <Label htmlFor="product_category">{t("productCategory")}</Label>
-          <select
-            id="product_category"
-            name="product_category"
-            defaultValue={defaults.product_category ?? ""}
-            className="border-input bg-background hover:bg-muted/50 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 dark:bg-input/30 dark:hover:bg-input/50 h-10 w-full rounded-lg border px-3 text-sm transition-colors outline-none"
-          >
-            <option value="">{tCategory("_placeholder")}</option>
-            {PRODUCT_CATEGORIES.map((c) => (
-              <option key={c} value={c}>
-                {tCategory(c)}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="space-y-2 sm:col-span-2">
-          <Label htmlFor="product_description">{t("productDescription")}</Label>
-          <Input
-            id="product_description"
-            name="product_description"
-            defaultValue={defaults.product_description ?? ""}
-            placeholder={t("productDescriptionPlaceholder")}
-          />
-        </div>
-        <Field
-          id="quantity"
-          name="quantity"
-          type="number"
-          step="1"
-          min="1"
-          label={t("quantity")}
-          defaultValue={defaults.quantity ?? 1}
-          placeholder="1"
-        />
-      </Section>
+      <SectionPlain title={t("sections.product")}>
+        <p className="text-muted-foreground -mt-3 mb-4 text-xs">
+          {t("itemsHelp")}
+        </p>
+        <ItemsEditor defaultItems={defaults.items} />
+      </SectionPlain>
 
       <Section title={t("sections.shipment")}>
         <Field
@@ -209,18 +186,12 @@ export function OrderForm({
       <Section title={t("sections.status")}>
         <div className="space-y-2 sm:col-span-2">
           <Label htmlFor="current_status">{t("currentStatus")}</Label>
-          <select
+          <FormSelect
             id="current_status"
             name="current_status"
             defaultValue={defaults.current_status ?? "pending"}
-            className="border-input bg-background hover:bg-muted/50 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 dark:bg-input/30 dark:hover:bg-input/50 h-10 w-full rounded-lg border px-3 text-sm transition-colors outline-none"
-          >
-            {TRACKING_STATUSES.map((s) => (
-              <option key={s} value={s}>
-                {tStatus(s as TrackingStatus)}
-              </option>
-            ))}
-          </select>
+            options={statusOptions}
+          />
         </div>
         <div className="space-y-2 sm:col-span-2">
           <Label htmlFor="notes">{t("notes")}</Label>
@@ -258,12 +229,7 @@ export function OrderForm({
           <ArrowLeft className="h-4 w-4" />
           {t("cancel")}
         </Link>
-        <Button
-          type="submit"
-          size="lg"
-          disabled={pending}
-          className="gap-2"
-        >
+        <Button type="submit" size="lg" disabled={pending} className="gap-2">
           <Save className="h-4 w-4" />
           {pending
             ? t("saving")
@@ -289,6 +255,24 @@ function Section({
         {title}
       </h2>
       <div className="grid gap-5 sm:grid-cols-2">{children}</div>
+    </div>
+  );
+}
+
+/** Variant of Section without the inner 2-col grid (used by ItemsEditor). */
+function SectionPlain({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="bg-card text-card-foreground rounded-xl border p-5 shadow-sm md:p-6">
+      <h2 className="mb-5 text-sm font-semibold uppercase tracking-wider">
+        {title}
+      </h2>
+      {children}
     </div>
   );
 }

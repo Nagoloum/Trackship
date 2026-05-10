@@ -478,6 +478,9 @@
         "productDescription": "Description",
         "productDescriptionPlaceholder": "e.g. iPhone 15 Pro 256 GB blue",
         "quantity": "Quantity",
+        "itemsHelp": "Add as many items as you need to this order.",
+        "addItem": "Add item",
+        "removeItem": "Remove this item",
         "recipientName": "Full name",
         "recipientEmail": "Email",
         "recipientPhone": "Phone",
@@ -507,7 +510,7 @@
           "invalid_origin_country": "Invalid origin country code (2 letters).",
           "invalid_destination_country": "Invalid destination country code (2 letters).",
           "invalid_status": "Invalid status.",
-          "invalid_category": "Invalid product category.",
+          "invalid_items": "Invalid order items.",
           "code_collision": "Failed to generate a unique tracking number. Try again.",
           "missing_id": "Missing ID.",
           "server": "Server error. Please try again in a moment."

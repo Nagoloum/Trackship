@@ -2,6 +2,8 @@ import { renderToBuffer } from "@react-pdf/renderer";
 import type { NextRequest } from "next/server";
 
 import { ReceiptPdf } from "@/lib/invoice-pdf";
+import { getCategoryLabel, type InvoiceLocale } from "@/lib/invoice-strings";
+import { normalizeOrderItems } from "@/lib/order-items";
 import {
   generateBarcodeDataUrl,
   generateQrDataUrl,
@@ -37,7 +39,7 @@ export async function GET(
         orders (
           code, recipient_name, recipient_email, recipient_phone, recipient_address,
           origin, origin_country, destination, destination_country, weight_kg,
-          declared_value, current_status
+          declared_value, items, current_status
         )
       `
     )
@@ -52,11 +54,13 @@ export async function GET(
     return new Response("Not found", { status: 404 });
   }
 
-  const trackingUrl = publicTrackingUrl(request.nextUrl.origin, order.code);
+  const trackingUrl = publicTrackingUrl(request.nextUrl.origin, order.code, invoice.language);
   const [qrDataUrl, barcodeDataUrl] = await Promise.all([
     generateQrDataUrl(trackingUrl),
     generateBarcodeDataUrl(order.code),
   ]);
+  const lang = invoice.language as InvoiceLocale;
+  const items = normalizeOrderItems(order.items);
 
   const buffer = await renderToBuffer(
     <ReceiptPdf
@@ -79,6 +83,8 @@ export async function GET(
         declared_value:
           order.declared_value != null ? Number(order.declared_value) : null,
         current_status: order.current_status,
+        items,
+        categoryLabel: (k) => getCategoryLabel(k, lang),
       }}
       qrDataUrl={qrDataUrl}
       barcodeDataUrl={barcodeDataUrl}

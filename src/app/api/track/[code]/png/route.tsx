@@ -37,7 +37,7 @@ export async function GET(
     ? langParam
     : "en";
 
-  const trackingUrl = publicTrackingUrl(request.nextUrl.origin, order.code);
+  const trackingUrl = publicTrackingUrl(request.nextUrl.origin, order.code, language);
   const [qrDataUrl, barcodeDataUrl] = await Promise.all([
     generateQrDataUrl(trackingUrl, 320),
     generateBarcodeDataUrl(order.code, 4),

@@ -22,6 +22,9 @@ export type InvoiceStrings = {
   vatNumber: string;
   registrationNumber: string;
   page: string;
+  itemsCategory: string;
+  itemsDescription: string;
+  itemsQuantity: string;
   status_pending: string;
   status_picked_up: string;
   status_in_transit: string;
@@ -50,6 +53,9 @@ const STRINGS: Record<InvoiceLocale, InvoiceStrings> = {
     vatNumber: "N° TVA",
     registrationNumber: "Immatriculation",
     page: "Page",
+    itemsCategory: "Catégorie",
+    itemsDescription: "Description",
+    itemsQuantity: "Qté",
     status_pending: "En attente",
     status_picked_up: "Collectée",
     status_in_transit: "En transit",
@@ -76,6 +82,9 @@ const STRINGS: Record<InvoiceLocale, InvoiceStrings> = {
     vatNumber: "VAT no.",
     registrationNumber: "Registration",
     page: "Page",
+    itemsCategory: "Category",
+    itemsDescription: "Description",
+    itemsQuantity: "Qty",
     status_pending: "Pending",
     status_picked_up: "Picked up",
     status_in_transit: "In transit",
@@ -102,6 +111,9 @@ const STRINGS: Record<InvoiceLocale, InvoiceStrings> = {
     vatNumber: "N.º IVA",
     registrationNumber: "Registro",
     page: "Página",
+    itemsCategory: "Categoría",
+    itemsDescription: "Descripción",
+    itemsQuantity: "Cant.",
     status_pending: "Pendiente",
     status_picked_up: "Recogido",
     status_in_transit: "En tránsito",
@@ -128,6 +140,9 @@ const STRINGS: Record<InvoiceLocale, InvoiceStrings> = {
     vatNumber: "USt-IdNr.",
     registrationNumber: "Handelsregister",
     page: "Seite",
+    itemsCategory: "Kategorie",
+    itemsDescription: "Beschreibung",
+    itemsQuantity: "Menge",
     status_pending: "Ausstehend",
     status_picked_up: "Abgeholt",
     status_in_transit: "Unterwegs",
@@ -175,4 +190,84 @@ export function formatInvoiceDate(iso: string, locale: InvoiceLocale): string {
     month: "long",
     year: "numeric",
   }).format(d);
+}
+
+/**
+ * Localised product-category labels for the PDF/PNG receipts. Mirrors the
+ * `productCategory.*` keys from the next-intl catalog so the template works
+ * outside the React i18n context.
+ */
+const CATEGORY_LABELS: Record<InvoiceLocale, Record<string, string>> = {
+  fr: {
+    electronics: "Électronique",
+    clothing: "Vêtements",
+    books: "Livres & médias",
+    documents: "Documents",
+    food: "Alimentaire",
+    cosmetics: "Cosmétiques",
+    toys: "Jouets",
+    furniture: "Mobilier",
+    home: "Articles maison",
+    sports: "Sport & loisirs",
+    health: "Santé",
+    tools: "Outillage",
+    jewelry: "Bijoux",
+    spare_parts: "Pièces détachées",
+    other: "Autre",
+  },
+  en: {
+    electronics: "Electronics",
+    clothing: "Clothing",
+    books: "Books & media",
+    documents: "Documents",
+    food: "Food",
+    cosmetics: "Cosmetics",
+    toys: "Toys",
+    furniture: "Furniture",
+    home: "Home goods",
+    sports: "Sports",
+    health: "Health",
+    tools: "Tools",
+    jewelry: "Jewellery",
+    spare_parts: "Spare parts",
+    other: "Other",
+  },
+  es: {
+    electronics: "Electrónica",
+    clothing: "Ropa",
+    books: "Libros y medios",
+    documents: "Documentos",
+    food: "Alimentación",
+    cosmetics: "Cosmética",
+    toys: "Juguetes",
+    furniture: "Mobiliario",
+    home: "Hogar",
+    sports: "Deporte",
+    health: "Salud",
+    tools: "Herramientas",
+    jewelry: "Joyería",
+    spare_parts: "Repuestos",
+    other: "Otro",
+  },
+  de: {
+    electronics: "Elektronik",
+    clothing: "Bekleidung",
+    books: "Bücher & Medien",
+    documents: "Dokumente",
+    food: "Lebensmittel",
+    cosmetics: "Kosmetik",
+    toys: "Spielzeug",
+    furniture: "Möbel",
+    home: "Haushaltswaren",
+    sports: "Sport",
+    health: "Gesundheit",
+    tools: "Werkzeuge",
+    jewelry: "Schmuck",
+    spare_parts: "Ersatzteile",
+    other: "Sonstiges",
+  },
+};
+
+export function getCategoryLabel(key: string, locale: InvoiceLocale): string {
+  return CATEGORY_LABELS[locale][key] ?? key;
 }

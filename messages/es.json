@@ -478,6 +478,9 @@
         "productDescription": "Descripción",
         "productDescriptionPlaceholder": "Ej.: iPhone 15 Pro 256 GB azul",
         "quantity": "Cantidad",
+        "itemsHelp": "Añade tantos artículos como necesites a este pedido.",
+        "addItem": "Añadir artículo",
+        "removeItem": "Quitar este artículo",
         "recipientName": "Nombre completo",
         "recipientEmail": "Email",
         "recipientPhone": "Teléfono",
@@ -507,7 +510,7 @@
           "invalid_origin_country": "Código del país de origen no válido (2 letras).",
           "invalid_destination_country": "Código del país de destino no válido (2 letras).",
           "invalid_status": "Estado no válido.",
-          "invalid_category": "Categoría de producto no válida.",
+          "invalid_items": "Artículos del pedido no válidos.",
           "code_collision": "No se pudo generar un número de seguimiento único. Inténtalo de nuevo.",
           "missing_id": "Falta el identificador.",
           "server": "Error del servidor. Inténtalo de nuevo en un momento."

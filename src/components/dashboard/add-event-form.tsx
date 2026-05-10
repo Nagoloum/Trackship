@@ -9,6 +9,7 @@ import {
   type EventState,
 } from "@/app/actions/orders";
 import { Button } from "@/components/ui/button";
+import { FormSelect } from "@/components/ui/form-select";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -63,19 +64,16 @@ export function AddEventForm({
           <Label htmlFor="event-status">
             {t("status")} <span className="text-destructive">*</span>
           </Label>
-          <select
+          <FormSelect
             id="event-status"
             name="status"
             defaultValue={currentStatus}
             required
-            className="border-input bg-background hover:bg-muted/50 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 dark:bg-input/30 dark:hover:bg-input/50 h-10 w-full rounded-lg border px-3 text-sm transition-colors outline-none"
-          >
-            {TRACKING_STATUSES.map((s) => (
-              <option key={s} value={s}>
-                {tStatus(s as TrackingStatus)}
-              </option>
-            ))}
-          </select>
+            options={TRACKING_STATUSES.map((s) => ({
+              value: s,
+              label: tStatus(s as TrackingStatus),
+            }))}
+          />
         </div>
 
         <div className="space-y-2">

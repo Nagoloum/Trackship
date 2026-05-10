@@ -14,6 +14,7 @@ import {
   getStatusLabel,
   type InvoiceLocale,
 } from "@/lib/invoice-strings";
+import type { OrderItem } from "@/lib/order-items";
 
 export type ReceiptPdfData = {
   /** Sequential admin-issued number. Omit for the public download — the
@@ -36,6 +37,10 @@ export type OrderPdfData = {
   weight_kg: number | null;
   declared_value: number | null;
   current_status: string;
+  /** Optional list of items in the parcel — rendered as a table when set. */
+  items?: OrderItem[];
+  /** Localised category label resolver. */
+  categoryLabel?: (key: string) => string;
 };
 
 const colors = {
@@ -248,6 +253,58 @@ const styles = StyleSheet.create({
     fontSize: 10,
   },
 
+  // Items table
+  itemsTable: {
+    marginTop: 14,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: 6,
+    overflow: "hidden",
+  },
+  itemsHeaderRow: {
+    flexDirection: "row",
+    backgroundColor: colors.card,
+    paddingVertical: 6,
+    paddingHorizontal: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+  },
+  itemsHeaderCell: {
+    color: colors.muted,
+    fontSize: 8,
+    fontFamily: "Helvetica-Bold",
+    textTransform: "uppercase",
+    letterSpacing: 1,
+  },
+  itemRow: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
+  },
+  itemRowFirst: {
+    borderTopWidth: 0,
+  },
+  itemCellCategory: {
+    flex: 1,
+    fontSize: 9,
+    color: colors.primary,
+    fontFamily: "Helvetica-Bold",
+  },
+  itemCellDescription: {
+    flex: 2,
+    fontSize: 9.5,
+    paddingHorizontal: 4,
+  },
+  itemCellQty: {
+    width: 50,
+    fontSize: 10,
+    fontFamily: "Helvetica-Bold",
+    textAlign: "right",
+  },
+
   notice: {
     marginTop: 16,
     color: colors.muted,
@@ -391,6 +448,38 @@ export function ReceiptPdf({
             </Text>
           </View>
         </View>
+
+        {order.items && order.items.length > 0 && (
+          <View style={styles.itemsTable}>
+            <View style={styles.itemsHeaderRow}>
+              <Text style={[styles.itemsHeaderCell, { flex: 1 }]}>
+                {t.itemsCategory}
+              </Text>
+              <Text style={[styles.itemsHeaderCell, { flex: 2, paddingHorizontal: 4 }]}>
+                {t.itemsDescription}
+              </Text>
+              <Text style={[styles.itemsHeaderCell, { width: 50, textAlign: "right" }]}>
+                {t.itemsQuantity}
+              </Text>
+            </View>
+            {order.items.map((item, i) => (
+              <View
+                key={i}
+                style={[styles.itemRow, i === 0 ? styles.itemRowFirst : {}]}
+              >
+                <Text style={styles.itemCellCategory}>
+                  {item.category && order.categoryLabel
+                    ? order.categoryLabel(item.category)
+                    : item.category ?? "—"}
+                </Text>
+                <Text style={styles.itemCellDescription}>
+                  {item.description ?? "—"}
+                </Text>
+                <Text style={styles.itemCellQty}>× {item.quantity}</Text>
+              </View>
+            ))}
+          </View>
+        )}
 
         <Text style={styles.notice}>{t.scanNotice}</Text>
         <Text style={[styles.notice, { marginTop: 4 }]}>{trackingUrl}</Text>

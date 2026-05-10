@@ -23,6 +23,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { deleteReceiptAction } from "@/app/actions/invoices";
 import { deleteOrderAction, deleteTrackingEventAction } from "@/app/actions/orders";
+import { normalizeOrderItems } from "@/lib/order-items";
 import { cn } from "@/lib/utils";
 
 export default async function OrderDetailPage({
@@ -56,9 +57,7 @@ export default async function OrderDetailPage({
         destination_country,
         weight_kg,
         declared_value,
-        product_category,
-        product_description,
-        quantity,
+        items,
         current_status,
         notes,
         created_at,
@@ -82,6 +81,8 @@ export default async function OrderDetailPage({
       (a, b) =>
         new Date(b.event_at).getTime() - new Date(a.event_at).getTime()
     );
+
+  const orderItems = normalizeOrderItems(order.items);
 
   const invoices = (order.invoices ?? [])
     .slice()
@@ -180,31 +181,6 @@ export default async function OrderDetailPage({
               })}
             </DetailRow>
           )}
-          {order.product_category && (
-            <DetailRow
-              icon={<Package className="h-4 w-4" />}
-              label={tForm("productCategory")}
-            >
-              {tCategory(order.product_category)}
-            </DetailRow>
-          )}
-          {order.quantity != null && (
-            <DetailRow
-              icon={<Package className="h-4 w-4" />}
-              label={tForm("quantity")}
-            >
-              {order.quantity}
-            </DetailRow>
-          )}
-          {order.product_description && (
-            <DetailRow
-              icon={<Edit3 className="h-4 w-4" />}
-              label={tForm("productDescription")}
-              full
-            >
-              {order.product_description}
-            </DetailRow>
-          )}
           <DetailRow
             icon={<ArrowRight className="h-4 w-4" />}
             label={td("createdAt")}
@@ -234,6 +210,39 @@ export default async function OrderDetailPage({
           )}
         </div>
       </section>
+
+      {/* Items in the parcel */}
+      {orderItems.length > 0 && (
+        <section className="bg-card text-card-foreground rounded-xl border p-5 shadow-sm md:p-6">
+          <h2 className="mb-5 text-sm font-semibold uppercase tracking-wider">
+            {tForm("sections.product")}
+          </h2>
+          <ul className="divide-border/60 divide-y">
+            {orderItems.map((item, i) => (
+              <li
+                key={i}
+                className="flex flex-col gap-2 py-3 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+              >
+                <div className="min-w-0 flex-1">
+                  {item.category && (
+                    <span className="bg-primary/10 text-primary inline-block rounded-full px-2 py-0.5 text-[11px] font-medium uppercase tracking-wider">
+                      {tCategory(item.category)}
+                    </span>
+                  )}
+                  {item.description && (
+                    <p className="mt-1.5 text-sm font-medium wrap-break-word">
+                      {item.description}
+                    </p>
+                  )}
+                </div>
+                <span className="bg-muted text-foreground shrink-0 self-start rounded-md px-2.5 py-1 font-mono text-sm sm:self-center">
+                  × {item.quantity}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {/* Timeline */}
       <section className="bg-card text-card-foreground rounded-xl border p-5 shadow-sm md:p-6">
@@ -394,7 +403,7 @@ function DetailRow({
         <p className="text-muted-foreground text-xs uppercase tracking-wider">
           {label}
         </p>
-        <div className="mt-0.5 text-sm font-medium break-words">{children}</div>
+        <div className="mt-0.5 text-sm font-medium wrap-break-word">{children}</div>
       </div>
     </div>
   );

@@ -478,6 +478,9 @@
         "productDescription": "Beschreibung",
         "productDescriptionPlaceholder": "z. B. iPhone 15 Pro 256 GB blau",
         "quantity": "Menge",
+        "itemsHelp": "Fügen Sie dieser Bestellung beliebig viele Artikel hinzu.",
+        "addItem": "Artikel hinzufügen",
+        "removeItem": "Diesen Artikel entfernen",
         "recipientName": "Vollständiger Name",
         "recipientEmail": "E-Mail",
         "recipientPhone": "Telefon",
@@ -507,7 +510,7 @@
           "invalid_origin_country": "Ungültiger Absendeland-Code (2 Buchstaben).",
           "invalid_destination_country": "Ungültiger Zielland-Code (2 Buchstaben).",
           "invalid_status": "Ungültiger Status.",
-          "invalid_category": "Ungültige Produktkategorie.",
+          "invalid_items": "Ungültige Bestellartikel.",
           "code_collision": "Es konnte keine eindeutige Sendungsnummer erzeugt werden. Bitte erneut versuchen.",
           "missing_id": "Kennung fehlt.",
           "server": "Serverfehler. Bitte in Kürze erneut versuchen."

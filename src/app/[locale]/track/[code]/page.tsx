@@ -1,6 +1,5 @@
 import {
   AlertCircle,
-  Boxes,
   Download,
   FileText,
   ImageIcon,
@@ -31,7 +30,7 @@ import { Separator } from "@/components/ui/separator";
 import { SiteHeader } from "@/components/site-header";
 import { StatusBadge } from "@/components/status-badge";
 import { TrackingTimeline } from "@/components/tracking-timeline";
-import { isProductCategory } from "@/lib/product-categories";
+import { normalizeOrderItems } from "@/lib/order-items";
 import { generateQrDataUrl, publicTrackingUrl } from "@/lib/qr-barcode";
 import { lookupTracking } from "@/lib/tracking-lookup";
 import { normalizeTrackingCode } from "@/lib/tracking-code";
@@ -47,6 +46,7 @@ export default async function TrackingDetailPage({
 
   const code = normalizeTrackingCode(decodeURIComponent(rawCode));
   const order = await lookupTracking(code);
+  const orderItems = order ? normalizeOrderItems(order.items) : [];
 
   const tc = await getTranslations("common");
   const tt = await getTranslations("track");
@@ -63,7 +63,7 @@ export default async function TrackingDetailPage({
     (host?.startsWith("localhost") ? "http" : "https");
   const origin = host ? `${proto}://${host}` : "";
   const qrDataUrl = order
-    ? await generateQrDataUrl(publicTrackingUrl(origin, order.code), 280)
+    ? await generateQrDataUrl(publicTrackingUrl(origin, order.code, locale), 280)
     : null;
   const pdfHref = order
     ? `/api/track/${order.code}/pdf?lang=${locale}&download=1`
@@ -155,21 +155,6 @@ export default async function TrackingDetailPage({
                     label={td("destination")}
                     value={`${order.destination} (${order.destination_country})`}
                   />
-                  {order.product_category &&
-                    isProductCategory(order.product_category) && (
-                      <DetailRow
-                        icon={<Boxes className="h-4 w-4" />}
-                        label={tForm("productCategory")}
-                        value={tCategory(order.product_category)}
-                      />
-                    )}
-                  {order.quantity != null && order.quantity > 1 && (
-                    <DetailRow
-                      icon={<Boxes className="h-4 w-4" />}
-                      label={tForm("quantity")}
-                      value={String(order.quantity)}
-                    />
-                  )}
                   {order.weight_kg != null && (
                     <DetailRow
                       icon={<Weight className="h-4 w-4" />}
@@ -187,17 +172,45 @@ export default async function TrackingDetailPage({
                       })}
                     />
                   )}
-                  {order.product_description && (
-                    <div className="sm:col-span-2">
-                      <DetailRow
-                        icon={<FileText className="h-4 w-4" />}
-                        label={tForm("productDescription")}
-                        value={order.product_description}
-                      />
-                    </div>
-                  )}
                 </CardContent>
               </Card>
+
+              {/* Items in the parcel */}
+              {orderItems.length > 0 && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg">
+                      {tForm("sections.product")}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="divide-border/60 divide-y">
+                      {orderItems.map((item, i) => (
+                        <li
+                          key={i}
+                          className="flex flex-col gap-2 py-3 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+                        >
+                          <div className="min-w-0 flex-1">
+                            {item.category && (
+                              <span className="bg-primary/10 text-primary inline-block rounded-full px-2 py-0.5 text-[11px] font-medium uppercase tracking-wider">
+                                {tCategory(item.category)}
+                              </span>
+                            )}
+                            {item.description && (
+                              <p className="mt-1.5 text-sm font-medium wrap-break-word">
+                                {item.description}
+                              </p>
+                            )}
+                          </div>
+                          <span className="bg-muted text-foreground shrink-0 self-start rounded-md px-2.5 py-1 font-mono text-sm sm:self-center">
+                            × {item.quantity}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              )}
 
               {/* Timeline */}
               <Card>

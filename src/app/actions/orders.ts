@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-import { isProductCategory } from "@/lib/product-categories";
+import { normalizeOrderItems, type OrderItem } from "@/lib/order-items";
 import { TRACKING_STATUSES } from "@/lib/statuses";
 import { generateTrackingCode } from "@/lib/tracking-code";
 import { createClient } from "@/lib/supabase/server";
@@ -21,9 +21,7 @@ type OrderInput = {
   destination_country: string;
   weight_kg: number | null;
   declared_value: number | null;
-  product_category: string | null;
-  product_description: string | null;
-  quantity: number;
+  items: OrderItem[];
   current_status: string;
   notes: string | null;
 };
@@ -51,8 +49,6 @@ function parseFormData(formData: FormData): OrderInput | string {
   const destination = get("destination");
   const destination_country = get("destination_country").toUpperCase();
   const current_status = get("current_status") || "pending";
-  const product_category_raw = get("product_category");
-  const quantity_raw = num("quantity");
 
   if (!recipient_name) return "missing_recipient_name";
   if (!origin) return "missing_origin";
@@ -62,11 +58,18 @@ function parseFormData(formData: FormData): OrderInput | string {
   if (!(TRACKING_STATUSES as readonly string[]).includes(current_status)) {
     return "invalid_status";
   }
-  // Empty string means "no category". Anything else must match the catalog.
-  if (product_category_raw && !isProductCategory(product_category_raw)) {
-    return "invalid_category";
+
+  // Items arrive as a JSON string from <input type="hidden" name="items">.
+  // Parse, normalise (drops empty rows, validates categories, clamps qty).
+  const itemsRaw = get("items");
+  let items: OrderItem[] = [];
+  if (itemsRaw) {
+    try {
+      items = normalizeOrderItems(JSON.parse(itemsRaw));
+    } catch {
+      return "invalid_items";
+    }
   }
-  const quantity = quantity_raw == null || quantity_raw < 1 ? 1 : Math.floor(quantity_raw);
 
   return {
     recipient_name,
@@ -79,9 +82,7 @@ function parseFormData(formData: FormData): OrderInput | string {
     destination_country,
     weight_kg: num("weight_kg"),
     declared_value: num("declared_value"),
-    product_category: product_category_raw || null,
-    product_description: optional("product_description"),
-    quantity,
+    items,
     current_status,
     notes: optional("notes"),
   };

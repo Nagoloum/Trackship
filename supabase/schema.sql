@@ -191,3 +191,26 @@ do $$ begin
   alter table public.orders add column quantity int default 1;
 exception when duplicate_column then null;
 end $$;
+
+-- Multi-item support: a JSONB array of {category, description, quantity}.
+-- The legacy single-product columns above are still readable but new orders
+-- carry their contents in `items`. Existing rows are backfilled below.
+do $$ begin
+  alter table public.orders add column items jsonb not null default '[]'::jsonb;
+exception when duplicate_column then null;
+end $$;
+
+-- Backfill: copy the legacy single product fields into items[] when items is
+-- still empty. Idempotent — once items has rows, the WHERE filter skips it.
+update public.orders
+set items = jsonb_build_array(
+  jsonb_strip_nulls(
+    jsonb_build_object(
+      'category', product_category,
+      'description', product_description,
+      'quantity', coalesce(quantity, 1)
+    )
+  )
+)
+where (items is null or items = '[]'::jsonb)
+  and (product_category is not null or product_description is not null);

@@ -52,7 +52,7 @@ export async function GET(
     return new Response("Not found", { status: 404 });
   }
 
-  const trackingUrl = publicTrackingUrl(request.nextUrl.origin, order.code);
+  const trackingUrl = publicTrackingUrl(request.nextUrl.origin, order.code, invoice.language);
   const [qrDataUrl, barcodeDataUrl] = await Promise.all([
     generateQrDataUrl(trackingUrl, 320),
     generateBarcodeDataUrl(order.code, 4),

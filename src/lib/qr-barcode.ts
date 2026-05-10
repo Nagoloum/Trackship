@@ -52,11 +52,18 @@ export async function generateBarcodeDataUrl(
 }
 
 /**
- * Build the public tracking URL for a given code. Uses the request's origin
- * (or NEXT_PUBLIC_APP_URL fallback) so QR codes scan correctly in production
- * AND on a local network during development.
+ * Build the public tracking URL for a given code, optionally locale-prefixed.
+ * Prefers `NEXT_PUBLIC_APP_URL` when set (so QRs always point at the canonical
+ * production domain even when generated from a preview deployment) and falls
+ * back to the request's origin otherwise.
  */
-export function publicTrackingUrl(origin: string, code: string): string {
-  const base = origin.replace(/\/$/, "");
-  return `${base}/track/${encodeURIComponent(code)}`;
+export function publicTrackingUrl(
+  origin: string,
+  code: string,
+  locale?: string
+): string {
+  const configured = process.env.NEXT_PUBLIC_APP_URL?.trim();
+  const base = (configured || origin).replace(/\/$/, "");
+  const prefix = locale ? `/${locale}` : "";
+  return `${base}${prefix}/track/${encodeURIComponent(code)}`;
 }
