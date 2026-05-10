@@ -52,7 +52,7 @@ export function TrackingForm() {
             spellCheck={false}
             required
             aria-invalid={!!error}
-            aria-describedby={error ? "tracking-error" : "tracking-help"}
+            aria-describedby={error ? "tracking-error" : undefined}
           />
         </div>
         <button
@@ -65,7 +65,7 @@ export function TrackingForm() {
         </button>
       </form>
 
-      {error ? (
+      {error && (
         <p
           id="tracking-error"
           role="alert"
@@ -73,20 +73,6 @@ export function TrackingForm() {
         >
           <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
           <span>{error}</span>
-        </p>
-      ) : (
-        <p
-          id="tracking-help"
-          className="text-muted-foreground flex flex-wrap items-center gap-x-3 gap-y-1 px-1 text-xs"
-        >
-          <span>{tt("formatHelp")}</span>
-          <span aria-hidden className="hidden text-border sm:inline">·</span>
-          <span className="inline-flex items-center gap-1.5">
-            <span className="uppercase tracking-wider">{tt("exampleLabel")}</span>
-            <code className="bg-muted text-foreground rounded px-1.5 py-0.5 font-mono text-[11px]">
-              {tt("exampleValue")}
-            </code>
-          </span>
         </p>
       )}
     </div>
