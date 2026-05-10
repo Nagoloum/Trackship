@@ -138,7 +138,7 @@ export function HeroCarousel() {
 
                   <div
                     className={cn(
-                      "relative mx-auto w-full max-w-xl transition-all duration-700",
+                      "relative mx-auto hidden w-full max-w-xl transition-all duration-700 lg:block",
                       isActive ? "opacity-100 scale-100 delay-150" : "opacity-0 scale-95"
                     )}
                   >
