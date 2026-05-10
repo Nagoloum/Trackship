@@ -59,6 +59,15 @@
       "updatedAt": "Mise à jour le",
       "history": "Historique",
       "noEvents": "Aucun événement enregistré pour le moment."
+    },
+    "receipt": {
+      "title": "Bordereau d'envoi",
+      "subtitle": "Document officiel avec QR code et code-barres.",
+      "description": "Téléchargez le bordereau de votre colis avec toutes ses informations, un QR code qui renvoie vers cette page de suivi et un code-barres scannable.",
+      "qrCaption": "Scannez pour ouvrir cette page",
+      "downloadPdf": "Télécharger le PDF",
+      "downloadPng": "Télécharger l'image",
+      "hint": "Vous pouvez l'imprimer ou le partager avec le destinataire."
     }
   },
   "status": {

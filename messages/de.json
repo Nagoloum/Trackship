@@ -59,6 +59,15 @@
       "updatedAt": "Aktualisiert am",
       "history": "Verlauf",
       "noEvents": "Bisher keine Ereignisse erfasst."
+    },
+    "receipt": {
+      "title": "Versandbeleg",
+      "subtitle": "Offizielles Dokument mit QR-Code und Barcode.",
+      "description": "Laden Sie den Versandbeleg Ihres Pakets mit allen Details, einem QR-Code zu dieser Verfolgungsseite und einem scannbaren Barcode herunter.",
+      "qrCaption": "Scannen, um diese Seite zu öffnen",
+      "downloadPdf": "PDF herunterladen",
+      "downloadPng": "Bild herunterladen",
+      "hint": "Sie können es ausdrucken oder mit dem Empfänger teilen."
     }
   },
   "status": {

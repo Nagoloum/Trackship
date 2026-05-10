@@ -16,7 +16,9 @@ import {
 } from "@/lib/invoice-strings";
 
 export type ReceiptPdfData = {
-  invoice_number: string;
+  /** Sequential admin-issued number. Omit for the public download — the
+   *  receipt-number line is then hidden. */
+  invoice_number?: string;
   language: string;
   issued_at: string;
 };
@@ -308,7 +310,9 @@ export function ReceiptPdf({
 
           <View style={styles.receiptMeta}>
             <Text style={styles.receiptTitle}>{t.documentTitle}</Text>
-            <Text style={styles.receiptNumber}>{receipt.invoice_number}</Text>
+            {receipt.invoice_number && (
+              <Text style={styles.receiptNumber}>{receipt.invoice_number}</Text>
+            )}
             <Text style={styles.receiptMetaLine}>
               {t.issueDate} {formatInvoiceDate(receipt.issued_at, locale)}
             </Text>

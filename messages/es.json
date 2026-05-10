@@ -59,6 +59,15 @@
       "updatedAt": "Actualizado el",
       "history": "Historial",
       "noEvents": "Aún no hay eventos registrados."
+    },
+    "receipt": {
+      "title": "Albarán de envío",
+      "subtitle": "Documento oficial con código QR y código de barras.",
+      "description": "Descarga el albarán de tu paquete con toda la información, un código QR que abre esta página de seguimiento y un código de barras escaneable.",
+      "qrCaption": "Escanea para abrir esta página",
+      "downloadPdf": "Descargar PDF",
+      "downloadPng": "Descargar imagen",
+      "hint": "Puedes imprimirlo o compartirlo con el destinatario."
     }
   },
   "status": {

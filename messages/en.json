@@ -59,6 +59,15 @@
       "updatedAt": "Updated on",
       "history": "History",
       "noEvents": "No events recorded yet."
+    },
+    "receipt": {
+      "title": "Shipping receipt",
+      "subtitle": "Official document with QR code and barcode.",
+      "description": "Download the shipping receipt for your parcel with all its details, a QR code linking back to this tracking page and a scannable barcode.",
+      "qrCaption": "Scan to open this page",
+      "downloadPdf": "Download PDF",
+      "downloadPng": "Download image",
+      "hint": "You can print it or share it with the recipient."
     }
   },
   "status": {
