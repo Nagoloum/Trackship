@@ -3,7 +3,6 @@ import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/logo";
-import { NewsletterForm } from "@/components/landing/newsletter-form";
 
 type FooterLink = { key: string; href: string };
 
@@ -22,10 +21,7 @@ const SUPPORT_LINKS: FooterLink[] = [
   { key: "privacy", href: "/privacy" },
 ];
 
-const COMPANY_LINKS: FooterLink[] = [
-  { key: "about", href: "#why-us" },
-  { key: "careers", href: "#" },
-];
+const COMPANY_LINKS: FooterLink[] = [{ key: "about", href: "#why-us" }];
 
 export function SiteFooter() {
   const t = useTranslations("footer");
@@ -39,7 +35,7 @@ export function SiteFooter() {
       <div className="container mx-auto max-w-6xl px-4 py-14">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12">
           {/* About */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-5">
             <Logo width={150} height={36} />
             <p className="text-muted-foreground mt-4 max-w-sm text-sm leading-relaxed">
               {t("about.description")}
@@ -57,7 +53,7 @@ export function SiteFooter() {
           </div>
 
           {/* Services */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-3">
             <h4 className="text-sm font-semibold">{tColumns("services")}</h4>
             <ul className="mt-4 space-y-2 text-sm">
               {SERVICE_LINKS.map(({ key, href }) => (
@@ -80,15 +76,10 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* Newsletter */}
-          <div className="lg:col-span-4">
-            <h4 className="text-sm font-semibold">{t("newsletter.title")}</h4>
-            <p className="text-muted-foreground mt-3 text-sm leading-relaxed">
-              {t("newsletter.body")}
-            </p>
-            <NewsletterForm className="mt-4" />
-            <h4 className="mt-6 text-sm font-semibold">{tColumns("company")}</h4>
-            <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+          {/* Company */}
+          <div className="lg:col-span-2">
+            <h4 className="text-sm font-semibold">{tColumns("company")}</h4>
+            <ul className="mt-4 space-y-2 text-sm">
               {COMPANY_LINKS.map(({ key, href }) => (
                 <li key={key}>
                   <FooterAnchor href={href} label={tLinks(key)} />
@@ -115,7 +106,6 @@ export function SiteFooter() {
 }
 
 function FooterAnchor({ href, label }: { href: string; label: string }) {
-  // Internal locale-aware navigation for /track, anchor links handled natively.
   if (href.startsWith("#") || href === "#") {
     return (
       <a

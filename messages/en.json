@@ -360,8 +360,8 @@
         "emailValue": "contact@trackship.com",
         "addressLabel": "Address",
         "addressValue": "Paris, France",
-        "hoursLabel": "Hours",
-        "hoursValue": "Mon-Fri: 9 a.m. - 6 p.m."
+        "hoursLabel": "Availability",
+        "hoursValue": "24/7, every day"
       }
     }
   },
@@ -385,15 +385,7 @@
       "contact": "Contact us",
       "terms": "Terms of service",
       "privacy": "Privacy policy",
-      "about": "About",
-      "careers": "Careers",
-      "press": "Press"
-    },
-    "newsletter": {
-      "title": "Newsletter",
-      "body": "Get our news and product updates straight to your inbox.",
-      "comingSoon": "Coming soon",
-      "notice": "Our signup form is on its way. Once it's live, you'll receive all of Trackship's news, product updates and announcements by email."
+      "about": "About"
     },
     "rights": "All rights reserved.",
     "legal": "Legal notice"
@@ -610,12 +602,12 @@
         "heading": "Publisher",
         "body": [
           "Trackship — parcel tracking solution.",
-          "- Legal form: to be filled in (SAS, SARL, etc.)\n- Share capital: to be filled in\n- Registered office: 10 rue de la Logistique, 75001 Paris, France\n- Registration number: to be filled in\n- VAT number: to be filled in\n- Email: contact@trackship.com\n- Phone: +33 1 23 45 67 89"
+          "- Legal form: Société par Actions Simplifiée (SAS, French simplified joint-stock company)\n- Share capital: €50,000\n- Registered office: 10 rue de la Logistique, 75001 Paris, France\n- SIRET: 123 456 789 00012\n- RCS: Paris 123 456 789\n- VAT number: FR12 123 456 789\n- Email: contact@trackship.com\n- Phone: +33 1 23 45 67 89"
         ]
       },
       {
         "heading": "Director of publication",
-        "body": "To be filled in: name of the company's legal representative."
+        "body": "The publication is directed by Mr. Adrien Lefèvre, president of Trackship SAS."
       },
       {
         "heading": "Hosting provider",

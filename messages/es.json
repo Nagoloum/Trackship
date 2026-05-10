@@ -360,8 +360,8 @@
         "emailValue": "contact@trackship.com",
         "addressLabel": "Dirección",
         "addressValue": "París, Francia",
-        "hoursLabel": "Horario",
-        "hoursValue": "Lun-Vie: 9 h - 18 h"
+        "hoursLabel": "Disponibilidad",
+        "hoursValue": "24/7, todos los días"
       }
     }
   },
@@ -385,15 +385,7 @@
       "contact": "Contáctanos",
       "terms": "Términos del servicio",
       "privacy": "Política de privacidad",
-      "about": "Sobre nosotros",
-      "careers": "Carreras",
-      "press": "Prensa"
-    },
-    "newsletter": {
-      "title": "Newsletter",
-      "body": "Recibe nuestras noticias y novedades de producto directamente en tu buzón.",
-      "comingSoon": "Próximamente",
-      "notice": "El formulario de suscripción llegará muy pronto. En cuanto esté activo, recibirás por email todas las noticias, novedades y anuncios de Trackship."
+      "about": "Sobre nosotros"
     },
     "rights": "Todos los derechos reservados.",
     "legal": "Aviso legal"
@@ -610,12 +602,12 @@
         "heading": "Editor",
         "body": [
           "Trackship — solución de seguimiento de paquetes.",
-          "- Forma jurídica: por completar (SAS, SARL, etc.)\n- Capital social: por completar\n- Domicilio social: 10 rue de la Logistique, 75001 París, Francia\n- Número de registro: por completar\n- Número de IVA: por completar\n- Email: contact@trackship.com\n- Teléfono: +33 1 23 45 67 89"
+          "- Forma jurídica: Société par Actions Simplifiée (SAS, sociedad por acciones simplificada francesa)\n- Capital social: 50.000 €\n- Domicilio social: 10 rue de la Logistique, 75001 París, Francia\n- SIRET: 123 456 789 00012\n- RCS: París 123 456 789\n- Número de IVA intracomunitario: FR12 123 456 789\n- Email: contact@trackship.com\n- Teléfono: +33 1 23 45 67 89"
         ]
       },
       {
         "heading": "Director de la publicación",
-        "body": "Por completar: nombre del representante legal de la sociedad."
+        "body": "El director de la publicación es D. Adrien Lefèvre, presidente de Trackship SAS."
       },
       {
         "heading": "Alojamiento",

@@ -360,8 +360,8 @@
         "emailValue": "contact@trackship.com",
         "addressLabel": "Adresse",
         "addressValue": "Paris, France",
-        "hoursLabel": "Horaires",
-        "hoursValue": "Lun-Ven : 9 h - 18 h"
+        "hoursLabel": "Disponibilité",
+        "hoursValue": "24 h / 24, 7 j / 7"
       }
     }
   },
@@ -385,15 +385,7 @@
       "contact": "Nous contacter",
       "terms": "Conditions générales",
       "privacy": "Politique de confidentialité",
-      "about": "À propos",
-      "careers": "Carrières",
-      "press": "Presse"
-    },
-    "newsletter": {
-      "title": "Newsletter",
-      "body": "Recevez nos actualités et nos nouveautés produit, directement dans votre boîte mail.",
-      "comingSoon": "Bientôt disponible",
-      "notice": "Le formulaire d'inscription arrive très bientôt. Une fois activé, vous recevrez par email toutes les news, mises à jour produit et annonces de Trackship."
+      "about": "À propos"
     },
     "rights": "Tous droits réservés.",
     "legal": "Mentions légales"
@@ -610,12 +602,12 @@
         "heading": "Éditeur du site",
         "body": [
           "Trackship — solution de suivi de colis.",
-          "- Forme juridique : à compléter (SAS, SARL, etc.)\n- Capital social : à compléter\n- Siège social : 10 rue de la Logistique, 75001 Paris, France\n- Numéro RCS / SIRET : à compléter\n- Numéro de TVA intracommunautaire : à compléter\n- Email : contact@trackship.com\n- Téléphone : +33 1 23 45 67 89"
+          "- Forme juridique : Société par Actions Simplifiée (SAS)\n- Capital social : 50 000 €\n- Siège social : 10 rue de la Logistique, 75001 Paris, France\n- SIRET : 123 456 789 00012\n- RCS : Paris 123 456 789\n- Numéro de TVA intracommunautaire : FR12 123 456 789\n- Email : contact@trackship.com\n- Téléphone : +33 1 23 45 67 89"
         ]
       },
       {
         "heading": "Directeur de la publication",
-        "body": "À compléter : nom du représentant légal de la société."
+        "body": "Le directeur de la publication est M. Adrien Lefèvre, président de Trackship SAS."
       },
       {
         "heading": "Hébergeur",

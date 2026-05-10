@@ -360,8 +360,8 @@
         "emailValue": "contact@trackship.com",
         "addressLabel": "Adresse",
         "addressValue": "Paris, Frankreich",
-        "hoursLabel": "Öffnungszeiten",
-        "hoursValue": "Mo-Fr: 9 bis 18 Uhr"
+        "hoursLabel": "Verfügbarkeit",
+        "hoursValue": "24/7, an jedem Tag"
       }
     }
   },
@@ -385,15 +385,7 @@
       "contact": "Kontakt aufnehmen",
       "terms": "Allgemeine Geschäftsbedingungen",
       "privacy": "Datenschutzerklärung",
-      "about": "Über uns",
-      "careers": "Karriere",
-      "press": "Presse"
-    },
-    "newsletter": {
-      "title": "Newsletter",
-      "body": "Erhalten Sie unsere Neuigkeiten und Produkt-Updates direkt in Ihr Postfach.",
-      "comingSoon": "Demnächst verfügbar",
-      "notice": "Das Anmeldeformular ist in Vorbereitung. Sobald es aktiv ist, erhalten Sie alle News, Produkt-Updates und Ankündigungen von Trackship per E-Mail."
+      "about": "Über uns"
     },
     "rights": "Alle Rechte vorbehalten.",
     "legal": "Impressum"
@@ -610,12 +602,12 @@
         "heading": "Herausgeber",
         "body": [
           "Trackship — Lösung zur Sendungsverfolgung.",
-          "- Rechtsform: zu ergänzen (SAS, SARL, GmbH, etc.)\n- Stammkapital: zu ergänzen\n- Sitz: 10 rue de la Logistique, 75001 Paris, Frankreich\n- Handelsregisternummer: zu ergänzen\n- USt-IdNr.: zu ergänzen\n- E-Mail: contact@trackship.com\n- Telefon: +33 1 23 45 67 89"
+          "- Rechtsform: Société par Actions Simplifiée (SAS, französische vereinfachte Aktiengesellschaft)\n- Stammkapital: 50.000 €\n- Sitz: 10 rue de la Logistique, 75001 Paris, Frankreich\n- SIRET: 123 456 789 00012\n- Handelsregister: Paris 123 456 789\n- USt-IdNr.: FR12 123 456 789\n- E-Mail: contact@trackship.com\n- Telefon: +33 1 23 45 67 89"
         ]
       },
       {
         "heading": "Verantwortlich für den Inhalt",
-        "body": "Zu ergänzen: Name des gesetzlichen Vertreters."
+        "body": "Verantwortlich für den Inhalt: Herr Adrien Lefèvre, Präsident der Trackship SAS."
       },
       {
         "heading": "Hosting-Anbieter",
