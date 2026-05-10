@@ -79,6 +79,24 @@
     "failed": "Delivery failed",
     "returned": "Returned"
   },
+  "productCategory": {
+    "_placeholder": "Choose a category…",
+    "electronics": "Electronics / device",
+    "clothing": "Clothing & accessories",
+    "books": "Books & media",
+    "documents": "Documents",
+    "food": "Food",
+    "cosmetics": "Cosmetics & beauty",
+    "toys": "Toys & games",
+    "furniture": "Furniture",
+    "home": "Home goods",
+    "sports": "Sports & leisure",
+    "health": "Health & medical",
+    "tools": "Tools",
+    "jewelry": "Jewellery & watches",
+    "spare_parts": "Spare parts",
+    "other": "Other"
+  },
   "landing": {
     "hero": {
       "ariaLabel": "Main carousel",
@@ -452,9 +470,14 @@
       "form": {
         "sections": {
           "recipient": "Recipient",
+          "product": "Parcel contents",
           "shipment": "Shipment",
           "status": "Status & notes"
         },
+        "productCategory": "Product category",
+        "productDescription": "Description",
+        "productDescriptionPlaceholder": "e.g. iPhone 15 Pro 256 GB blue",
+        "quantity": "Quantity",
         "recipientName": "Full name",
         "recipientEmail": "Email",
         "recipientPhone": "Phone",
@@ -484,6 +507,7 @@
           "invalid_origin_country": "Invalid origin country code (2 letters).",
           "invalid_destination_country": "Invalid destination country code (2 letters).",
           "invalid_status": "Invalid status.",
+          "invalid_category": "Invalid product category.",
           "code_collision": "Failed to generate a unique tracking number. Try again.",
           "missing_id": "Missing ID.",
           "server": "Server error. Please try again in a moment."

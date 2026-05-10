@@ -21,6 +21,9 @@ export type TrackingOrder = {
   destination_country: string;
   weight_kg: number | null;
   declared_value: number | null;
+  product_category: string | null;
+  product_description: string | null;
+  quantity: number | null;
   current_status: string;
   created_at: string;
   updated_at: string;
@@ -54,6 +57,9 @@ export async function lookupTracking(
         destination_country,
         weight_kg,
         declared_value,
+        product_category,
+        product_description,
+        quantity,
         current_status,
         created_at,
         updated_at,
@@ -85,6 +91,9 @@ export async function lookupTracking(
     destination_country: order.destination_country,
     weight_kg: order.weight_kg,
     declared_value: order.declared_value,
+    product_category: order.product_category,
+    product_description: order.product_description,
+    quantity: order.quantity,
     current_status: order.current_status,
     created_at: order.created_at,
     updated_at: order.updated_at,

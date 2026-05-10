@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Link } from "@/i18n/navigation";
+import { PRODUCT_CATEGORIES } from "@/lib/product-categories";
 import { TRACKING_STATUSES, type TrackingStatus } from "@/lib/statuses";
 import { cn } from "@/lib/utils";
 
@@ -31,6 +32,9 @@ export type OrderFormDefaults = {
   destination_country?: string;
   weight_kg?: number | null;
   declared_value?: number | null;
+  product_category?: string | null;
+  product_description?: string | null;
+  quantity?: number | null;
   current_status?: string;
   notes?: string | null;
 };
@@ -44,6 +48,7 @@ export function OrderForm({
 }) {
   const t = useTranslations("dashboard.orders.form");
   const tStatus = useTranslations("status");
+  const tCategory = useTranslations("productCategory");
   const locale = useLocale();
   const action = mode === "create" ? createOrderAction : updateOrderAction;
   const [state, formAction, pending] = useActionState(action, INITIAL_STATE);
@@ -98,6 +103,44 @@ export function OrderForm({
             placeholder={t("recipientAddressPlaceholder")}
           />
         </div>
+      </Section>
+
+      <Section title={t("sections.product")}>
+        <div className="space-y-2 sm:col-span-2">
+          <Label htmlFor="product_category">{t("productCategory")}</Label>
+          <select
+            id="product_category"
+            name="product_category"
+            defaultValue={defaults.product_category ?? ""}
+            className="border-input bg-background hover:bg-muted/50 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 dark:bg-input/30 dark:hover:bg-input/50 h-10 w-full rounded-lg border px-3 text-sm transition-colors outline-none"
+          >
+            <option value="">{tCategory("_placeholder")}</option>
+            {PRODUCT_CATEGORIES.map((c) => (
+              <option key={c} value={c}>
+                {tCategory(c)}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="space-y-2 sm:col-span-2">
+          <Label htmlFor="product_description">{t("productDescription")}</Label>
+          <Input
+            id="product_description"
+            name="product_description"
+            defaultValue={defaults.product_description ?? ""}
+            placeholder={t("productDescriptionPlaceholder")}
+          />
+        </div>
+        <Field
+          id="quantity"
+          name="quantity"
+          type="number"
+          step="1"
+          min="1"
+          label={t("quantity")}
+          defaultValue={defaults.quantity ?? 1}
+          placeholder="1"
+        />
       </Section>
 
       <Section title={t("sections.shipment")}>

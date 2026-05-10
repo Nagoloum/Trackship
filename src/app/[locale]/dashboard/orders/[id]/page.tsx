@@ -35,6 +35,8 @@ export default async function OrderDetailPage({
   const t = await getTranslations("dashboard.orders.detail");
   const td = await getTranslations("track.details");
   const tc = await getTranslations("common");
+  const tForm = await getTranslations("dashboard.orders.form");
+  const tCategory = await getTranslations("productCategory");
   const format = await getFormatter();
 
   const supabase = createAdminClient();
@@ -54,6 +56,9 @@ export default async function OrderDetailPage({
         destination_country,
         weight_kg,
         declared_value,
+        product_category,
+        product_description,
+        quantity,
         current_status,
         notes,
         created_at,
@@ -173,6 +178,31 @@ export default async function OrderDetailPage({
                 style: "currency",
                 currency: "EUR",
               })}
+            </DetailRow>
+          )}
+          {order.product_category && (
+            <DetailRow
+              icon={<Package className="h-4 w-4" />}
+              label={tForm("productCategory")}
+            >
+              {tCategory(order.product_category)}
+            </DetailRow>
+          )}
+          {order.quantity != null && (
+            <DetailRow
+              icon={<Package className="h-4 w-4" />}
+              label={tForm("quantity")}
+            >
+              {order.quantity}
+            </DetailRow>
+          )}
+          {order.product_description && (
+            <DetailRow
+              icon={<Edit3 className="h-4 w-4" />}
+              label={tForm("productDescription")}
+              full
+            >
+              {order.product_description}
             </DetailRow>
           )}
           <DetailRow

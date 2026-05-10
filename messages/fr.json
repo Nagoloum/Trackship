@@ -79,6 +79,24 @@
     "failed": "Échec de livraison",
     "returned": "Retournée"
   },
+  "productCategory": {
+    "_placeholder": "Choisir une catégorie…",
+    "electronics": "Électronique / appareil",
+    "clothing": "Vêtements & accessoires",
+    "books": "Livres & médias",
+    "documents": "Documents",
+    "food": "Alimentaire",
+    "cosmetics": "Cosmétiques & beauté",
+    "toys": "Jouets & jeux",
+    "furniture": "Mobilier",
+    "home": "Articles maison",
+    "sports": "Sport & loisirs",
+    "health": "Santé & médical",
+    "tools": "Outillage",
+    "jewelry": "Bijoux & montres",
+    "spare_parts": "Pièces détachées",
+    "other": "Autre"
+  },
   "landing": {
     "hero": {
       "ariaLabel": "Carrousel principal",
@@ -452,9 +470,14 @@
       "form": {
         "sections": {
           "recipient": "Destinataire",
+          "product": "Contenu du colis",
           "shipment": "Expédition",
           "status": "Statut & notes"
         },
+        "productCategory": "Catégorie du produit",
+        "productDescription": "Description",
+        "productDescriptionPlaceholder": "Ex : iPhone 15 Pro 256 Go bleu",
+        "quantity": "Quantité",
         "recipientName": "Nom complet",
         "recipientEmail": "Email",
         "recipientPhone": "Téléphone",
@@ -484,6 +507,7 @@
           "invalid_origin_country": "Code pays d'origine invalide (2 lettres).",
           "invalid_destination_country": "Code pays de destination invalide (2 lettres).",
           "invalid_status": "Statut invalide.",
+          "invalid_category": "Catégorie de produit invalide.",
           "code_collision": "Impossible de générer un numéro de suivi unique. Réessayez.",
           "missing_id": "Identifiant manquant.",
           "server": "Erreur serveur. Réessayez dans un instant."

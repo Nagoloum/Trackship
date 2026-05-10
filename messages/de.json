@@ -79,6 +79,24 @@
     "failed": "Zustellung fehlgeschlagen",
     "returned": "Retourniert"
   },
+  "productCategory": {
+    "_placeholder": "Kategorie wählen…",
+    "electronics": "Elektronik / Gerät",
+    "clothing": "Bekleidung & Accessoires",
+    "books": "Bücher & Medien",
+    "documents": "Dokumente",
+    "food": "Lebensmittel",
+    "cosmetics": "Kosmetik & Schönheit",
+    "toys": "Spielzeug & Spiele",
+    "furniture": "Möbel",
+    "home": "Haushaltswaren",
+    "sports": "Sport & Freizeit",
+    "health": "Gesundheit & Medizin",
+    "tools": "Werkzeuge",
+    "jewelry": "Schmuck & Uhren",
+    "spare_parts": "Ersatzteile",
+    "other": "Sonstiges"
+  },
   "landing": {
     "hero": {
       "ariaLabel": "Hauptkarussell",
@@ -452,9 +470,14 @@
       "form": {
         "sections": {
           "recipient": "Empfänger",
+          "product": "Paketinhalt",
           "shipment": "Versand",
           "status": "Status & Notizen"
         },
+        "productCategory": "Produktkategorie",
+        "productDescription": "Beschreibung",
+        "productDescriptionPlaceholder": "z. B. iPhone 15 Pro 256 GB blau",
+        "quantity": "Menge",
         "recipientName": "Vollständiger Name",
         "recipientEmail": "E-Mail",
         "recipientPhone": "Telefon",
@@ -484,6 +507,7 @@
           "invalid_origin_country": "Ungültiger Absendeland-Code (2 Buchstaben).",
           "invalid_destination_country": "Ungültiger Zielland-Code (2 Buchstaben).",
           "invalid_status": "Ungültiger Status.",
+          "invalid_category": "Ungültige Produktkategorie.",
           "code_collision": "Es konnte keine eindeutige Sendungsnummer erzeugt werden. Bitte erneut versuchen.",
           "missing_id": "Kennung fehlt.",
           "server": "Serverfehler. Bitte in Kürze erneut versuchen."

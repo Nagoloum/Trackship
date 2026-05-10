@@ -16,24 +16,32 @@ export function TrackingTimeline({ events }: { events: TrackingEvent[] }) {
   }
 
   return (
-    <ol className="relative space-y-6 border-l border-border/60 pl-6">
+    // The vertical rail is an absolute element so the dots can sit perfectly
+    // on it; each list item has a left padding (pl-10) leaving 40px for
+    // the dot + breathing room. The rail is at left-[14px] which centres on
+    // the 16px-wide dots positioned at left-[6px].
+    <ol className="relative space-y-6 pl-10">
+      <span
+        aria-hidden
+        className="bg-border/70 absolute top-2 bottom-2 left-3.5 w-px"
+      />
       {events.map((event, idx) => {
         const isLatest = idx === 0;
         return (
           <li key={event.id} className="relative">
             <span
-              className={[
-                "absolute -left-[33px] top-1 flex h-5 w-5 items-center justify-center rounded-full border-2",
-                isLatest
-                  ? "border-primary bg-background"
-                  : "border-border bg-background",
-              ].join(" ")}
               aria-hidden
+              className={[
+                "bg-background absolute top-1 left-1.5 flex h-4 w-4 items-center justify-center rounded-full border-2",
+                isLatest ? "border-primary" : "border-border",
+              ].join(" ")}
             >
               <Circle
                 className={[
-                  "h-2 w-2",
-                  isLatest ? "fill-primary text-primary" : "fill-muted-foreground text-muted-foreground",
+                  "h-1.5 w-1.5",
+                  isLatest
+                    ? "fill-primary text-primary"
+                    : "fill-muted-foreground text-muted-foreground",
                 ].join(" ")}
               />
             </span>

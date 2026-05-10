@@ -21,7 +21,7 @@ export default async function EditOrderPage({
   const { data: order, error } = await supabase
     .from("orders")
     .select(
-      "id, recipient_name, recipient_email, recipient_phone, recipient_address, origin, origin_country, destination, destination_country, weight_kg, declared_value, current_status, notes, code"
+      "id, recipient_name, recipient_email, recipient_phone, recipient_address, origin, origin_country, destination, destination_country, weight_kg, declared_value, product_category, product_description, quantity, current_status, notes, code"
     )
     .eq("id", id)
     .maybeSingle();
@@ -62,6 +62,9 @@ export default async function EditOrderPage({
           destination_country: order.destination_country,
           weight_kg: order.weight_kg,
           declared_value: order.declared_value,
+          product_category: order.product_category,
+          product_description: order.product_description,
+          quantity: order.quantity,
           current_status: order.current_status,
           notes: order.notes,
         }}

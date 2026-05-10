@@ -174,3 +174,20 @@ do $$ begin
   alter table public.invoices alter column total drop not null;
 exception when others then null;
 end $$;
+
+-- Product info on orders: category (canonical key), free-text description and
+-- quantity. All optional so existing rows stay valid.
+do $$ begin
+  alter table public.orders add column product_category text;
+exception when duplicate_column then null;
+end $$;
+
+do $$ begin
+  alter table public.orders add column product_description text;
+exception when duplicate_column then null;
+end $$;
+
+do $$ begin
+  alter table public.orders add column quantity int default 1;
+exception when duplicate_column then null;
+end $$;
