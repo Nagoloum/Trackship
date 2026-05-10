@@ -38,8 +38,15 @@
     "de": "Deutsch"
   },
   "track": {
+    "eyebrow": "Sendungsverfolgung",
     "title": "Paket verfolgen",
-    "subtitle": "Geben Sie die Sendungsnummer ein, die Ihnen mitgeteilt wurde.",
+    "subtitle": "Geben Sie die Sendungsnummer ein, die Ihnen mitgeteilt wurde, um Status, Verlauf und aktuellen Standort Ihres Pakets in Echtzeit zu sehen.",
+    "formatHelp": "Format: TS + 9 Ziffern + 2-stelliger Ländercode",
+    "exampleLabel": "Beispiel",
+    "exampleValue": "TS947261583FR",
+    "statusesEyebrow": "Was werde ich sehen?",
+    "statusesTitle": "Mögliche Status",
+    "statusesSubtitle": "Jedes Paket durchläuft einige dieser Schritte. Sie sehen den aktuellen Schritt mit Datum und Ort.",
     "invalidFormat": "Die Sendungsnummer muss dem Format TS + 9 Ziffern + 2 Buchstaben entsprechen (z. B. TS947261583FR).",
     "notFoundTitle": "Keine Sendung gefunden",
     "notFoundBody": "Die Nummer {code} entspricht keiner Sendung. Bitte überprüfen Sie die Eingabe oder wenden Sie sich an den Absender.",

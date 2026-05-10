@@ -38,8 +38,15 @@
     "de": "Allemand"
   },
   "track": {
+    "eyebrow": "Suivi de colis",
     "title": "Suivre un colis",
-    "subtitle": "Saisissez le numéro de suivi qui vous a été communiqué.",
+    "subtitle": "Saisissez le numéro de suivi qui vous a été communiqué pour voir le statut, l'historique et le lieu de votre colis en temps réel.",
+    "formatHelp": "Format : TS + 9 chiffres + code pays sur 2 lettres",
+    "exampleLabel": "Exemple",
+    "exampleValue": "TS947261583FR",
+    "statusesEyebrow": "Que vais-je voir ?",
+    "statusesTitle": "Les statuts possibles",
+    "statusesSubtitle": "Chaque colis traverse une partie de ces étapes ; vous voyez l'étape courante, sa date et son lieu.",
     "invalidFormat": "Le numéro de suivi doit être au format TS + 9 chiffres + 2 lettres (ex : TS947261583FR).",
     "notFoundTitle": "Aucune commande trouvée",
     "notFoundBody": "Le numéro {code} ne correspond à aucune commande. Vérifiez la saisie ou contactez l'expéditeur.",

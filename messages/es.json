@@ -38,8 +38,15 @@
     "de": "Alemán"
   },
   "track": {
+    "eyebrow": "Seguimiento de paquetes",
     "title": "Rastrear un paquete",
-    "subtitle": "Introduce el número de seguimiento que te facilitaron.",
+    "subtitle": "Introduce el número de seguimiento que te facilitaron para ver el estado, el historial y la ubicación de tu paquete en tiempo real.",
+    "formatHelp": "Formato: TS + 9 dígitos + código de país de 2 letras",
+    "exampleLabel": "Ejemplo",
+    "exampleValue": "TS947261583FR",
+    "statusesEyebrow": "¿Qué voy a ver?",
+    "statusesTitle": "Estados posibles",
+    "statusesSubtitle": "Cada paquete pasa por algunas de estas etapas. Verás la actual, su fecha y su lugar.",
     "invalidFormat": "El número de seguimiento debe tener el formato TS + 9 dígitos + 2 letras (ej.: TS947261583FR).",
     "notFoundTitle": "No se encontró ningún pedido",
     "notFoundBody": "El número {code} no corresponde a ningún pedido. Verifica el dato o contacta con el remitente.",

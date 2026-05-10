@@ -38,8 +38,15 @@
     "de": "German"
   },
   "track": {
+    "eyebrow": "Parcel tracking",
     "title": "Track a parcel",
-    "subtitle": "Enter the tracking number you were given.",
+    "subtitle": "Enter the tracking number you were given to see the status, history and current location of your parcel in real time.",
+    "formatHelp": "Format: TS + 9 digits + 2-letter country code",
+    "exampleLabel": "Example",
+    "exampleValue": "TS947261583FR",
+    "statusesEyebrow": "What will I see?",
+    "statusesTitle": "Possible statuses",
+    "statusesSubtitle": "Every parcel travels through some of these steps. You'll see the current one, its date and its location.",
     "invalidFormat": "The tracking number must follow the format TS + 9 digits + 2 letters (e.g. TS947261583FR).",
     "notFoundTitle": "No order found",
     "notFoundBody": "The number {code} does not match any order. Please double-check it or contact the sender.",
