@@ -12,6 +12,7 @@ import { StatsStrip } from "@/components/landing/stats-strip";
 import { TestimonialsSection } from "@/components/landing/testimonials-section";
 import { WhyUsSection } from "@/components/landing/why-us-section";
 import { Reveal } from "@/components/reveal";
+import { ScrollOnMount } from "@/components/scroll-on-mount";
 import { SiteHeader } from "@/components/site-header";
 
 export default async function HomePage({
@@ -25,6 +26,7 @@ export default async function HomePage({
   return (
     <>
       <SiteHeader />
+      <ScrollOnMount />
       <main className="flex-1">
         <HeroCarousel />
         <Reveal variant="fade">

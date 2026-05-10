@@ -1,25 +1,32 @@
 "use client";
 
-import { Menu, X } from "lucide-react";
+import { Menu, Package, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { Logo } from "@/components/logo";
+import { NavLink } from "@/components/nav-link";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
-  { key: "services", href: "/#services" },
-  { key: "about", href: "/#why-us" },
-  { key: "faq", href: "/#faq" },
-  { key: "contact", href: "/#contact" },
+  { key: "services", section: "services" },
+  { key: "about", section: "why-us" },
+  { key: "faq", section: "faq" },
+  { key: "contact", section: "contact" },
 ] as const;
+
+const NAV_LINK_CLASSES =
+  "hover:text-foreground hover:bg-muted text-muted-foreground rounded-md px-3 py-1.5 text-sm font-medium transition-colors";
+const NAV_LINK_MOBILE_CLASSES =
+  "hover:bg-muted rounded-md px-3 py-2 text-sm font-medium block";
 
 export function SiteHeader() {
   const t = useTranslations("nav");
+  const tc = useTranslations("common");
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -29,14 +36,6 @@ export function SiteHeader() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  // Close mobile menu when navigating via anchor.
-  useEffect(() => {
-    if (!open) return;
-    const close = () => setOpen(false);
-    window.addEventListener("hashchange", close);
-    return () => window.removeEventListener("hashchange", close);
-  }, [open]);
 
   return (
     <header
@@ -58,17 +57,28 @@ export function SiteHeader() {
           className="hidden items-center gap-1 md:flex"
         >
           {NAV_ITEMS.map((item) => (
-            <a
+            <NavLink
               key={item.key}
-              href={item.href}
-              className="hover:text-foreground hover:bg-muted text-muted-foreground rounded-md px-3 py-1.5 text-sm font-medium transition-colors"
+              section={item.section}
+              className={NAV_LINK_CLASSES}
             >
               {t(item.key)}
-            </a>
+            </NavLink>
           ))}
         </nav>
 
         <div className="flex items-center gap-1">
+          <Link
+            href="/track"
+            className={cn(
+              buttonVariants({ size: "sm" }),
+              "hidden gap-2 md:inline-flex"
+            )}
+          >
+            <Package className="h-4 w-4" />
+            {tc("trackButton")}
+          </Link>
+
           <div className="hidden items-center gap-1 md:flex">
             <LanguageSwitcher />
             <ThemeToggle />
@@ -95,7 +105,7 @@ export function SiteHeader() {
       <div
         className={cn(
           "border-border/60 bg-background overflow-hidden border-t transition-[max-height] duration-300 md:hidden",
-          open ? "max-h-96" : "max-h-0"
+          open ? "max-h-112" : "max-h-0"
         )}
       >
         <nav
@@ -103,15 +113,26 @@ export function SiteHeader() {
           className="container mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3"
         >
           {NAV_ITEMS.map((item) => (
-            <a
+            <NavLink
               key={item.key}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="hover:bg-muted rounded-md px-3 py-2 text-sm font-medium"
+              section={item.section}
+              className={NAV_LINK_MOBILE_CLASSES}
+              onNavigate={() => setOpen(false)}
             >
               {t(item.key)}
-            </a>
+            </NavLink>
           ))}
+          <Link
+            href="/track"
+            onClick={() => setOpen(false)}
+            className={cn(
+              buttonVariants({ size: "default" }),
+              "mt-2 w-full justify-center gap-2"
+            )}
+          >
+            <Package className="h-4 w-4" />
+            {tc("trackButton")}
+          </Link>
           <div className="mt-2 flex items-center justify-between border-t pt-3">
             <LanguageSwitcher />
           </div>

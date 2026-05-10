@@ -27,12 +27,12 @@ const SUPPORT_LINKS: FooterLink[] = [
   { key: "track", href: "/track" },
   { key: "faq", href: "#faq" },
   { key: "contact", href: "#contact" },
-  { key: "terms", href: "#" },
-  { key: "privacy", href: "#" },
+  { key: "terms", href: "/terms" },
+  { key: "privacy", href: "/privacy" },
 ];
 
 const COMPANY_LINKS: FooterLink[] = [
-  { key: "about", href: "#" },
+  { key: "about", href: "#why-us" },
   { key: "careers", href: "#" },
   { key: "press", href: "#" },
 ];
@@ -136,7 +136,12 @@ export function SiteFooter() {
           <p className="text-muted-foreground text-xs">
             © {year} Trackship. {t("rights")}
           </p>
-          <p className="text-muted-foreground text-xs">{t("legal")}</p>
+          <Link
+            href="/legal"
+            className="text-muted-foreground hover:text-foreground text-xs transition-colors"
+          >
+            {t("legal")}
+          </Link>
         </div>
       </div>
     </footer>
@@ -157,7 +162,7 @@ function FooterAnchor({ href, label }: { href: string; label: string }) {
   }
   return (
     <Link
-      href={href as "/" | "/track"}
+      href={href as "/" | "/track" | "/terms" | "/privacy" | "/legal"}
       className="text-muted-foreground hover:text-foreground transition-colors"
     >
       {label}
