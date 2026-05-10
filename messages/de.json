@@ -354,12 +354,14 @@
     "nav": {
       "home": "Übersicht",
       "orders": "Bestellungen",
-      "invoices": "Rechnungen",
+      "history": "Verlauf",
       "messages": "Nachrichten"
     },
     "topbar": {
       "signedInAs": "Angemeldet als",
-      "logout": "Abmelden"
+      "logout": "Abmelden",
+      "openMenu": "Menü öffnen",
+      "menu": "Menü"
     },
     "home": {
       "title": "Willkommen in Ihrem Dashboard",
@@ -367,7 +369,7 @@
       "stats": {
         "orders": "Bestellungen insgesamt",
         "inTransit": "Unterwegs",
-        "invoices": "Ausgestellte Rechnungen",
+        "invoices": "Ausgestellte Belege",
         "unreadMessages": "Ungelesene Nachrichten"
       },
       "nextSteps": {
@@ -375,11 +377,301 @@
         "subtitle": "Die Verwaltungsmodule erscheinen in den nächsten Updates.",
         "items": {
           "orders": "Bestellungen anlegen und bearbeiten mit automatischer Sendungsnummer",
-          "invoices": "Mehrsprachiges Rechnungsmodul mit PDF-Download",
+          "invoices": "Mehrsprachige Sendungsbelege mit PDF- und PNG-Download",
           "messages": "Kontaktnachrichten aus dem öffentlichen Formular"
         }
       }
+    },
+    "orders": {
+      "title": "Bestellungen",
+      "list": {
+        "subtitle": "Alle Sendungen, sortiert von neu nach alt.",
+        "create": "Neue Bestellung",
+        "empty": "Noch keine Bestellungen. Legen Sie Ihre erste Sendung an.",
+        "loadError": "Bestellungen konnten nicht geladen werden.",
+        "columns": {
+          "code": "Nummer",
+          "recipient": "Empfänger",
+          "route": "Route",
+          "status": "Status",
+          "created": "Erstellt",
+          "actions": "Aktionen"
+        },
+        "open": "Öffnen"
+      },
+      "new": {
+        "title": "Bestellung erstellen",
+        "subtitle": "Die Sendungsnummer wird automatisch aus dem Bestimmungsland generiert."
+      },
+      "edit": {
+        "title": "Bestellung bearbeiten"
+      },
+      "detail": {
+        "info": "Informationen",
+        "edit": "Bearbeiten",
+        "address": "Adresse",
+        "notes": "Notizen",
+        "latest": "Aktuell"
+      },
+      "form": {
+        "sections": {
+          "recipient": "Empfänger",
+          "shipment": "Versand",
+          "status": "Status & Notizen"
+        },
+        "recipientName": "Vollständiger Name",
+        "recipientEmail": "E-Mail",
+        "recipientPhone": "Telefon",
+        "recipientAddress": "Lieferadresse",
+        "recipientAddressPlaceholder": "Hausnummer, Straße, Stadt, PLZ…",
+        "origin": "Absendeort",
+        "originPlaceholder": "Casablanca",
+        "originCountry": "Absendeland (ISO 2)",
+        "destination": "Zielort",
+        "destinationPlaceholder": "Paris",
+        "destinationCountry": "Zielland (ISO 2)",
+        "countryHelp": "ISO-Code mit 2 Buchstaben (z. B. FR, DE, MA, US)",
+        "destinationCountryHelp": "Bestimmt die letzten 2 Buchstaben der Sendungsnummer",
+        "weight": "Gewicht (kg)",
+        "declaredValue": "Deklarierter Wert (€)",
+        "currentStatus": "Aktueller Status",
+        "notes": "Interne Notizen",
+        "notesPlaceholder": "Nur für Administratoren sichtbar.",
+        "create": "Bestellung anlegen",
+        "save": "Speichern",
+        "saving": "Wird gespeichert…",
+        "cancel": "Abbrechen",
+        "errors": {
+          "missing_recipient_name": "Empfängername ist erforderlich.",
+          "missing_origin": "Absendeort ist erforderlich.",
+          "missing_destination": "Zielort ist erforderlich.",
+          "invalid_origin_country": "Ungültiger Absendeland-Code (2 Buchstaben).",
+          "invalid_destination_country": "Ungültiger Zielland-Code (2 Buchstaben).",
+          "invalid_status": "Ungültiger Status.",
+          "code_collision": "Es konnte keine eindeutige Sendungsnummer erzeugt werden. Bitte erneut versuchen.",
+          "missing_id": "Kennung fehlt.",
+          "server": "Serverfehler. Bitte in Kürze erneut versuchen."
+        }
+      },
+      "events": {
+        "addTitle": "Sendungsereignis hinzufügen",
+        "status": "Status",
+        "date": "Datum / Uhrzeit",
+        "location": "Ort",
+        "locationPlaceholder": "Sortierzentrum Lyon",
+        "description": "Beschreibung",
+        "descriptionPlaceholder": "Auf der öffentlichen Verfolgungsseite sichtbare Details.",
+        "setAsCurrent": "Als aktuellen Status festlegen",
+        "add": "Ereignis hinzufügen",
+        "adding": "Wird hinzugefügt…",
+        "error": "Ereignis konnte nicht hinzugefügt werden."
+      }
+    },
+    "messages": {
+      "title": "Nachrichten",
+      "subtitle": "Empfangen über das öffentliche Kontaktformular.",
+      "empty": "Noch keine Nachrichten.",
+      "unread": "Ungelesen",
+      "noSubject": "(kein Betreff)",
+      "body": "Nachricht",
+      "markRead": "Als gelesen markieren",
+      "markUnread": "Als ungelesen markieren",
+      "sentInLocale": "Gesendet auf {locale}"
+    },
+    "invoices": {
+      "title": "Sendungsbelege",
+      "subtitleForOrder": "Druckfertige Etiketten mit QR-Code und Barcode.",
+      "emptyForOrder": "Für diese Bestellung wurden noch keine Belege ausgestellt.",
+      "generate": "Beleg ausstellen",
+      "generating": "Wird ausgestellt…",
+      "language": "Sprache"
+    },
+    "history": {
+      "title": "Belegverlauf",
+      "subtitle": "Alle ausgestellten Sendungsbelege, neueste zuerst.",
+      "empty": "Bisher wurden keine Belege ausgestellt.",
+      "viewOrder": "Bestellung anzeigen",
+      "downloads": "Downloads",
+      "columns": {
+        "number": "Nummer",
+        "order": "Bestellung",
+        "recipient": "Empfänger",
+        "destination": "Zielort",
+        "language": "Sprache",
+        "issued": "Ausgestellt"
+      }
+    },
+    "delete": {
+      "common": {
+        "confirm": "Löschen",
+        "cancel": "Abbrechen"
+      },
+      "order": {
+        "trigger": "Löschen",
+        "title": "Diese Bestellung löschen?",
+        "description": "Die Aktion ist endgültig. Alle zugehörigen Ereignisse und Rechnungen werden ebenfalls entfernt."
+      },
+      "event": {
+        "trigger": "Löschen",
+        "title": "Dieses Ereignis löschen?",
+        "description": "Es verschwindet aus der öffentlichen Zeitleiste."
+      },
+      "message": {
+        "trigger": "Löschen",
+        "title": "Diese Nachricht löschen?",
+        "description": "Die Aktion ist endgültig."
+      },
+      "invoice": {
+        "trigger": "Löschen",
+        "title": "Diesen Beleg löschen?",
+        "description": "Die Aktion ist endgültig. Die Belegnummer wird nicht wiederverwendet."
+      }
     }
+  },
+  "legalNotice": {
+    "title": "Impressum",
+    "intro": "Angaben zum Herausgeber der Trackship-Website und zu deren Hosting.",
+    "updated": "Letzte Aktualisierung: 10. Mai 2026",
+    "sections": [
+      {
+        "heading": "Herausgeber",
+        "body": [
+          "Trackship — Lösung zur Sendungsverfolgung.",
+          "- Rechtsform: zu ergänzen (SAS, SARL, GmbH, etc.)\n- Stammkapital: zu ergänzen\n- Sitz: 10 rue de la Logistique, 75001 Paris, Frankreich\n- Handelsregisternummer: zu ergänzen\n- USt-IdNr.: zu ergänzen\n- E-Mail: contact@trackship.com\n- Telefon: +33 1 23 45 67 89"
+        ]
+      },
+      {
+        "heading": "Verantwortlich für den Inhalt",
+        "body": "Zu ergänzen: Name des gesetzlichen Vertreters."
+      },
+      {
+        "heading": "Hosting-Anbieter",
+        "body": [
+          "Die Website wird von Vercel Inc. gehostet.",
+          "- Adresse: 340 S Lemon Ave #4133, Walnut, CA 91789, USA\n- Website: https://vercel.com"
+        ]
+      },
+      {
+        "heading": "Geistiges Eigentum",
+        "body": "Alle Elemente der Website (Texte, Bilder, Logos, Code, Marken) sind urheberrechtlich und markenrechtlich geschützt. Jede Vervielfältigung, Darstellung oder Nutzung ohne vorherige schriftliche Genehmigung von Trackship ist untersagt."
+      },
+      {
+        "heading": "Credits",
+        "body": "Hauptschrift: Inter (Google Fonts). Monospace-Schrift: JetBrains Mono. Symbole: Lucide. UI-Komponenten: shadcn/ui."
+      },
+      {
+        "heading": "Kontakt",
+        "body": "Für Fragen zu diesem Impressum: contact@trackship.com."
+      }
+    ]
+  },
+  "terms": {
+    "title": "Allgemeine Nutzungsbedingungen",
+    "intro": "Diese Bedingungen regeln die Nutzung des Trackship-Dienstes durch Besucher und Administratoren.",
+    "updated": "Letzte Aktualisierung: 10. Mai 2026",
+    "sections": [
+      {
+        "heading": "1. Gegenstand",
+        "body": "Trackship ist ein Online-Dienst zur Sendungsverfolgung und Bestellungsverwaltung durch einen authentifizierten Administrator. Diese Bedingungen legen die Nutzungsregeln für jede Person fest, die die öffentliche Verfolgungsseite konsultiert oder das Verwaltungs-Dashboard nutzt."
+      },
+      {
+        "heading": "2. Annahme",
+        "body": "Die Nutzung des Dienstes setzt die vollumfängliche Annahme dieser Bedingungen voraus. Wer die Bedingungen ganz oder teilweise nicht akzeptiert, muss von der Nutzung absehen."
+      },
+      {
+        "heading": "3. Beschreibung des Dienstes",
+        "body": [
+          "Trackship stellt zur Verfügung:",
+          "- Eine öffentliche Verfolgungsseite ohne Registrierung, die den Status einer Bestellung anhand der Sendungsnummer abrufbar macht.\n- Ein Dashboard für autorisierte Administratoren zur Erstellung, Bearbeitung und Verfolgung von Bestellungen sowie zur Erstellung von Rechnungen."
+        ]
+      },
+      {
+        "heading": "4. Pflichten des Nutzers",
+        "body": [
+          "Der Nutzer verpflichtet sich:",
+          "- Den Dienst ausschließlich zu legitimen Zwecken zu nutzen.\n- Keine unbefugten Zugriffe auf Daten anderer Nutzer oder den Administrationsbereich zu versuchen.\n- Den Betrieb des Dienstes nicht durch nicht autorisierte automatisierte Aktionen zu stören."
+        ]
+      },
+      {
+        "heading": "5. Verfügbarkeit",
+        "body": "Trackship bemüht sich nach Kräften, den Dienst rund um die Uhr verfügbar zu halten, kann jedoch keine absolute Verfügbarkeit garantieren. Unterbrechungen können insbesondere für Wartungsarbeiten oder bei höherer Gewalt auftreten."
+      },
+      {
+        "heading": "6. Haftung",
+        "body": "Trackship haftet nicht für indirekte Schäden, die aus der Nutzung oder der Unmöglichkeit der Nutzung des Dienstes entstehen. Die Haftung beschränkt sich auf direkte und vorhersehbare Schäden."
+      },
+      {
+        "heading": "7. Personenbezogene Daten",
+        "body": "Die Verarbeitung personenbezogener Daten ist in der Datenschutzerklärung beschrieben, die im Footer abrufbar ist."
+      },
+      {
+        "heading": "8. Änderungen",
+        "body": "Diese Bedingungen können jederzeit geändert werden. Maßgeblich ist die zum Zeitpunkt der Nutzung geltende Fassung."
+      },
+      {
+        "heading": "9. Anwendbares Recht",
+        "body": "Diese Bedingungen unterliegen französischem Recht. Für Streitigkeiten sind die französischen Gerichte zuständig."
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung",
+    "intro": "Trackship legt großen Wert auf den Schutz Ihrer personenbezogenen Daten. Diese Erklärung informiert darüber, wie wir sie erheben, verwenden und schützen.",
+    "updated": "Letzte Aktualisierung: 10. Mai 2026",
+    "sections": [
+      {
+        "heading": "Verantwortliche Stelle",
+        "body": "Trackship — 10 rue de la Logistique, 75001 Paris, Frankreich. Bei Fragen zu Ihren Daten: contact@trackship.com."
+      },
+      {
+        "heading": "Erhobene Daten",
+        "body": [
+          "Wir erheben folgende Daten:",
+          "- Über das Kontaktformular übermittelte Kontaktdaten (Name, E-Mail, Betreff, Nachricht).\n- Vom Administrator erfasste Sendungsdaten (Empfänger, Adresse, Absende-/Zielort, Status, Verfolgungsereignisse).\n- Für den Betrieb erforderliche technische Daten (Admin-Session-Cookies, Sprachpräferenz)."
+        ]
+      },
+      {
+        "heading": "Zwecke",
+        "body": [
+          "Ihre Daten werden verwendet, um:",
+          "- Anfragen aus dem Kontaktformular zu beantworten.\n- Die öffentliche Sendungsverfolgung anhand der Sendungsnummer zu ermöglichen.\n- Sendungen zu verwalten und Rechnungen auszustellen.\n- Die Servicequalität zu verbessern."
+        ]
+      },
+      {
+        "heading": "Rechtsgrundlagen",
+        "body": "Die Verarbeitung stützt sich auf die Vertragserfüllung (Sendungsverwaltung), Ihre Einwilligung (Kontaktformular) und das berechtigte Interesse von Trackship (Sicherheit, Service-Verbesserung)."
+      },
+      {
+        "heading": "Speicherdauer",
+        "body": [
+          "Die Daten werden für folgende Zeiträume gespeichert:",
+          "- Kontaktnachrichten: 12 Monate nach dem letzten Austausch.\n- Sendungsdaten: 5 Jahre aus buchhalterischen und steuerlichen Gründen.\n- Session-Cookies: 7 Tage."
+        ]
+      },
+      {
+        "heading": "Empfänger",
+        "body": [
+          "Ihre Daten können weitergegeben werden an:",
+          "- Unsere technischen Auftragsverarbeiter: Supabase (Datenbank und Authentifizierung, in der EU gehostet) und Vercel (Hosting der Website).\n- Unsere Logistikpartner für den Transport, beschränkt auf die unbedingt erforderlichen Informationen.\n- Behörden oder Gerichte, sofern gesetzlich vorgeschrieben."
+        ]
+      },
+      {
+        "heading": "Ihre Rechte",
+        "body": [
+          "Gemäß DSGVO haben Sie folgende Rechte:",
+          "- Auskunft, Berichtigung und Löschung Ihrer Daten.\n- Einschränkung und Widerspruch gegen die Verarbeitung.\n- Datenübertragbarkeit.\n- Beschwerde bei einer Aufsichtsbehörde.",
+          "Zur Ausübung dieser Rechte schreiben Sie an contact@trackship.com."
+        ]
+      },
+      {
+        "heading": "Cookies",
+        "body": "Trackship verwendet ausschließlich Cookies, die für den Betrieb unbedingt erforderlich sind (Authentifizierung, Theme- und Sprachpräferenz). Es werden keine Werbe- oder Tracking-Cookies Dritter gesetzt."
+      },
+      {
+        "heading": "Sicherheit",
+        "body": "Ihre Daten sind während der Übertragung (TLS) und im Ruhezustand verschlüsselt. Der Zugriff auf das Administrations-Dashboard ist durch Authentifizierung geschützt und auf autorisierte Administratoren beschränkt."
+      }
+    ]
   },
   "chatbot": {
     "trigger": "Online-Hilfe",

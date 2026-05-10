@@ -354,12 +354,14 @@
     "nav": {
       "home": "Overview",
       "orders": "Orders",
-      "invoices": "Invoices",
+      "history": "History",
       "messages": "Messages"
     },
     "topbar": {
       "signedInAs": "Signed in as",
-      "logout": "Sign out"
+      "logout": "Sign out",
+      "openMenu": "Open menu",
+      "menu": "Menu"
     },
     "home": {
       "title": "Welcome to your dashboard",
@@ -367,7 +369,7 @@
       "stats": {
         "orders": "Total orders",
         "inTransit": "In transit",
-        "invoices": "Invoices issued",
+        "invoices": "Receipts issued",
         "unreadMessages": "Unread messages"
       },
       "nextSteps": {
@@ -375,11 +377,301 @@
         "subtitle": "Management modules ship in the upcoming updates.",
         "items": {
           "orders": "Order creation and editing with automatic tracking-code generation",
-          "invoices": "Multilingual invoice module with PDF download",
+          "invoices": "Multilingual tracking receipts with PDF and PNG download",
           "messages": "Contact messages received from the public form"
         }
       }
+    },
+    "orders": {
+      "title": "Orders",
+      "list": {
+        "subtitle": "All your shipments, sorted from newest to oldest.",
+        "create": "New order",
+        "empty": "No orders yet. Create your first shipment.",
+        "loadError": "Failed to load orders.",
+        "columns": {
+          "code": "Number",
+          "recipient": "Recipient",
+          "route": "Route",
+          "status": "Status",
+          "created": "Created",
+          "actions": "Actions"
+        },
+        "open": "Open"
+      },
+      "new": {
+        "title": "Create an order",
+        "subtitle": "The tracking number is generated automatically from the destination country."
+      },
+      "edit": {
+        "title": "Edit order"
+      },
+      "detail": {
+        "info": "Information",
+        "edit": "Edit",
+        "address": "Address",
+        "notes": "Notes",
+        "latest": "Latest"
+      },
+      "form": {
+        "sections": {
+          "recipient": "Recipient",
+          "shipment": "Shipment",
+          "status": "Status & notes"
+        },
+        "recipientName": "Full name",
+        "recipientEmail": "Email",
+        "recipientPhone": "Phone",
+        "recipientAddress": "Delivery address",
+        "recipientAddressPlaceholder": "Number, street, city, postcode…",
+        "origin": "Origin city",
+        "originPlaceholder": "Casablanca",
+        "originCountry": "Origin country (ISO 2)",
+        "destination": "Destination city",
+        "destinationPlaceholder": "Paris",
+        "destinationCountry": "Destination country (ISO 2)",
+        "countryHelp": "2-letter ISO code (e.g. FR, DE, MA, US)",
+        "destinationCountryHelp": "Sets the last 2 letters of the tracking number",
+        "weight": "Weight (kg)",
+        "declaredValue": "Declared value (€)",
+        "currentStatus": "Current status",
+        "notes": "Internal notes",
+        "notesPlaceholder": "Visible to admins only.",
+        "create": "Create order",
+        "save": "Save",
+        "saving": "Saving…",
+        "cancel": "Cancel",
+        "errors": {
+          "missing_recipient_name": "Recipient name is required.",
+          "missing_origin": "Origin city is required.",
+          "missing_destination": "Destination city is required.",
+          "invalid_origin_country": "Invalid origin country code (2 letters).",
+          "invalid_destination_country": "Invalid destination country code (2 letters).",
+          "invalid_status": "Invalid status.",
+          "code_collision": "Failed to generate a unique tracking number. Try again.",
+          "missing_id": "Missing ID.",
+          "server": "Server error. Please try again in a moment."
+        }
+      },
+      "events": {
+        "addTitle": "Add a tracking event",
+        "status": "Status",
+        "date": "Date / time",
+        "location": "Location",
+        "locationPlaceholder": "Lyon sorting center",
+        "description": "Description",
+        "descriptionPlaceholder": "Details shown on the public tracking page.",
+        "setAsCurrent": "Set as current status",
+        "add": "Add event",
+        "adding": "Adding…",
+        "error": "Could not add the event."
+      }
+    },
+    "messages": {
+      "title": "Messages",
+      "subtitle": "Received via the public contact form.",
+      "empty": "No messages yet.",
+      "unread": "Unread",
+      "noSubject": "(no subject)",
+      "body": "Message",
+      "markRead": "Mark as read",
+      "markUnread": "Mark as unread",
+      "sentInLocale": "Sent in {locale}"
+    },
+    "invoices": {
+      "title": "Tracking receipts",
+      "subtitleForOrder": "Print-ready labels with QR code and barcode.",
+      "emptyForOrder": "No receipts issued for this order yet.",
+      "generate": "Issue receipt",
+      "generating": "Issuing…",
+      "language": "Language"
+    },
+    "history": {
+      "title": "Receipt history",
+      "subtitle": "All issued tracking receipts, newest first.",
+      "empty": "No receipts issued yet.",
+      "viewOrder": "View order",
+      "downloads": "Downloads",
+      "columns": {
+        "number": "Number",
+        "order": "Order",
+        "recipient": "Recipient",
+        "destination": "Destination",
+        "language": "Language",
+        "issued": "Issued"
+      }
+    },
+    "delete": {
+      "common": {
+        "confirm": "Delete",
+        "cancel": "Cancel"
+      },
+      "order": {
+        "trigger": "Delete",
+        "title": "Delete this order?",
+        "description": "This action is permanent. All linked events and invoices will be removed."
+      },
+      "event": {
+        "trigger": "Delete",
+        "title": "Delete this event?",
+        "description": "It will disappear from the public timeline."
+      },
+      "message": {
+        "trigger": "Delete",
+        "title": "Delete this message?",
+        "description": "This action is permanent."
+      },
+      "invoice": {
+        "trigger": "Delete",
+        "title": "Delete this receipt?",
+        "description": "This action is permanent. The receipt number will not be reused."
+      }
     }
+  },
+  "legalNotice": {
+    "title": "Legal notice",
+    "intro": "Information about the publisher of the Trackship website and its hosting.",
+    "updated": "Last updated: May 10, 2026",
+    "sections": [
+      {
+        "heading": "Publisher",
+        "body": [
+          "Trackship — parcel tracking solution.",
+          "- Legal form: to be filled in (SAS, SARL, etc.)\n- Share capital: to be filled in\n- Registered office: 10 rue de la Logistique, 75001 Paris, France\n- Registration number: to be filled in\n- VAT number: to be filled in\n- Email: contact@trackship.com\n- Phone: +33 1 23 45 67 89"
+        ]
+      },
+      {
+        "heading": "Director of publication",
+        "body": "To be filled in: name of the company's legal representative."
+      },
+      {
+        "heading": "Hosting provider",
+        "body": [
+          "The site is hosted by Vercel Inc.",
+          "- Address: 340 S Lemon Ave #4133, Walnut, CA 91789, United States\n- Website: https://vercel.com"
+        ]
+      },
+      {
+        "heading": "Intellectual property",
+        "body": "All elements on the site (text, images, logos, code, trademarks) are protected by copyright and trademark law. Any reproduction, representation or use without prior written authorisation from Trackship is prohibited."
+      },
+      {
+        "heading": "Credits",
+        "body": "Primary font: Inter (Google Fonts). Monospace font: JetBrains Mono. Icons: Lucide. UI components: shadcn/ui."
+      },
+      {
+        "heading": "Contact",
+        "body": "For any question regarding this legal notice: contact@trackship.com."
+      }
+    ]
+  },
+  "terms": {
+    "title": "Terms of service",
+    "intro": "These terms govern the use of the Trackship service by visitors and administrators.",
+    "updated": "Last updated: May 10, 2026",
+    "sections": [
+      {
+        "heading": "1. Purpose",
+        "body": "Trackship is an online service for shipment tracking and order management by an authenticated administrator. These terms set out the rules of use for anyone consulting the public tracking page or using the administration dashboard."
+      },
+      {
+        "heading": "2. Acceptance",
+        "body": "Use of the service implies full and unreserved acceptance of these terms. If you do not accept all or part of the terms, you must refrain from using the service."
+      },
+      {
+        "heading": "3. Description of the service",
+        "body": [
+          "Trackship provides:",
+          "- A public tracking page accessible without registration, allowing the status of an order to be checked from its tracking number.\n- A dashboard reserved for authorised administrators allowing the creation, modification and tracking of orders as well as the generation of invoices."
+        ]
+      },
+      {
+        "heading": "4. User obligations",
+        "body": [
+          "The user undertakes to:",
+          "- Use the service only for legitimate purposes.\n- Not attempt unauthorised access to other users' data or to the administrator area.\n- Not disrupt the operation of the service through unauthorised automated actions."
+        ]
+      },
+      {
+        "heading": "5. Availability",
+        "body": "Trackship makes its best efforts to ensure the service is available 24/7, without being able to guarantee absolute availability. Interruptions may occur, in particular for maintenance operations or in cases of force majeure."
+      },
+      {
+        "heading": "6. Liability",
+        "body": "Trackship cannot be held liable for indirect damages resulting from the use or impossibility of using the service. Trackship's liability is limited to direct and foreseeable damages."
+      },
+      {
+        "heading": "7. Personal data",
+        "body": "The processing of personal data is detailed in the Privacy Policy accessible from the footer of the site."
+      },
+      {
+        "heading": "8. Modifications",
+        "body": "These terms may be modified at any time. The applicable version is the one in force on the date the service is used."
+      },
+      {
+        "heading": "9. Governing law",
+        "body": "These terms are governed by French law. Any dispute falls within the jurisdiction of the French courts."
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "intro": "Trackship is committed to protecting your personal data. This policy informs you about how we collect, use and protect it.",
+    "updated": "Last updated: May 10, 2026",
+    "sections": [
+      {
+        "heading": "Data controller",
+        "body": "Trackship — 10 rue de la Logistique, 75001 Paris, France. For any question about your data: contact@trackship.com."
+      },
+      {
+        "heading": "Data collected",
+        "body": [
+          "We collect the following data:",
+          "- Contact data sent via the contact form (name, email, subject, message).\n- Shipment data entered by the administrator (recipient, address, origin, destination, status, tracking events).\n- Technical data necessary for the operation of the service (admin session cookies, language preference)."
+        ]
+      },
+      {
+        "heading": "Purposes",
+        "body": [
+          "Your data is used to:",
+          "- Reply to requests sent through the contact form.\n- Allow the public tracking of a shipment by tracking number.\n- Manage shipments and issue invoices.\n- Improve the quality of the service."
+        ]
+      },
+      {
+        "heading": "Legal bases",
+        "body": "Processing is based on the performance of the carriage contract (shipment management), your consent (contact form) and Trackship's legitimate interest (security, service improvement)."
+      },
+      {
+        "heading": "Retention periods",
+        "body": [
+          "Data is kept for the following periods:",
+          "- Contact messages: 12 months after the last exchange.\n- Shipment data: 5 years for accounting and tax reasons.\n- Session cookies: 7 days."
+        ]
+      },
+      {
+        "heading": "Recipients",
+        "body": [
+          "Your data may be shared with:",
+          "- Our technical sub-processors: Supabase (database and authentication, hosted in the EU) and Vercel (site hosting).\n- Our logistics partners in charge of transport, limited to strictly necessary information.\n- Administrative or judicial authorities when required by law."
+        ]
+      },
+      {
+        "heading": "Your rights",
+        "body": [
+          "Under the GDPR, you have the following rights:",
+          "- Right of access, rectification and erasure of your data.\n- Right to restrict and object to processing.\n- Right to data portability.\n- Right to lodge a complaint with the CNIL (or your national data protection authority).",
+          "To exercise these rights, write to contact@trackship.com."
+        ]
+      },
+      {
+        "heading": "Cookies",
+        "body": "Trackship uses only cookies strictly necessary for the operation of the service (authentication session, theme and language preferences). No third-party advertising or analytics cookies are set."
+      },
+      {
+        "heading": "Security",
+        "body": "Your data is encrypted in transit (TLS) and at rest. Access to the administration dashboard is protected by authentication and restricted to authorised administrators."
+      }
+    ]
   },
   "chatbot": {
     "trigger": "Online help",

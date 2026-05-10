@@ -158,3 +158,19 @@ create policy "admin all on invoice_counter"
 create policy "admin all on contact_messages"
   on public.contact_messages for all
   to authenticated using (true) with check (true);
+
+-- =========================================================================
+-- Migrations (idempotent, safe to re-run)
+-- =========================================================================
+
+-- The "invoices" table now stores tracking receipts (no amounts required).
+-- Make the monetary columns nullable so receipts can be issued without prices.
+do $$ begin
+  alter table public.invoices alter column amount drop not null;
+exception when others then null;
+end $$;
+
+do $$ begin
+  alter table public.invoices alter column total drop not null;
+exception when others then null;
+end $$;

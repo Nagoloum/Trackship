@@ -354,12 +354,14 @@
     "nav": {
       "home": "Inicio",
       "orders": "Pedidos",
-      "invoices": "Facturas",
+      "history": "Historial",
       "messages": "Mensajes"
     },
     "topbar": {
       "signedInAs": "Conectado como",
-      "logout": "Cerrar sesión"
+      "logout": "Cerrar sesión",
+      "openMenu": "Abrir menú",
+      "menu": "Menú"
     },
     "home": {
       "title": "Bienvenido a tu panel",
@@ -367,7 +369,7 @@
       "stats": {
         "orders": "Pedidos totales",
         "inTransit": "En tránsito",
-        "invoices": "Facturas emitidas",
+        "invoices": "Recibos emitidos",
         "unreadMessages": "Mensajes no leídos"
       },
       "nextSteps": {
@@ -375,11 +377,301 @@
         "subtitle": "Los módulos de gestión llegarán en próximas actualizaciones.",
         "items": {
           "orders": "Creación y edición de pedidos con generación automática del código de seguimiento",
-          "invoices": "Módulo de facturas multilingüe con descarga PDF",
+          "invoices": "Recibos de seguimiento multilingües con descarga PDF y PNG",
           "messages": "Mensajes de contacto recibidos desde el formulario público"
         }
       }
+    },
+    "orders": {
+      "title": "Pedidos",
+      "list": {
+        "subtitle": "Todos tus envíos, ordenados del más reciente al más antiguo.",
+        "create": "Nuevo pedido",
+        "empty": "Aún no hay pedidos. Crea tu primer envío.",
+        "loadError": "No se pudieron cargar los pedidos.",
+        "columns": {
+          "code": "Número",
+          "recipient": "Destinatario",
+          "route": "Ruta",
+          "status": "Estado",
+          "created": "Creado",
+          "actions": "Acciones"
+        },
+        "open": "Abrir"
+      },
+      "new": {
+        "title": "Crear un pedido",
+        "subtitle": "El número de seguimiento se genera automáticamente a partir del país de destino."
+      },
+      "edit": {
+        "title": "Editar pedido"
+      },
+      "detail": {
+        "info": "Información",
+        "edit": "Editar",
+        "address": "Dirección",
+        "notes": "Notas",
+        "latest": "Último"
+      },
+      "form": {
+        "sections": {
+          "recipient": "Destinatario",
+          "shipment": "Envío",
+          "status": "Estado y notas"
+        },
+        "recipientName": "Nombre completo",
+        "recipientEmail": "Email",
+        "recipientPhone": "Teléfono",
+        "recipientAddress": "Dirección de entrega",
+        "recipientAddressPlaceholder": "Número, calle, ciudad, código postal…",
+        "origin": "Ciudad de origen",
+        "originPlaceholder": "Casablanca",
+        "originCountry": "País de origen (ISO 2)",
+        "destination": "Ciudad de destino",
+        "destinationPlaceholder": "París",
+        "destinationCountry": "País de destino (ISO 2)",
+        "countryHelp": "Código ISO de 2 letras (ej.: FR, DE, MA, US)",
+        "destinationCountryHelp": "Define las 2 últimas letras del número de seguimiento",
+        "weight": "Peso (kg)",
+        "declaredValue": "Valor declarado (€)",
+        "currentStatus": "Estado actual",
+        "notes": "Notas internas",
+        "notesPlaceholder": "Visibles solo para los administradores.",
+        "create": "Crear pedido",
+        "save": "Guardar",
+        "saving": "Guardando…",
+        "cancel": "Cancelar",
+        "errors": {
+          "missing_recipient_name": "El nombre del destinatario es obligatorio.",
+          "missing_origin": "La ciudad de origen es obligatoria.",
+          "missing_destination": "La ciudad de destino es obligatoria.",
+          "invalid_origin_country": "Código del país de origen no válido (2 letras).",
+          "invalid_destination_country": "Código del país de destino no válido (2 letras).",
+          "invalid_status": "Estado no válido.",
+          "code_collision": "No se pudo generar un número de seguimiento único. Inténtalo de nuevo.",
+          "missing_id": "Falta el identificador.",
+          "server": "Error del servidor. Inténtalo de nuevo en un momento."
+        }
+      },
+      "events": {
+        "addTitle": "Añadir un evento de seguimiento",
+        "status": "Estado",
+        "date": "Fecha / hora",
+        "location": "Lugar",
+        "locationPlaceholder": "Centro de clasificación de Lyon",
+        "description": "Descripción",
+        "descriptionPlaceholder": "Detalles visibles en la página pública de seguimiento.",
+        "setAsCurrent": "Establecer como estado actual",
+        "add": "Añadir evento",
+        "adding": "Añadiendo…",
+        "error": "No se pudo añadir el evento."
+      }
+    },
+    "messages": {
+      "title": "Mensajes",
+      "subtitle": "Recibidos desde el formulario de contacto público.",
+      "empty": "Aún no hay mensajes.",
+      "unread": "No leído",
+      "noSubject": "(sin asunto)",
+      "body": "Mensaje",
+      "markRead": "Marcar como leído",
+      "markUnread": "Marcar como no leído",
+      "sentInLocale": "Enviado en {locale}"
+    },
+    "invoices": {
+      "title": "Recibos de seguimiento",
+      "subtitleForOrder": "Etiquetas listas para imprimir, con código QR y código de barras.",
+      "emptyForOrder": "Aún no se han emitido recibos para este pedido.",
+      "generate": "Emitir recibo",
+      "generating": "Emitiendo…",
+      "language": "Idioma"
+    },
+    "history": {
+      "title": "Historial de recibos",
+      "subtitle": "Todos los recibos de seguimiento emitidos, de los más recientes a los más antiguos.",
+      "empty": "Aún no se ha emitido ningún recibo.",
+      "viewOrder": "Ver pedido",
+      "downloads": "Descargas",
+      "columns": {
+        "number": "Número",
+        "order": "Pedido",
+        "recipient": "Destinatario",
+        "destination": "Destino",
+        "language": "Idioma",
+        "issued": "Emitido"
+      }
+    },
+    "delete": {
+      "common": {
+        "confirm": "Eliminar",
+        "cancel": "Cancelar"
+      },
+      "order": {
+        "trigger": "Eliminar",
+        "title": "¿Eliminar este pedido?",
+        "description": "La acción es definitiva. Todos los eventos y facturas asociados también se eliminarán."
+      },
+      "event": {
+        "trigger": "Eliminar",
+        "title": "¿Eliminar este evento?",
+        "description": "Desaparecerá de la línea de tiempo pública."
+      },
+      "message": {
+        "trigger": "Eliminar",
+        "title": "¿Eliminar este mensaje?",
+        "description": "La acción es definitiva."
+      },
+      "invoice": {
+        "trigger": "Eliminar",
+        "title": "¿Eliminar este recibo?",
+        "description": "La acción es definitiva. El número de recibo no se reutilizará."
+      }
     }
+  },
+  "legalNotice": {
+    "title": "Aviso legal",
+    "intro": "Información sobre el editor del sitio Trackship y sobre su alojamiento.",
+    "updated": "Última actualización: 10 de mayo de 2026",
+    "sections": [
+      {
+        "heading": "Editor",
+        "body": [
+          "Trackship — solución de seguimiento de paquetes.",
+          "- Forma jurídica: por completar (SAS, SARL, etc.)\n- Capital social: por completar\n- Domicilio social: 10 rue de la Logistique, 75001 París, Francia\n- Número de registro: por completar\n- Número de IVA: por completar\n- Email: contact@trackship.com\n- Teléfono: +33 1 23 45 67 89"
+        ]
+      },
+      {
+        "heading": "Director de la publicación",
+        "body": "Por completar: nombre del representante legal de la sociedad."
+      },
+      {
+        "heading": "Alojamiento",
+        "body": [
+          "El sitio está alojado por Vercel Inc.",
+          "- Dirección: 340 S Lemon Ave #4133, Walnut, CA 91789, Estados Unidos\n- Sitio web: https://vercel.com"
+        ]
+      },
+      {
+        "heading": "Propiedad intelectual",
+        "body": "Todos los elementos del sitio (textos, imágenes, logotipos, código, marcas) están protegidos por el derecho de autor y el derecho de marcas. Cualquier reproducción, representación o explotación sin autorización previa y por escrito de Trackship está prohibida."
+      },
+      {
+        "heading": "Créditos",
+        "body": "Tipografía principal: Inter (Google Fonts). Tipografía monoespaciada: JetBrains Mono. Iconos: Lucide. Componentes UI: shadcn/ui."
+      },
+      {
+        "heading": "Contacto",
+        "body": "Para cualquier pregunta sobre este aviso legal: contact@trackship.com."
+      }
+    ]
+  },
+  "terms": {
+    "title": "Condiciones generales de uso",
+    "intro": "Estas condiciones rigen el uso del servicio Trackship por parte de visitantes y administradores.",
+    "updated": "Última actualización: 10 de mayo de 2026",
+    "sections": [
+      {
+        "heading": "1. Objeto",
+        "body": "Trackship es un servicio en línea para el seguimiento de envíos y la gestión de pedidos por parte de un administrador autenticado. Estas condiciones definen las reglas de uso del servicio para cualquier persona que consulte la página pública de seguimiento o utilice el panel de administración."
+      },
+      {
+        "heading": "2. Aceptación",
+        "body": "El uso del servicio implica la aceptación plena y sin reservas de estas condiciones. Si no aceptas la totalidad o parte de las condiciones, debes renunciar a utilizar el servicio."
+      },
+      {
+        "heading": "3. Descripción del servicio",
+        "body": [
+          "Trackship pone a disposición:",
+          "- Una página pública de seguimiento accesible sin registro, que permite consultar el estado de un pedido a partir de su número de seguimiento.\n- Un panel reservado a los administradores autorizados que permite la creación, modificación y seguimiento de pedidos, así como la generación de facturas."
+        ]
+      },
+      {
+        "heading": "4. Obligaciones del usuario",
+        "body": [
+          "El usuario se compromete a:",
+          "- Utilizar el servicio únicamente con fines legítimos.\n- No intentar acceder de forma no autorizada a los datos de otros usuarios o al área de administración.\n- No perturbar el funcionamiento del servicio mediante acciones automatizadas no autorizadas."
+        ]
+      },
+      {
+        "heading": "5. Disponibilidad",
+        "body": "Trackship hace todo lo posible para asegurar la disponibilidad del servicio 24/7, sin poder garantizar una disponibilidad absoluta. Pueden producirse interrupciones, especialmente para tareas de mantenimiento o por causas de fuerza mayor."
+      },
+      {
+        "heading": "6. Responsabilidad",
+        "body": "Trackship no podrá ser considerado responsable de los daños indirectos resultantes del uso o de la imposibilidad de utilizar el servicio. La responsabilidad de Trackship se limita a los daños directos y previsibles."
+      },
+      {
+        "heading": "7. Datos personales",
+        "body": "El tratamiento de los datos personales se detalla en la Política de privacidad accesible desde el pie de página del sitio."
+      },
+      {
+        "heading": "8. Modificaciones",
+        "body": "Estas condiciones pueden modificarse en cualquier momento. La versión aplicable es la vigente en la fecha de uso del servicio."
+      },
+      {
+        "heading": "9. Ley aplicable",
+        "body": "Estas condiciones se rigen por la ley francesa. Cualquier litigio será competencia de los tribunales franceses."
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Política de privacidad",
+    "intro": "Trackship presta especial atención a la protección de tus datos personales. Esta política te informa sobre cómo los recopilamos, utilizamos y protegemos.",
+    "updated": "Última actualización: 10 de mayo de 2026",
+    "sections": [
+      {
+        "heading": "Responsable del tratamiento",
+        "body": "Trackship — 10 rue de la Logistique, 75001 París, Francia. Para cualquier consulta sobre tus datos: contact@trackship.com."
+      },
+      {
+        "heading": "Datos recopilados",
+        "body": [
+          "Recopilamos los siguientes datos:",
+          "- Datos de contacto enviados a través del formulario (nombre, email, asunto, mensaje).\n- Datos de envío introducidos por el administrador (destinatario, dirección, origen, destino, estado, eventos de seguimiento).\n- Datos técnicos necesarios para el funcionamiento del servicio (cookies de sesión del admin, idioma preferido)."
+        ]
+      },
+      {
+        "heading": "Finalidades",
+        "body": [
+          "Tus datos se utilizan para:",
+          "- Responder a las solicitudes enviadas a través del formulario de contacto.\n- Permitir el seguimiento público de un envío a partir de su número de seguimiento.\n- Gestionar los envíos y emitir facturas.\n- Mejorar la calidad del servicio."
+        ]
+      },
+      {
+        "heading": "Bases legales",
+        "body": "El tratamiento se basa en la ejecución del contrato de transporte (gestión de envíos), tu consentimiento (formulario de contacto) y el interés legítimo de Trackship (seguridad, mejora del servicio)."
+      },
+      {
+        "heading": "Plazos de conservación",
+        "body": [
+          "Los datos se conservan durante los siguientes períodos:",
+          "- Mensajes de contacto: 12 meses después del último intercambio.\n- Datos de envío: 5 años por motivos contables y fiscales.\n- Cookies de sesión: 7 días."
+        ]
+      },
+      {
+        "heading": "Destinatarios",
+        "body": [
+          "Tus datos pueden ser compartidos con:",
+          "- Nuestros subencargados técnicos: Supabase (base de datos y autenticación, alojada en la UE) y Vercel (alojamiento del sitio).\n- Nuestros socios logísticos encargados del transporte, limitándose a la información estrictamente necesaria.\n- Las autoridades administrativas o judiciales cuando la ley lo exija."
+        ]
+      },
+      {
+        "heading": "Tus derechos",
+        "body": [
+          "De conformidad con el RGPD, dispones de los siguientes derechos:",
+          "- Derecho de acceso, rectificación y supresión de tus datos.\n- Derecho a la limitación y a la oposición al tratamiento.\n- Derecho a la portabilidad de los datos.\n- Derecho a presentar una reclamación ante la autoridad nacional de protección de datos.",
+          "Para ejercer estos derechos, escríbenos a contact@trackship.com."
+        ]
+      },
+      {
+        "heading": "Cookies",
+        "body": "Trackship utiliza únicamente cookies estrictamente necesarias para el funcionamiento del servicio (sesión de autenticación, preferencia de tema e idioma). No se instalan cookies publicitarias o de medición de audiencia de terceros."
+      },
+      {
+        "heading": "Seguridad",
+        "body": "Tus datos están cifrados en tránsito (TLS) y en reposo. El acceso al panel de administración está protegido por autenticación y restringido a los administradores autorizados."
+      }
+    ]
   },
   "chatbot": {
     "trigger": "Ayuda en línea",
