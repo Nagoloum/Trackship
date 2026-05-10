@@ -397,13 +397,15 @@
       "email": "Email",
       "emailPlaceholder": "vous@trackship.com",
       "password": "Mot de passe",
-      "passwordPlaceholder": "••••••••",
+      "passwordPlaceholder": "Mot de passe",
       "submit": "Se connecter",
       "loggingIn": "Connexion…",
       "errorInvalid": "Identifiants invalides. Vérifiez votre email et votre mot de passe.",
       "errorMissing": "Merci de remplir l'email et le mot de passe.",
       "errorServer": "Erreur serveur. Veuillez réessayer dans quelques instants.",
-      "notice": "Aucune inscription publique. Les comptes sont créés par un administrateur."
+      "notice": "Aucune inscription publique. Les comptes sont créés par un administrateur.",
+      "showPassword": "Afficher le mot de passe",
+      "hidePassword": "Masquer le mot de passe"
     }
   },
   "dashboard": {

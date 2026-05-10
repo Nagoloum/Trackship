@@ -1,8 +1,8 @@
 "use client";
 
-import { AlertCircle, LogIn } from "lucide-react";
+import { AlertCircle, Eye, EyeOff, LogIn } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 
 import { loginAction, type LoginState } from "@/app/actions/auth";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,7 @@ export function LoginForm({ from }: { from?: string }) {
   const t = useTranslations("auth.login");
   const locale = useLocale();
   const [state, formAction, pending] = useActionState(loginAction, INITIAL_STATE);
+  const [showPassword, setShowPassword] = useState(false);
 
   const errorMessage =
     state.status === "error"
@@ -44,14 +45,31 @@ export function LoginForm({ from }: { from?: string }) {
 
       <div className="space-y-2">
         <Label htmlFor="login-password">{t("password")}</Label>
-        <Input
-          id="login-password"
-          name="password"
-          type="password"
-          autoComplete="current-password"
-          required
-          placeholder={t("passwordPlaceholder")}
-        />
+        <div className="relative">
+          <Input
+            id="login-password"
+            name="password"
+            type={showPassword ? "text" : "password"}
+            autoComplete="current-password"
+            required
+            placeholder={t("passwordPlaceholder")}
+            className="pr-10"
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword((v) => !v)}
+            aria-label={showPassword ? t("hidePassword") : t("showPassword")}
+            aria-pressed={showPassword}
+            className="text-muted-foreground hover:text-foreground focus-visible:ring-ring absolute inset-y-0 right-0 flex items-center justify-center px-3 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 rounded-r-md"
+            tabIndex={0}
+          >
+            {showPassword ? (
+              <EyeOff className="h-4 w-4" aria-hidden />
+            ) : (
+              <Eye className="h-4 w-4" aria-hidden />
+            )}
+          </button>
+        </div>
       </div>
 
       {errorMessage && (

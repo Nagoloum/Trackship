@@ -397,13 +397,15 @@
       "email": "Email",
       "emailPlaceholder": "you@trackship.com",
       "password": "Password",
-      "passwordPlaceholder": "••••••••",
+      "passwordPlaceholder": "Password",
       "submit": "Sign in",
       "loggingIn": "Signing in…",
       "errorInvalid": "Invalid credentials. Please check your email and password.",
       "errorMissing": "Please fill in both email and password.",
       "errorServer": "Server error. Please try again in a moment.",
-      "notice": "No public sign-up. Accounts are created by an administrator."
+      "notice": "No public sign-up. Accounts are created by an administrator.",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password"
     }
   },
   "dashboard": {

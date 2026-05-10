@@ -403,7 +403,9 @@
       "errorInvalid": "Ungültige Anmeldedaten. Bitte E-Mail und Passwort prüfen.",
       "errorMissing": "Bitte E-Mail und Passwort ausfüllen.",
       "errorServer": "Serverfehler. Bitte in Kürze erneut versuchen.",
-      "notice": "Keine öffentliche Registrierung. Konten werden von einem Administrator erstellt."
+      "notice": "Keine öffentliche Registrierung. Konten werden von einem Administrator erstellt.",
+      "showPassword": "Passwort anzeigen",
+      "hidePassword": "Passwort verbergen"
     }
   },
   "dashboard": {
