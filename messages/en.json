@@ -3,6 +3,7 @@
     "company": "Trackship",
     "tagline": "Reliable international parcel tracking",
     "trackButton": "Track my parcel",
+    "trackShort": "Track",
     "trackPlaceholder": "Enter your tracking number (e.g. TS947261583FR)",
     "search": "Search",
     "loading": "Loading…",
@@ -17,6 +18,7 @@
     "services": "Services",
     "about": "About",
     "faq": "FAQ",
+    "testimonials": "Testimonials",
     "contact": "Contact",
     "dashboard": "Dashboard",
     "login": "Sign in",
@@ -74,54 +76,77 @@
       "play": "Play",
       "slides": [
         {
-          "eyebrow": "Real-time tracking",
+          "eyebrow": "Real-time parcel tracking",
           "title": "Track your parcels down to the second",
-          "subtitle": "Visualise every step of your shipment, from pickup to delivery, on every device.",
+          "subtitle": "From pickup to reception, visualise every step of your parcel's journey on any device.",
           "primaryCta": "Track my parcel",
           "secondaryCta": "See our services"
         },
         {
-          "eyebrow": "International network",
-          "title": "Coverage across 4 continents",
-          "subtitle": "Trackship handles your domestic and cross-border shipments with the best logistics partners.",
-          "primaryCta": "Discover our network",
-          "secondaryCta": "Request a quote"
+          "eyebrow": "International tracking",
+          "title": "Your parcels tracked across 4 continents",
+          "subtitle": "More than 50 countries covered. Wherever your parcel travels, Trackship keeps you informed at every scan.",
+          "primaryCta": "Track my parcel",
+          "secondaryCta": "See our coverage"
         },
         {
-          "eyebrow": "Security & transparency",
-          "title": "Your parcels, no surprises",
-          "subtitle": "Clear pricing, protected data and full history: you stay in control of every shipment.",
+          "eyebrow": "Total transparency",
+          "title": "No blind spots, no surprises",
+          "subtitle": "Full history, current status, location and date for every event: you know everything, instantly.",
           "primaryCta": "Track my parcel",
-          "secondaryCta": "Read our charter"
+          "secondaryCta": "How it works"
         }
       ]
     },
     "stats": {
-      "parcels": { "value": "250K+", "label": "Parcels delivered" },
+      "parcels": { "value": "250K+", "label": "Parcels tracked" },
       "countries": { "value": "50+", "label": "Countries covered" },
-      "onTime": { "value": "99.5%", "label": "On-time deliveries" },
-      "support": { "value": "24/7", "label": "Customer support" }
+      "onTime": { "value": "99.5%", "label": "Updates on time" },
+      "support": { "value": "24/7", "label": "Tracking available" }
     },
     "services": {
       "eyebrow": "Our services",
-      "title": "A solution for every shipment",
-      "subtitle": "From urgent envelopes to full containers, Trackship covers every logistics need.",
+      "title": "Parcel tracking, designed for you",
+      "subtitle": "A simple service: one number, one page, all the info on your parcel. Here's what you get with Trackship.",
       "items": {
-        "express": {
-          "title": "Express delivery",
-          "body": "Pickup within 2 hours and delivery in 24-48 hours on major domestic and European routes."
+        "realtime": {
+          "title": "Real-time tracking",
+          "body": "Every scan updates your tracking page instantly. No refresh, no waiting."
         },
-        "international": {
-          "title": "International shipping",
-          "body": "Door-to-door routing across 4 continents, with customs clearance handled for you."
+        "global": {
+          "title": "Worldwide coverage",
+          "body": "More than 50 countries on 4 continents. Your domestic and international parcels tracked with the same quality."
         },
-        "ecommerce": {
-          "title": "E-commerce solutions",
-          "body": "API integrations, bulk labels and customer notifications: connect Trackship to your store."
+        "receipts": {
+          "title": "Professional receipts",
+          "body": "QR code, barcode, detailed info: a print-ready receipt for every tracked parcel."
         },
-        "custom": {
-          "title": "Tailored transport",
-          "body": "Special volumes, temperature-controlled or sensitive goods: we design the right solution."
+        "multilingual": {
+          "title": "Multilingual",
+          "body": "Tracking page available in French, English, Spanish and German for your recipients worldwide."
+        }
+      }
+    },
+    "transport": {
+      "eyebrow": "All transport modes",
+      "title": "We track your parcels, no matter how they travel",
+      "subtitle": "Sea, air, rail, road — Trackship integrates feeds from every major carrier.",
+      "items": {
+        "maritime": {
+          "title": "Sea freight",
+          "body": "Container or groupage, your parcels tracked from the loading port to the delivery point."
+        },
+        "aerial": {
+          "title": "Air freight",
+          "body": "Express or cargo, follow your parcels from the departure tarmac to the arrival airport and beyond."
+        },
+        "rail": {
+          "title": "Rail freight",
+          "body": "International or domestic rail freight: every stopover appears in your timeline."
+        },
+        "road": {
+          "title": "Road",
+          "body": "Truck, bus or van: every road movement tracked with the same level of detail."
         }
       }
     },
@@ -150,32 +175,32 @@
     },
     "whyUs": {
       "eyebrow": "Why Trackship",
-      "title": "Six reasons to ship with us",
-      "subtitle": "Built for demanding e-merchants and individuals.",
+      "title": "Six reasons to track your parcels here",
+      "subtitle": "A tracking service built for demanding e-merchants and individuals.",
       "reasons": [
         {
-          "title": "Global network",
-          "body": "More than 50 countries served by partners audited every year."
+          "title": "Worldwide coverage",
+          "body": "More than 50 countries covered. Every major carrier integrated in one place."
         },
         {
           "title": "Real-time tracking",
-          "body": "Automatic updates at every scan, accessible from any device."
+          "body": "Automatic updates at every scan, visible instantly on any device."
         },
         {
           "title": "Data security",
-          "body": "End-to-end encryption and full GDPR compliance across the journey."
+          "body": "End-to-end encryption and full GDPR compliance to protect your tracking data."
         },
         {
           "title": "Total transparency",
-          "body": "Clear pricing with no hidden fees, full history one click away."
+          "body": "Status, location, date for every event: no blind spots in your parcels' journey."
         },
         {
-          "title": "24/7 support",
-          "body": "A human team available day and night, in the four languages we speak."
+          "title": "Available 24/7",
+          "body": "Your tracking page stays accessible at all times, in four languages, from anywhere."
         },
         {
-          "title": "Competitive rates",
-          "body": "Pricing tables negotiated across every strategic corridor."
+          "title": "Clear interface",
+          "body": "One dedicated page per parcel, readable at a glance on desktop and mobile alike."
         }
       ]
     },
@@ -205,28 +230,46 @@
     "testimonials": {
       "eyebrow": "Trusted by",
       "title": "What our customers say",
-      "subtitle": "E-merchants and professionals who rely on Trackship every day.",
+      "subtitle": "Recipients and senders who lived the Trackship experience.",
+      "previous": "Previous testimonial",
+      "next": "Next testimonial",
+      "goTo": "Go to testimonial {n}",
       "items": [
         {
-          "quote": "Since switching to Trackship, our complaint rate has dropped by 40%. Customers see where their parcel is and we sleep better.",
+          "quote": "My parcel arrived right on time. I could follow every step without ever having to call anyone — exactly what I expect from a tracking service.",
           "name": "Camille Renard",
-          "role": "Co-founder, Atelier des Toiles"
+          "role": "Recipient, Lyon"
         },
         {
-          "quote": "Clean dashboard, solid API and support that's actually 24/7. Three things we'd never had together before.",
+          "quote": "The tracking page is crystal clear. Status, last scan, location — everything visible at a glance. And the mobile version works just as well as desktop.",
           "name": "Mehdi Touati",
-          "role": "Logistics manager, Riad Spices"
+          "role": "Recipient, Casablanca"
         },
         {
-          "quote": "We ship to 12 countries every week. The international coverage and pricing transparency are why we stay.",
+          "quote": "I received three parcels in two weeks, all tracked without a hitch. The detailed timeline let me organise my reception calmly, no surprises.",
           "name": "Laura Schmidt",
-          "role": "Founder, Berlin Mode"
+          "role": "Regular customer, Berlin"
+        },
+        {
+          "quote": "Update after update, my parcel arrived exactly when expected. The QR code on the receipt lets me re-check the status anytime — super practical.",
+          "name": "Sophie Martin",
+          "role": "Recipient, Bordeaux"
+        },
+        {
+          "quote": "Flawless service. The receipt I got was clear, professional, with all the useful information. Reception went without any issue.",
+          "name": "Andrés Vargas",
+          "role": "Recipient, Madrid"
+        },
+        {
+          "quote": "Multilingual tracking, instant page, responsive team if needed. Trackship ticks every box for a tracking service that actually reassures.",
+          "name": "Anna Klein",
+          "role": "Regular customer, Hamburg"
         }
       ]
     },
     "cta": {
-      "title": "Ready to ship with confidence?",
-      "body": "Track your parcel in seconds or contact us to design a tailored offer.",
+      "title": "Ready to track your parcel?",
+      "body": "Enter your tracking number in seconds, or contact us if you have a question.",
       "primary": "Track my parcel",
       "secondary": "Contact us"
     },
@@ -237,23 +280,23 @@
       "items": [
         {
           "q": "How do I find my tracking number?",
-          "a": "It is sent to you by email when your parcel is shipped. It starts with TS, followed by 9 digits and 2 letters for the destination country (e.g. TS947261583FR)."
+          "a": "The number is sent by the sender or appears on your Trackship receipt. It starts with TS, followed by 9 digits and 2 letters for the destination country (e.g. TS947261583FR)."
         },
         {
-          "q": "How long do international deliveries take?",
-          "a": "Standard international deliveries take 3 to 7 business days depending on the destination. Express options are available on most corridors."
+          "q": "How do I track my parcel on Trackship?",
+          "a": "Click \"Track\" at the top of the page, enter your tracking number, submit. You'll see the dedicated page with the current status, the last scanned location and the full event history."
         },
         {
-          "q": "What if my parcel is lost or damaged?",
-          "a": "Every shipment is insured up to its declared value. A claim can be opened from your dashboard or via the contact form."
+          "q": "What do the displayed statuses mean?",
+          "a": "Possible statuses are: Pending, Picked up, In transit, Out for delivery, Delivered, Delivery failed, Returned. Every change is timestamped and geolocated on your tracking page."
+        },
+        {
+          "q": "My tracking number can't be found — what should I do?",
+          "a": "First, double-check the format (TS + 9 digits + 2 letters). If it looks right but no data shows up, contact the sender — your parcel may not have been registered in our system yet."
         },
         {
           "q": "Can I track several parcels at the same time?",
-          "a": "Yes, your admin dashboard lets you manage all your orders and their tracking events in parallel."
-        },
-        {
-          "q": "Are your services available to individuals?",
-          "a": "Public tracking is available without sign-up. To ship as an individual, contact us and we'll point you to the right plan."
+          "a": "Yes. Each parcel has its own dedicated tracking URL — open multiple tabs or save them as bookmarks. Senders also get a dashboard listing all their parcels."
         },
         {
           "q": "How is my data protected?",
@@ -285,8 +328,6 @@
       "info": {
         "emailLabel": "Email",
         "emailValue": "contact@trackship.com",
-        "phoneLabel": "Phone",
-        "phoneValue": "+33 1 23 45 67 89",
         "addressLabel": "Address",
         "addressValue": "10 rue de la Logistique, 75001 Paris, France",
         "hoursLabel": "Hours",
@@ -297,7 +338,7 @@
   "footer": {
     "about": {
       "title": "Trackship",
-      "description": "A complete parcel tracking and shipment management solution, designed for e-merchants and individuals alike."
+      "description": "A multilingual, multi-carrier and multi-mode parcel tracking service. One clear URL per parcel, real-time updates."
     },
     "columns": {
       "services": "Services",
@@ -305,10 +346,10 @@
       "company": "Company"
     },
     "links": {
-      "express": "Express delivery",
-      "international": "International shipping",
-      "ecommerce": "E-commerce solutions",
-      "custom": "Tailored transport",
+      "realtime": "Real-time tracking",
+      "global": "Worldwide coverage",
+      "receipts": "Professional receipts",
+      "multilingual": "Multilingual tracking",
       "track": "Track a parcel",
       "faq": "FAQ",
       "contact": "Contact us",
@@ -324,12 +365,6 @@
       "placeholder": "Your email address",
       "submit": "Subscribe",
       "success": "Thanks, you're subscribed!"
-    },
-    "social": {
-      "twitter": "Twitter",
-      "linkedin": "LinkedIn",
-      "facebook": "Facebook",
-      "instagram": "Instagram"
     },
     "rights": "All rights reserved.",
     "legal": "Legal notice"

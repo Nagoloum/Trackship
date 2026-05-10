@@ -1,26 +1,17 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
-import type { ComponentType, SVGProps } from "react";
 
-import {
-  FacebookIcon,
-  InstagramIcon,
-  LinkedinIcon,
-  TwitterIcon,
-} from "@/components/icons/socials";
 import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/logo";
 import { NewsletterForm } from "@/components/landing/newsletter-form";
 
-type SocialIcon = ComponentType<SVGProps<SVGSVGElement>>;
-
 type FooterLink = { key: string; href: string };
 
 const SERVICE_LINKS: FooterLink[] = [
-  { key: "express", href: "#services" },
-  { key: "international", href: "#services" },
-  { key: "ecommerce", href: "#services" },
-  { key: "custom", href: "#services" },
+  { key: "realtime", href: "#services" },
+  { key: "global", href: "#services" },
+  { key: "receipts", href: "#services" },
+  { key: "multilingual", href: "#services" },
 ];
 
 const SUPPORT_LINKS: FooterLink[] = [
@@ -37,17 +28,9 @@ const COMPANY_LINKS: FooterLink[] = [
   { key: "press", href: "#" },
 ];
 
-const SOCIAL: Array<{ key: string; href: string; icon: SocialIcon }> = [
-  { key: "twitter", href: "#", icon: TwitterIcon },
-  { key: "linkedin", href: "#", icon: LinkedinIcon },
-  { key: "facebook", href: "#", icon: FacebookIcon },
-  { key: "instagram", href: "#", icon: InstagramIcon },
-];
-
 export function SiteFooter() {
   const t = useTranslations("footer");
   const tInfo = useTranslations("landing.contact.info");
-  const tSocial = useTranslations("footer.social");
   const tLinks = useTranslations("footer.links");
   const tColumns = useTranslations("footer.columns");
   const year = new Date().getFullYear();
@@ -67,27 +50,11 @@ export function SiteFooter() {
                 <Mail className="text-primary h-3.5 w-3.5" />
                 {tInfo("emailValue")}
               </li>
-              <li className="flex items-center gap-2">
-                <Phone className="text-primary h-3.5 w-3.5" />
-                {tInfo("phoneValue")}
-              </li>
               <li className="flex items-start gap-2">
                 <MapPin className="text-primary mt-0.5 h-3.5 w-3.5 shrink-0" />
                 <span>{tInfo("addressValue")}</span>
               </li>
             </ul>
-            <div className="mt-5 flex gap-2">
-              {SOCIAL.map(({ key, href, icon: Icon }) => (
-                <a
-                  key={key}
-                  href={href}
-                  aria-label={tSocial(key)}
-                  className="bg-background text-muted-foreground hover:bg-primary hover:text-primary-foreground flex h-9 w-9 items-center justify-center rounded-md border transition-colors"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Services */}

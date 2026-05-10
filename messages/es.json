@@ -3,6 +3,7 @@
     "company": "Trackship",
     "tagline": "Seguimiento internacional de paquetes fiable",
     "trackButton": "Rastrear mi paquete",
+    "trackShort": "Rastrear",
     "trackPlaceholder": "Introduce tu número de seguimiento (ej.: TS947261583FR)",
     "search": "Buscar",
     "loading": "Cargando…",
@@ -17,6 +18,7 @@
     "services": "Servicios",
     "about": "Nosotros",
     "faq": "Preguntas",
+    "testimonials": "Testimonios",
     "contact": "Contacto",
     "dashboard": "Panel",
     "login": "Iniciar sesión",
@@ -74,54 +76,77 @@
       "play": "Reproducir",
       "slides": [
         {
-          "eyebrow": "Seguimiento en tiempo real",
+          "eyebrow": "Seguimiento de paquetes en tiempo real",
           "title": "Rastrea tus paquetes al segundo",
-          "subtitle": "Visualiza cada etapa de tu envío, desde la recogida hasta la entrega, en cualquier dispositivo.",
+          "subtitle": "Desde la recogida hasta la recepción, visualiza cada etapa del recorrido de tu paquete en cualquier dispositivo.",
           "primaryCta": "Rastrear mi paquete",
           "secondaryCta": "Ver nuestros servicios"
         },
         {
-          "eyebrow": "Red internacional",
-          "title": "Cobertura en 4 continentes",
-          "subtitle": "Trackship gestiona tus envíos nacionales y transfronterizos con los mejores socios logísticos.",
-          "primaryCta": "Descubrir nuestra red",
-          "secondaryCta": "Solicitar presupuesto"
+          "eyebrow": "Seguimiento internacional",
+          "title": "Tus paquetes seguidos en 4 continentes",
+          "subtitle": "Más de 50 países cubiertos. Donde sea que viaje tu paquete, Trackship te mantiene informado en cada escaneo.",
+          "primaryCta": "Rastrear mi paquete",
+          "secondaryCta": "Ver nuestra cobertura"
         },
         {
-          "eyebrow": "Seguridad y transparencia",
-          "title": "Tus paquetes, sin sorpresas",
-          "subtitle": "Tarifas claras, datos protegidos e historial completo: tú controlas cada envío.",
+          "eyebrow": "Transparencia total",
+          "title": "Sin zonas oscuras, sin sorpresas",
+          "subtitle": "Historial completo, estado actual, lugar y fecha de cada evento: lo sabes todo, al instante.",
           "primaryCta": "Rastrear mi paquete",
-          "secondaryCta": "Leer nuestra carta"
+          "secondaryCta": "Cómo funciona"
         }
       ]
     },
     "stats": {
-      "parcels": { "value": "250K+", "label": "Paquetes entregados" },
+      "parcels": { "value": "250K+", "label": "Paquetes rastreados" },
       "countries": { "value": "50+", "label": "Países cubiertos" },
-      "onTime": { "value": "99,5 %", "label": "Entregas a tiempo" },
-      "support": { "value": "24/7", "label": "Atención al cliente" }
+      "onTime": { "value": "99,5 %", "label": "Actualizaciones a tiempo" },
+      "support": { "value": "24/7", "label": "Seguimiento disponible" }
     },
     "services": {
       "eyebrow": "Nuestros servicios",
-      "title": "Una solución para cada envío",
-      "subtitle": "Desde sobres urgentes hasta contenedores, Trackship cubre todas tus necesidades logísticas.",
+      "title": "Seguimiento de paquetes, pensado para ti",
+      "subtitle": "Un servicio simple: un número, una página, toda la info de tu paquete. Esto es lo que ganas con Trackship.",
       "items": {
-        "express": {
-          "title": "Entrega exprés",
-          "body": "Recogida en 2 horas y entrega en 24-48 h en los principales ejes nacionales y europeos."
+        "realtime": {
+          "title": "Seguimiento en tiempo real",
+          "body": "Cada escaneo actualiza tu página de seguimiento al instante. Sin recargar, sin esperas."
         },
-        "international": {
-          "title": "Envíos internacionales",
-          "body": "Transporte puerta a puerta en 4 continentes, con gestión de los trámites aduaneros."
+        "global": {
+          "title": "Cobertura mundial",
+          "body": "Más de 50 países en 4 continentes. Tus paquetes nacionales e internacionales rastreados con la misma calidad."
         },
-        "ecommerce": {
-          "title": "Soluciones e-commerce",
-          "body": "Integraciones API, etiquetas en lote y notificaciones al cliente: conecta Trackship a tu tienda."
+        "receipts": {
+          "title": "Recibos profesionales",
+          "body": "Código QR, código de barras, información detallada: un recibo listo para imprimir por cada paquete rastreado."
         },
-        "custom": {
-          "title": "Transporte a medida",
-          "body": "Volúmenes especiales, temperatura controlada o mercancías sensibles: diseñamos la solución."
+        "multilingual": {
+          "title": "Multilingüe",
+          "body": "Página de seguimiento disponible en francés, inglés, español y alemán para tus destinatarios en todo el mundo."
+        }
+      }
+    },
+    "transport": {
+      "eyebrow": "Todos los modos de transporte",
+      "title": "Rastreamos tus paquetes, vayan como vayan",
+      "subtitle": "Marítimo, aéreo, ferroviario, terrestre — Trackship integra los flujos de todos los grandes transportistas.",
+      "items": {
+        "maritime": {
+          "title": "Marítimo",
+          "body": "Contenedor o grupaje, tus paquetes seguidos desde el puerto de carga hasta el punto de entrega."
+        },
+        "aerial": {
+          "title": "Aéreo",
+          "body": "Exprés o carga, sigue tus paquetes desde la pista de salida hasta el aeropuerto de llegada y más allá."
+        },
+        "rail": {
+          "title": "Ferroviario",
+          "body": "Carga ferroviaria internacional o nacional: cada parada aparece en tu línea de tiempo."
+        },
+        "road": {
+          "title": "Terrestre",
+          "body": "Camión, autobús o furgoneta: todos los flujos por carretera seguidos con el mismo nivel de detalle."
         }
       }
     },
@@ -150,32 +175,32 @@
     },
     "whyUs": {
       "eyebrow": "Por qué Trackship",
-      "title": "Seis razones para enviar con nosotros",
-      "subtitle": "Pensado para e-merchants y particulares exigentes.",
+      "title": "Seis razones para rastrear tus paquetes con nosotros",
+      "subtitle": "Un servicio de seguimiento pensado para e-merchants y particulares exigentes.",
       "reasons": [
         {
-          "title": "Red mundial",
-          "body": "Más de 50 países cubiertos por una red de socios auditados cada año."
+          "title": "Cobertura mundial",
+          "body": "Más de 50 países cubiertos. Todos los grandes transportistas integrados en un solo lugar."
         },
         {
           "title": "Seguimiento en tiempo real",
-          "body": "Actualizaciones automáticas en cada escaneo, accesibles desde cualquier dispositivo."
+          "body": "Actualizaciones automáticas en cada escaneo, visibles al instante en cualquier dispositivo."
         },
         {
           "title": "Seguridad de los datos",
-          "body": "Cifrado de extremo a extremo y cumplimiento del RGPD en todo el recorrido."
+          "body": "Cifrado de extremo a extremo y cumplimiento del RGPD para proteger tus datos de seguimiento."
         },
         {
           "title": "Transparencia total",
-          "body": "Tarifas claras sin costes ocultos, historial consultable con un clic."
+          "body": "Estado, lugar y fecha de cada evento: ninguna zona oscura en el recorrido de tus paquetes."
         },
         {
-          "title": "Atención 24/7",
-          "body": "Un equipo humano disponible día y noche, en los cuatro idiomas que hablamos."
+          "title": "Disponible 24/7",
+          "body": "Tu página de seguimiento sigue accesible en todo momento, en cuatro idiomas, desde cualquier lugar."
         },
         {
-          "title": "Tarifas competitivas",
-          "body": "Precios negociados en todos los corredores estratégicos."
+          "title": "Interfaz clara",
+          "body": "Una página dedicada por paquete, legible al primer vistazo en ordenador y móvil."
         }
       ]
     },
@@ -205,28 +230,46 @@
     "testimonials": {
       "eyebrow": "Confían en nosotros",
       "title": "Lo que dicen nuestros clientes",
-      "subtitle": "E-merchants y profesionales que se apoyan en Trackship cada día.",
+      "subtitle": "Destinatarios y remitentes que vivieron la experiencia Trackship.",
+      "previous": "Testimonio anterior",
+      "next": "Testimonio siguiente",
+      "goTo": "Ir al testimonio {n}",
       "items": [
         {
-          "quote": "Desde que pasamos a Trackship, las reclamaciones han bajado un 40 %. Los clientes ven dónde está su paquete y nosotros dormimos tranquilos.",
+          "quote": "Mi paquete llegó justo a la hora prevista. Pude seguir cada etapa sin tener que llamar a nadie, exactamente lo que esperaba de un servicio de seguimiento.",
           "name": "Camille Renard",
-          "role": "Cofundadora, Atelier des Toiles"
+          "role": "Destinataria, Lyon"
         },
         {
-          "quote": "Panel claro, API sólida y soporte de verdad 24/7. Tres cosas que nunca habíamos tenido juntas.",
+          "quote": "La página de seguimiento es clarísima. Estado, último escaneo, lugar — todo visible de un vistazo. Y la versión móvil funciona tan bien como en ordenador.",
           "name": "Mehdi Touati",
-          "role": "Responsable de logística, Riad Spices"
+          "role": "Destinatario, Casablanca"
         },
         {
-          "quote": "Enviamos a 12 países cada semana. La cobertura internacional y la transparencia de precios son lo que nos hace quedarnos.",
+          "quote": "Recibí tres paquetes en dos semanas, todos rastreados sin problema. La línea de tiempo detallada me permitió organizar la recepción con calma, sin sorpresas.",
           "name": "Laura Schmidt",
-          "role": "Fundadora, Berlin Mode"
+          "role": "Cliente habitual, Berlín"
+        },
+        {
+          "quote": "Notificación tras notificación, mi paquete llegó exactamente cuando estaba previsto. El código QR del recibo me permite revisar el estado en cualquier momento, súper práctico.",
+          "name": "Sophie Martin",
+          "role": "Destinataria, Burdeos"
+        },
+        {
+          "quote": "Servicio impecable. El recibo recibido era claro, profesional, con toda la información útil. La recepción se hizo sin ningún problema.",
+          "name": "Andrés Vargas",
+          "role": "Destinatario, Madrid"
+        },
+        {
+          "quote": "Seguimiento multilingüe, página instantánea, equipo reactivo si hace falta. Trackship cumple todos los requisitos para un servicio de seguimiento que tranquiliza.",
+          "name": "Anna Klein",
+          "role": "Cliente habitual, Hamburgo"
         }
       ]
     },
     "cta": {
-      "title": "¿Listo para enviar con confianza?",
-      "body": "Rastrea tu paquete al instante o contáctanos para diseñar una oferta a medida.",
+      "title": "¿Listo para rastrear tu paquete?",
+      "body": "Introduce tu número de seguimiento al instante, o contáctanos si tienes una pregunta.",
       "primary": "Rastrear mi paquete",
       "secondary": "Contáctanos"
     },
@@ -237,23 +280,23 @@
       "items": [
         {
           "q": "¿Cómo encuentro mi número de seguimiento?",
-          "a": "Lo recibirás por correo electrónico cuando se envíe tu paquete. Empieza por TS, seguido de 9 dígitos y 2 letras del país de destino (ej.: TS947261583FR)."
+          "a": "Te lo facilita el remitente o aparece en tu recibo Trackship. Empieza por TS, seguido de 9 dígitos y 2 letras del país de destino (ej.: TS947261583FR)."
         },
         {
-          "q": "¿Cuánto tarda una entrega internacional?",
-          "a": "Las entregas internacionales estándar tardan de 3 a 7 días laborables según el destino. Hay opción exprés disponible en la mayoría de los corredores."
+          "q": "¿Cómo rastreo mi paquete en Trackship?",
+          "a": "Haz clic en \"Rastrear\" arriba, introduce tu número de seguimiento, envía. Verás la página dedicada con el estado actual, el último lugar escaneado y el historial completo de eventos."
         },
         {
-          "q": "¿Y si mi paquete se pierde o daña?",
-          "a": "Todos nuestros envíos están asegurados por el valor declarado. Puedes abrir un expediente de indemnización desde tu panel o por el formulario de contacto."
+          "q": "¿Qué significan los estados que aparecen?",
+          "a": "Los estados posibles son: Pendiente, Recogido, En tránsito, En reparto, Entregado, Entrega fallida, Devuelto. Cada cambio lleva fecha, hora y geolocalización en tu página de seguimiento."
+        },
+        {
+          "q": "No encuentro mi número de seguimiento, ¿qué hago?",
+          "a": "Primero verifica el formato (TS + 9 dígitos + 2 letras). Si es correcto pero no aparece nada, contacta al remitente — puede que tu paquete aún no esté registrado en nuestro sistema."
         },
         {
           "q": "¿Puedo seguir varios paquetes a la vez?",
-          "a": "Sí, desde tu panel de administración gestionas todos tus pedidos y sus eventos de seguimiento en paralelo."
-        },
-        {
-          "q": "¿Vuestros servicios son accesibles para particulares?",
-          "a": "El seguimiento público lo es, sin registro. Para enviar como particular, contáctanos y te orientamos hacia la fórmula adecuada."
+          "a": "Sí. Cada paquete tiene su URL de seguimiento — abre varias pestañas o guárdalas como favoritos. Los remitentes también disponen de un panel con todos sus paquetes."
         },
         {
           "q": "¿Cómo se protegen mis datos?",
@@ -285,8 +328,6 @@
       "info": {
         "emailLabel": "Email",
         "emailValue": "contact@trackship.com",
-        "phoneLabel": "Teléfono",
-        "phoneValue": "+33 1 23 45 67 89",
         "addressLabel": "Dirección",
         "addressValue": "10 rue de la Logistique, 75001 París, Francia",
         "hoursLabel": "Horario",
@@ -297,7 +338,7 @@
   "footer": {
     "about": {
       "title": "Trackship",
-      "description": "Una solución completa de seguimiento de paquetes y gestión de envíos, pensada tanto para e-merchants como para particulares."
+      "description": "Servicio de seguimiento de paquetes multilingüe, multi-transportista y multimodal. Una URL clara por paquete, actualizaciones en tiempo real."
     },
     "columns": {
       "services": "Servicios",
@@ -305,10 +346,10 @@
       "company": "Empresa"
     },
     "links": {
-      "express": "Entrega exprés",
-      "international": "Envíos internacionales",
-      "ecommerce": "Soluciones e-commerce",
-      "custom": "Transporte a medida",
+      "realtime": "Seguimiento en tiempo real",
+      "global": "Cobertura mundial",
+      "receipts": "Recibos profesionales",
+      "multilingual": "Seguimiento multilingüe",
       "track": "Rastrear un paquete",
       "faq": "Preguntas frecuentes",
       "contact": "Contáctanos",
@@ -324,12 +365,6 @@
       "placeholder": "Tu dirección de email",
       "submit": "Suscribirme",
       "success": "¡Gracias, ya estás suscrito!"
-    },
-    "social": {
-      "twitter": "Twitter",
-      "linkedin": "LinkedIn",
-      "facebook": "Facebook",
-      "instagram": "Instagram"
     },
     "rights": "Todos los derechos reservados.",
     "legal": "Aviso legal"

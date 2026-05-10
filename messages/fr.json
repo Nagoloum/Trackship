@@ -3,6 +3,7 @@
     "company": "Trackship",
     "tagline": "Suivi de colis fiable et international",
     "trackButton": "Tracker mon colis",
+    "trackShort": "Tracker",
     "trackPlaceholder": "Saisissez votre numéro de suivi (ex : TS947261583FR)",
     "search": "Rechercher",
     "loading": "Chargement…",
@@ -17,6 +18,7 @@
     "services": "Services",
     "about": "À propos",
     "faq": "FAQ",
+    "testimonials": "Témoignages",
     "contact": "Contact",
     "dashboard": "Tableau de bord",
     "login": "Connexion",
@@ -74,54 +76,77 @@
       "play": "Reprendre",
       "slides": [
         {
-          "eyebrow": "Suivi en temps réel",
+          "eyebrow": "Suivi de colis en temps réel",
           "title": "Suivez vos colis à la seconde près",
-          "subtitle": "Visualisez chaque étape de votre expédition, du dépôt à la livraison, sur tous vos appareils.",
+          "subtitle": "De la prise en charge à la réception, visualisez chaque étape du parcours de votre colis sur tous vos appareils.",
           "primaryCta": "Tracker mon colis",
           "secondaryCta": "Voir nos services"
         },
         {
-          "eyebrow": "Réseau international",
-          "title": "Une couverture sur 4 continents",
-          "subtitle": "Trackship gère vos envois nationaux et transfrontaliers avec les meilleurs partenaires logistiques.",
-          "primaryCta": "Découvrir notre réseau",
-          "secondaryCta": "Demander un devis"
+          "eyebrow": "Suivi international",
+          "title": "Vos colis suivis sur 4 continents",
+          "subtitle": "Plus de 50 pays couverts. Où que parte votre colis, Trackship vous tient informé à chaque scan.",
+          "primaryCta": "Tracker mon colis",
+          "secondaryCta": "Découvrir notre couverture"
         },
         {
-          "eyebrow": "Sécurité & transparence",
-          "title": "Vos colis, sans surprise",
-          "subtitle": "Tarifs clairs, données protégées et historique complet : vous gardez le contrôle de chaque expédition.",
+          "eyebrow": "Transparence totale",
+          "title": "Aucune zone d'ombre, aucune surprise",
+          "subtitle": "Historique complet, statut courant, lieu et date de chaque événement : vous savez tout, tout de suite.",
           "primaryCta": "Tracker mon colis",
-          "secondaryCta": "Lire notre charte"
+          "secondaryCta": "Comment ça marche"
         }
       ]
     },
     "stats": {
-      "parcels": { "value": "250K+", "label": "Colis livrés" },
+      "parcels": { "value": "250K+", "label": "Colis suivis" },
       "countries": { "value": "50+", "label": "Pays couverts" },
-      "onTime": { "value": "99,5 %", "label": "Livraisons à l'heure" },
-      "support": { "value": "24/7", "label": "Support client" }
+      "onTime": { "value": "99,5 %", "label": "Mises à jour à l'heure" },
+      "support": { "value": "24/7", "label": "Suivi disponible" }
     },
     "services": {
       "eyebrow": "Nos services",
-      "title": "Une solution adaptée à chaque expédition",
-      "subtitle": "Du pli urgent au container, Trackship couvre l'ensemble de vos besoins logistiques.",
+      "title": "Le suivi de colis, pensé pour vous",
+      "subtitle": "Un service simple : un numéro, une page, toutes les infos sur votre colis. Voici ce que vous gagnez avec Trackship.",
       "items": {
-        "express": {
-          "title": "Livraison express",
-          "body": "Prise en charge sous 2 h et livraison en 24-48 h sur les grands axes nationaux et européens."
+        "realtime": {
+          "title": "Suivi en temps réel",
+          "body": "Chaque scan met à jour votre page de suivi instantanément. Pas de rafraîchissement, pas d'attente."
         },
-        "international": {
-          "title": "Envois internationaux",
-          "body": "Acheminement door-to-door sur 4 continents, avec gestion des formalités douanières."
+        "global": {
+          "title": "Couverture mondiale",
+          "body": "Plus de 50 pays sur 4 continents. Vos colis nationaux et internationaux suivis avec la même qualité."
         },
-        "ecommerce": {
-          "title": "Solutions e-commerce",
-          "body": "Intégrations API, étiquettes en lot et notifications client : connectez Trackship à votre boutique."
+        "receipts": {
+          "title": "Récépissés professionnels",
+          "body": "QR code, code-barres, infos détaillées : un récépissé prêt à imprimer pour chaque colis suivi."
         },
-        "custom": {
-          "title": "Transport sur mesure",
-          "body": "Volumes spéciaux, températures dirigées, marchandises sensibles : nous concevons la solution."
+        "multilingual": {
+          "title": "Multilingue",
+          "body": "Page de suivi disponible en français, anglais, espagnol et allemand pour vos destinataires partout dans le monde."
+        }
+      }
+    },
+    "transport": {
+      "eyebrow": "Tous les modes de transport",
+      "title": "On suit vos colis, peu importe par où ils passent",
+      "subtitle": "Maritime, aérien, ferroviaire, routier — Trackship intègre les flux de tous les transporteurs majeurs.",
+      "items": {
+        "maritime": {
+          "title": "Maritime",
+          "body": "Container ou groupage, vos colis suivis depuis le port de chargement jusqu'au point de livraison."
+        },
+        "aerial": {
+          "title": "Aérien",
+          "body": "Express ou cargo, suivez vos colis du tarmac de départ à l'aéroport d'arrivée et au-delà."
+        },
+        "rail": {
+          "title": "Ferroviaire",
+          "body": "Fret ferroviaire intercontinental ou national : chaque escale apparaît dans votre timeline."
+        },
+        "road": {
+          "title": "Terrestre",
+          "body": "Camion, bus ou utilitaire : tous les flux routiers sont suivis avec le même niveau de détail."
         }
       }
     },
@@ -150,32 +175,32 @@
     },
     "whyUs": {
       "eyebrow": "Pourquoi Trackship",
-      "title": "Six raisons d'expédier avec nous",
-      "subtitle": "Pensé pour les e-commerçants et les particuliers exigeants.",
+      "title": "Six raisons de suivre vos colis chez nous",
+      "subtitle": "Un service de suivi pensé pour les e-commerçants et les particuliers exigeants.",
       "reasons": [
         {
-          "title": "Réseau mondial",
-          "body": "Plus de 50 pays couverts par un maillage de partenaires audités chaque année."
+          "title": "Couverture mondiale",
+          "body": "Plus de 50 pays couverts. Tous les transporteurs majeurs intégrés en un seul endroit."
         },
         {
           "title": "Suivi temps réel",
-          "body": "Mises à jour automatiques à chaque scan, accessibles depuis tout terminal."
+          "body": "Mises à jour automatiques à chaque scan, visibles instantanément sur tout appareil."
         },
         {
           "title": "Sécurité des données",
-          "body": "Chiffrement de bout en bout et conformité RGPD sur l'ensemble du parcours."
+          "body": "Chiffrement de bout en bout et conformité RGPD pour protéger vos informations de suivi."
         },
         {
           "title": "Transparence totale",
-          "body": "Tarifs clairs sans frais cachés, historique consultable en un clic."
+          "body": "Statut, lieu, date de chaque événement : aucune zone d'ombre dans le parcours de vos colis."
         },
         {
-          "title": "Support 24/7",
-          "body": "Une équipe humaine disponible jour et nuit, dans les quatre langues que nous parlons."
+          "title": "Disponible 24/7",
+          "body": "Votre page de suivi reste accessible en permanence, dans quatre langues, depuis n'importe où."
         },
         {
-          "title": "Tarifs compétitifs",
-          "body": "Des grilles tarifaires négociées sur l'ensemble des corridors stratégiques."
+          "title": "Interface claire",
+          "body": "Une page dédiée par colis, lisible au premier coup d'œil sur ordinateur comme sur mobile."
         }
       ]
     },
@@ -205,28 +230,46 @@
     "testimonials": {
       "eyebrow": "Ils nous font confiance",
       "title": "La voix de nos clients",
-      "subtitle": "Des e-commerçants et professionnels qui s'appuient sur Trackship au quotidien.",
+      "subtitle": "Des destinataires et expéditeurs qui ont vécu l'expérience Trackship.",
+      "previous": "Témoignage précédent",
+      "next": "Témoignage suivant",
+      "goTo": "Aller au témoignage {n}",
       "items": [
         {
-          "quote": "Depuis qu'on a basculé sur Trackship, notre taux de réclamations a chuté de 40 %. Les clients voient où en est leur colis et nous, on dort tranquilles.",
+          "quote": "Mon colis est arrivé pile à l'heure annoncée. J'ai pu suivre chaque étape sans avoir à appeler personne, c'est exactement ce que j'attendais d'un service de suivi.",
           "name": "Camille Renard",
-          "role": "Co-fondatrice, Atelier des Toiles"
+          "role": "Destinataire, Lyon"
         },
         {
-          "quote": "Le dashboard est clair, l'API est solide et le support répond vraiment 24/7. Trois critères qu'on n'avait jamais réunis ailleurs.",
+          "quote": "La page de suivi est limpide. Statut, dernier scan, lieu, tout est visible en un coup d'œil. Et la version mobile fonctionne aussi bien que sur ordinateur.",
           "name": "Mehdi Touati",
-          "role": "Responsable logistique, Riad Spices"
+          "role": "Destinataire, Casablanca"
         },
         {
-          "quote": "On expédie chaque semaine vers 12 pays. La couverture internationale et la transparence des tarifs sont ce qui nous fait rester.",
+          "quote": "J'ai reçu trois colis en deux semaines, tous suivis sans accroc. La timeline détaillée m'a permis d'organiser ma réception au calme, sans surprise.",
           "name": "Laura Schmidt",
-          "role": "Founder, Berlin Mode"
+          "role": "Cliente régulière, Berlin"
+        },
+        {
+          "quote": "Notification après notification, mon colis est arrivé exactement quand prévu. Le QR code sur le récépissé permet de revérifier le statut à tout moment, super pratique.",
+          "name": "Sophie Martin",
+          "role": "Destinataire, Bordeaux"
+        },
+        {
+          "quote": "Service impeccable. Le récépissé reçu était clair, professionnel, avec toutes les informations utiles. La réception s'est faite sans aucun problème.",
+          "name": "Andrés Vargas",
+          "role": "Destinataire, Madrid"
+        },
+        {
+          "quote": "Suivi multilingue, page de tracking instantanée, équipe réactive si besoin. Trackship coche toutes les cases pour un service de suivi qui rassure.",
+          "name": "Anna Klein",
+          "role": "Cliente régulière, Hambourg"
         }
       ]
     },
     "cta": {
-      "title": "Prêt à expédier en toute confiance ?",
-      "body": "Tracez votre colis en un instant ou contactez-nous pour bâtir une offre sur mesure.",
+      "title": "Prêt à suivre votre colis ?",
+      "body": "Saisissez votre numéro de suivi en un instant ou contactez-nous si vous avez une question.",
       "primary": "Tracker mon colis",
       "secondary": "Nous contacter"
     },
@@ -237,23 +280,23 @@
       "items": [
         {
           "q": "Comment trouver mon numéro de suivi ?",
-          "a": "Le numéro vous est envoyé par email au moment de l'expédition. Il commence par TS, suivi de 9 chiffres et de 2 lettres correspondant au pays de destination (ex : TS947261583FR)."
+          "a": "Le numéro vous est envoyé par l'expéditeur ou apparaît sur votre récépissé Trackship. Il commence par TS, suivi de 9 chiffres et de 2 lettres correspondant au pays de destination (ex : TS947261583FR)."
         },
         {
-          "q": "Combien de temps prend une livraison internationale ?",
-          "a": "Les livraisons internationales standards prennent 3 à 7 jours ouvrés selon la destination. Une option express est disponible sur la plupart des corridors."
+          "q": "Comment suivre mon colis sur Trackship ?",
+          "a": "Cliquez sur \"Tracker\" en haut de la page, saisissez votre numéro de suivi, validez. Vous accédez à la page dédiée avec le statut courant, le dernier lieu scanné et l'historique complet des événements."
         },
         {
-          "q": "Que se passe-t-il si mon colis est perdu ou endommagé ?",
-          "a": "Tous nos envois sont assurés à hauteur de la valeur déclarée. Un dossier d'indemnisation peut être ouvert depuis votre dashboard ou via le formulaire de contact."
+          "q": "Que signifient les statuts affichés ?",
+          "a": "Les statuts possibles sont : En attente, Collectée, En transit, En cours de livraison, Livrée, Échec de livraison, Retournée. Chaque changement est horodaté et géolocalisé sur votre page de suivi."
+        },
+        {
+          "q": "Mon numéro de suivi est introuvable, que faire ?",
+          "a": "Vérifiez d'abord la saisie (TS + 9 chiffres + 2 lettres). Si le format est correct mais aucune donnée ne s'affiche, contactez l'expéditeur — il se peut que votre colis n'ait pas encore été enregistré dans notre système."
         },
         {
           "q": "Puis-je suivre plusieurs colis en même temps ?",
-          "a": "Oui, depuis votre dashboard administrateur vous gérez l'ensemble de vos commandes et leurs événements de suivi en parallèle."
-        },
-        {
-          "q": "Vos services sont-ils accessibles aux particuliers ?",
-          "a": "Le suivi public l'est sans inscription. Pour expédier en tant que particulier, contactez-nous : nous vous orientons vers la formule la plus adaptée."
+          "a": "Oui. Chaque colis dispose d'une URL de suivi dédiée que vous pouvez ouvrir dans plusieurs onglets ou enregistrer en favoris. Les expéditeurs disposent d'un tableau de bord regroupant tous leurs colis."
         },
         {
           "q": "Comment sont protégées mes données ?",
@@ -285,8 +328,6 @@
       "info": {
         "emailLabel": "Email",
         "emailValue": "contact@trackship.com",
-        "phoneLabel": "Téléphone",
-        "phoneValue": "+33 1 23 45 67 89",
         "addressLabel": "Adresse",
         "addressValue": "10 rue de la Logistique, 75001 Paris, France",
         "hoursLabel": "Horaires",
@@ -297,7 +338,7 @@
   "footer": {
     "about": {
       "title": "Trackship",
-      "description": "Solution complète de suivi de colis et de gestion d'expéditions, pensée pour les e-commerçants comme pour les particuliers."
+      "description": "Service de suivi de colis multilingue, multi-transporteur et multi-mode. Une URL claire par colis, des mises à jour en temps réel."
     },
     "columns": {
       "services": "Services",
@@ -305,10 +346,10 @@
       "company": "Société"
     },
     "links": {
-      "express": "Livraison express",
-      "international": "Envois internationaux",
-      "ecommerce": "Solutions e-commerce",
-      "custom": "Transport sur mesure",
+      "realtime": "Suivi temps réel",
+      "global": "Couverture mondiale",
+      "receipts": "Récépissés professionnels",
+      "multilingual": "Suivi multilingue",
       "track": "Suivre un colis",
       "faq": "FAQ",
       "contact": "Nous contacter",
@@ -324,12 +365,6 @@
       "placeholder": "Votre adresse email",
       "submit": "S'inscrire",
       "success": "Merci, vous êtes inscrit·e !"
-    },
-    "social": {
-      "twitter": "Twitter",
-      "linkedin": "LinkedIn",
-      "facebook": "Facebook",
-      "instagram": "Instagram"
     },
     "rights": "Tous droits réservés.",
     "legal": "Mentions légales"

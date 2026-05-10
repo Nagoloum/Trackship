@@ -1,12 +1,15 @@
-import { Boxes, Globe2, ShoppingBag, Sparkles } from "lucide-react";
+import { FileText, Globe2, Languages, Radar } from "lucide-react";
 import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
 
-const ITEMS: Array<{ key: "express" | "international" | "ecommerce" | "custom"; icon: ReactNode }> = [
-  { key: "express", icon: <Boxes className="h-6 w-6" /> },
-  { key: "international", icon: <Globe2 className="h-6 w-6" /> },
-  { key: "ecommerce", icon: <ShoppingBag className="h-6 w-6" /> },
-  { key: "custom", icon: <Sparkles className="h-6 w-6" /> },
+const ITEMS: Array<{
+  key: "realtime" | "global" | "receipts" | "multilingual";
+  icon: ReactNode;
+}> = [
+  { key: "realtime", icon: <Radar className="h-6 w-6" /> },
+  { key: "global", icon: <Globe2 className="h-6 w-6" /> },
+  { key: "receipts", icon: <FileText className="h-6 w-6" /> },
+  { key: "multilingual", icon: <Languages className="h-6 w-6" /> },
 ];
 
 export function ServicesSection() {

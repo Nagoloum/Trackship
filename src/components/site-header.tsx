@@ -13,8 +13,10 @@ import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
+  { key: "home", section: "hero" },
   { key: "services", section: "services" },
   { key: "about", section: "why-us" },
+  { key: "testimonials", section: "testimonials" },
   { key: "faq", section: "faq" },
   { key: "contact", section: "contact" },
 ] as const;
@@ -76,7 +78,7 @@ export function SiteHeader() {
             )}
           >
             <Package className="h-4 w-4" />
-            {tc("trackButton")}
+            {tc("trackShort")}
           </Link>
 
           <div className="hidden items-center gap-1 md:flex">
@@ -131,7 +133,7 @@ export function SiteHeader() {
             )}
           >
             <Package className="h-4 w-4" />
-            {tc("trackButton")}
+            {tc("trackShort")}
           </Link>
           <div className="mt-2 flex items-center justify-between border-t pt-3">
             <LanguageSwitcher />

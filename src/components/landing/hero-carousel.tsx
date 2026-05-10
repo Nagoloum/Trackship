@@ -50,9 +50,10 @@ export function HeroCarousel() {
 
   return (
     <section
+      id="hero"
       aria-roledescription="carousel"
       aria-label={t("ariaLabel")}
-      className="relative overflow-hidden border-b border-border/60"
+      className="relative overflow-hidden border-b border-border/60 scroll-mt-20"
     >
       {/* Background ambience */}
       <div

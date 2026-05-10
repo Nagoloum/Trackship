@@ -5,7 +5,6 @@ import {
   Clock,
   Mail,
   MapPin,
-  Phone,
   Send,
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -39,7 +38,6 @@ export function ContactSection() {
 
   const infoItems = [
     { icon: <Mail className="h-4 w-4" />, label: tInfo("emailLabel"), value: tInfo("emailValue") },
-    { icon: <Phone className="h-4 w-4" />, label: tInfo("phoneLabel"), value: tInfo("phoneValue") },
     { icon: <MapPin className="h-4 w-4" />, label: tInfo("addressLabel"), value: tInfo("addressValue") },
     { icon: <Clock className="h-4 w-4" />, label: tInfo("hoursLabel"), value: tInfo("hoursValue") },
   ];

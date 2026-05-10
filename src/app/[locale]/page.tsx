@@ -10,6 +10,7 @@ import { ServicesSection } from "@/components/landing/services-section";
 import { SiteFooter } from "@/components/landing/site-footer";
 import { StatsStrip } from "@/components/landing/stats-strip";
 import { TestimonialsSection } from "@/components/landing/testimonials-section";
+import { TransportSection } from "@/components/landing/transport-section";
 import { WhyUsSection } from "@/components/landing/why-us-section";
 import { Reveal } from "@/components/reveal";
 import { ScrollOnMount } from "@/components/scroll-on-mount";
@@ -37,6 +38,9 @@ export default async function HomePage({
         </Reveal>
         <Reveal>
           <HowItWorksSection />
+        </Reveal>
+        <Reveal>
+          <TransportSection />
         </Reveal>
         <Reveal>
           <WhyUsSection />

@@ -3,6 +3,7 @@
     "company": "Trackship",
     "tagline": "Zuverlässige internationale Paketverfolgung",
     "trackButton": "Paket verfolgen",
+    "trackShort": "Verfolgen",
     "trackPlaceholder": "Sendungsnummer eingeben (z. B. TS947261583FR)",
     "search": "Suchen",
     "loading": "Lädt…",
@@ -17,6 +18,7 @@
     "services": "Leistungen",
     "about": "Über uns",
     "faq": "FAQ",
+    "testimonials": "Stimmen",
     "contact": "Kontakt",
     "dashboard": "Dashboard",
     "login": "Anmelden",
@@ -76,52 +78,75 @@
         {
           "eyebrow": "Sendungsverfolgung in Echtzeit",
           "title": "Verfolgen Sie Ihre Pakete sekundengenau",
-          "subtitle": "Visualisieren Sie jeden Schritt Ihrer Sendung – von der Abholung bis zur Zustellung – auf jedem Gerät.",
+          "subtitle": "Von der Abholung bis zum Empfang sehen Sie jeden Schritt Ihres Pakets — auf jedem Gerät.",
           "primaryCta": "Paket verfolgen",
           "secondaryCta": "Unsere Leistungen ansehen"
         },
         {
-          "eyebrow": "Internationales Netzwerk",
-          "title": "Abdeckung auf 4 Kontinenten",
-          "subtitle": "Trackship wickelt Ihre nationalen und grenzüberschreitenden Sendungen mit den besten Logistikpartnern ab.",
-          "primaryCta": "Unser Netzwerk entdecken",
-          "secondaryCta": "Angebot anfragen"
+          "eyebrow": "Internationale Verfolgung",
+          "title": "Ihre Pakete auf 4 Kontinenten verfolgt",
+          "subtitle": "Über 50 Länder abgedeckt. Egal wohin Ihr Paket reist — Trackship informiert Sie bei jedem Scan.",
+          "primaryCta": "Paket verfolgen",
+          "secondaryCta": "Abdeckung ansehen"
         },
         {
-          "eyebrow": "Sicherheit & Transparenz",
-          "title": "Ihre Pakete – ohne Überraschungen",
-          "subtitle": "Klare Preise, geschützte Daten und vollständiger Verlauf: Sie behalten die Kontrolle über jede Sendung.",
+          "eyebrow": "Volle Transparenz",
+          "title": "Keine blinden Flecken, keine Überraschungen",
+          "subtitle": "Vollständiger Verlauf, aktueller Status, Ort und Datum jedes Ereignisses: Sie wissen alles, sofort.",
           "primaryCta": "Paket verfolgen",
-          "secondaryCta": "Unsere Charta lesen"
+          "secondaryCta": "So funktioniert es"
         }
       ]
     },
     "stats": {
-      "parcels": { "value": "250.000+", "label": "Zugestellte Pakete" },
+      "parcels": { "value": "250.000+", "label": "Verfolgte Pakete" },
       "countries": { "value": "50+", "label": "Abgedeckte Länder" },
-      "onTime": { "value": "99,5 %", "label": "Pünktliche Zustellungen" },
-      "support": { "value": "24/7", "label": "Kundensupport" }
+      "onTime": { "value": "99,5 %", "label": "Pünktliche Updates" },
+      "support": { "value": "24/7", "label": "Verfolgung verfügbar" }
     },
     "services": {
       "eyebrow": "Unsere Leistungen",
-      "title": "Eine Lösung für jede Sendung",
-      "subtitle": "Vom Eilbrief bis zum Container deckt Trackship alle Logistikbedürfnisse ab.",
+      "title": "Sendungsverfolgung, für Sie gemacht",
+      "subtitle": "Ein einfacher Service: eine Nummer, eine Seite, alle Infos zu Ihrem Paket. Das bekommen Sie mit Trackship.",
       "items": {
-        "express": {
-          "title": "Expresszustellung",
-          "body": "Abholung innerhalb von 2 Stunden und Zustellung in 24-48 Stunden auf den wichtigsten nationalen und europäischen Strecken."
+        "realtime": {
+          "title": "Echtzeit-Verfolgung",
+          "body": "Jeder Scan aktualisiert Ihre Verfolgungsseite sofort. Kein Neuladen, kein Warten."
         },
-        "international": {
-          "title": "Internationale Sendungen",
-          "body": "Door-to-Door-Routing auf 4 Kontinenten, einschließlich Zollabwicklung."
+        "global": {
+          "title": "Weltweite Abdeckung",
+          "body": "Über 50 Länder auf 4 Kontinenten. Inland und international mit derselben Qualität verfolgt."
         },
-        "ecommerce": {
-          "title": "E-Commerce-Lösungen",
-          "body": "API-Integrationen, Mehrfach-Etiketten und Kundenbenachrichtigungen: Trackship an Ihren Shop anbinden."
+        "receipts": {
+          "title": "Professionelle Belege",
+          "body": "QR-Code, Barcode, detaillierte Infos: ein druckfertiger Beleg für jede verfolgte Sendung."
         },
-        "custom": {
-          "title": "Maßgeschneiderter Transport",
-          "body": "Sondervolumen, temperaturgeführt, empfindliche Güter: Wir entwickeln die passende Lösung."
+        "multilingual": {
+          "title": "Mehrsprachig",
+          "body": "Verfolgungsseite auf Französisch, Englisch, Spanisch und Deutsch — für Ihre Empfänger weltweit."
+        }
+      }
+    },
+    "transport": {
+      "eyebrow": "Alle Transportarten",
+      "title": "Wir verfolgen Ihre Pakete — egal wie sie reisen",
+      "subtitle": "Seefracht, Luftfracht, Bahn, Straße — Trackship integriert die Datenströme aller großen Spediteure.",
+      "items": {
+        "maritime": {
+          "title": "Seefracht",
+          "body": "Container oder Sammelgut, Ihre Pakete vom Verladehafen bis zum Zustellort verfolgt."
+        },
+        "aerial": {
+          "title": "Luftfracht",
+          "body": "Express oder Cargo: verfolgen Sie Ihre Pakete vom Abflug bis zum Zielflughafen — und darüber hinaus."
+        },
+        "rail": {
+          "title": "Schienenverkehr",
+          "body": "Internationale oder nationale Bahnfracht: jeder Halt erscheint in Ihrer Zeitleiste."
+        },
+        "road": {
+          "title": "Straße",
+          "body": "LKW, Bus oder Transporter: alle Straßenströme werden mit demselben Detailgrad verfolgt."
         }
       }
     },
@@ -150,32 +175,32 @@
     },
     "whyUs": {
       "eyebrow": "Warum Trackship",
-      "title": "Sechs Gründe, mit uns zu versenden",
-      "subtitle": "Entwickelt für anspruchsvolle E-Merchants und Privatpersonen.",
+      "title": "Sechs Gründe, Ihre Pakete bei uns zu verfolgen",
+      "subtitle": "Ein Verfolgungsservice für anspruchsvolle E-Merchants und Privatpersonen.",
       "reasons": [
         {
-          "title": "Globales Netzwerk",
-          "body": "Über 50 Länder abgedeckt durch jährlich auditierte Partner."
+          "title": "Weltweite Abdeckung",
+          "body": "Über 50 Länder abgedeckt. Alle großen Spediteure an einem Ort integriert."
         },
         {
           "title": "Echtzeit-Verfolgung",
-          "body": "Automatische Updates bei jedem Scan, abrufbar von jedem Gerät."
+          "body": "Automatische Updates bei jedem Scan, sofort sichtbar auf jedem Gerät."
         },
         {
           "title": "Datensicherheit",
-          "body": "Ende-zu-Ende-Verschlüsselung und vollständige DSGVO-Konformität auf der gesamten Strecke."
+          "body": "Ende-zu-Ende-Verschlüsselung und volle DSGVO-Konformität zum Schutz Ihrer Verfolgungsdaten."
         },
         {
           "title": "Volle Transparenz",
-          "body": "Klare Preise ohne versteckte Kosten, Verlauf mit einem Klick einsehbar."
+          "body": "Status, Ort, Datum jedes Ereignisses: keine blinden Flecken im Paketverlauf."
         },
         {
-          "title": "24/7-Support",
-          "body": "Ein menschliches Team rund um die Uhr verfügbar – in vier Sprachen."
+          "title": "24/7 verfügbar",
+          "body": "Ihre Verfolgungsseite ist jederzeit erreichbar — in vier Sprachen, von überall."
         },
         {
-          "title": "Wettbewerbsfähige Preise",
-          "body": "Preise, die auf allen strategischen Korridoren verhandelt wurden."
+          "title": "Klare Oberfläche",
+          "body": "Eine eigene Seite pro Paket, übersichtlich auf Desktop und Mobil."
         }
       ]
     },
@@ -205,28 +230,46 @@
     "testimonials": {
       "eyebrow": "Sie vertrauen uns",
       "title": "Was unsere Kunden sagen",
-      "subtitle": "E-Merchants und Profis, die täglich auf Trackship setzen.",
+      "subtitle": "Empfänger und Absender, die das Trackship-Erlebnis erlebt haben.",
+      "previous": "Vorheriges Testimonial",
+      "next": "Nächstes Testimonial",
+      "goTo": "Zu Testimonial {n} wechseln",
       "items": [
         {
-          "quote": "Seit dem Wechsel zu Trackship sind unsere Reklamationen um 40 % gesunken. Kunden sehen, wo ihr Paket ist – und wir schlafen ruhiger.",
+          "quote": "Mein Paket kam genau pünktlich an. Ich konnte jeden Schritt verfolgen, ohne jemanden anrufen zu müssen — genau das erwarte ich von einem Verfolgungsservice.",
           "name": "Camille Renard",
-          "role": "Mitgründerin, Atelier des Toiles"
+          "role": "Empfängerin, Lyon"
         },
         {
-          "quote": "Klares Dashboard, solide API und Support, der wirklich 24/7 erreichbar ist. Drei Dinge, die wir vorher nirgends gleichzeitig hatten.",
+          "quote": "Die Verfolgungsseite ist glasklar. Status, letzter Scan, Ort — alles auf einen Blick sichtbar. Und die Mobilversion funktioniert genauso gut wie der Desktop.",
           "name": "Mehdi Touati",
-          "role": "Logistikleiter, Riad Spices"
+          "role": "Empfänger, Casablanca"
         },
         {
-          "quote": "Wir versenden jede Woche in 12 Länder. Die internationale Abdeckung und die Preistransparenz sind der Grund, warum wir bleiben.",
+          "quote": "Drei Pakete in zwei Wochen, alle reibungslos verfolgt. Die detaillierte Zeitleiste ließ mich den Empfang in Ruhe planen — keine Überraschungen.",
           "name": "Laura Schmidt",
-          "role": "Gründerin, Berlin Mode"
+          "role": "Stammkundin, Berlin"
+        },
+        {
+          "quote": "Update um Update — mein Paket kam genau wie angekündigt an. Mit dem QR-Code auf dem Beleg kann ich den Status jederzeit erneut prüfen, sehr praktisch.",
+          "name": "Sophie Martin",
+          "role": "Empfängerin, Bordeaux"
+        },
+        {
+          "quote": "Tadelloser Service. Der erhaltene Beleg war klar, professionell, mit allen wichtigen Informationen. Der Empfang verlief völlig problemlos.",
+          "name": "Andrés Vargas",
+          "role": "Empfänger, Madrid"
+        },
+        {
+          "quote": "Mehrsprachige Verfolgung, sofortige Seite, reaktionsschnelles Team bei Bedarf. Trackship erfüllt alle Kriterien für einen Verfolgungsservice, der wirklich beruhigt.",
+          "name": "Anna Klein",
+          "role": "Stammkundin, Hamburg"
         }
       ]
     },
     "cta": {
-      "title": "Bereit, mit Vertrauen zu versenden?",
-      "body": "Verfolgen Sie Ihr Paket in Sekunden oder kontaktieren Sie uns für ein maßgeschneidertes Angebot.",
+      "title": "Bereit, Ihr Paket zu verfolgen?",
+      "body": "Geben Sie Ihre Sendungsnummer in Sekunden ein oder kontaktieren Sie uns bei Fragen.",
       "primary": "Paket verfolgen",
       "secondary": "Kontakt aufnehmen"
     },
@@ -237,23 +280,23 @@
       "items": [
         {
           "q": "Wie finde ich meine Sendungsnummer?",
-          "a": "Sie wird Ihnen per E-Mail beim Versand zugesandt. Sie beginnt mit TS, gefolgt von 9 Ziffern und 2 Buchstaben des Bestimmungslandes (z. B. TS947261583FR)."
+          "a": "Die Nummer erhalten Sie vom Absender oder finden sie auf Ihrem Trackship-Beleg. Sie beginnt mit TS, gefolgt von 9 Ziffern und 2 Buchstaben des Bestimmungslandes (z. B. TS947261583FR)."
         },
         {
-          "q": "Wie lange dauert eine internationale Zustellung?",
-          "a": "Standard-Auslandszustellungen dauern je nach Ziel 3 bis 7 Werktage. Auf den meisten Korridoren steht eine Express-Option zur Verfügung."
+          "q": "Wie verfolge ich mein Paket auf Trackship?",
+          "a": "Klicken Sie oben auf \"Verfolgen\", geben Sie Ihre Sendungsnummer ein und bestätigen Sie. Sie erreichen die zugehörige Seite mit aktuellem Status, letztem Scan-Ort und vollständigem Verlauf."
         },
         {
-          "q": "Was passiert, wenn mein Paket verloren oder beschädigt wird?",
-          "a": "Alle unsere Sendungen sind bis zum deklarierten Wert versichert. Ein Schadensfall kann über Ihr Dashboard oder das Kontaktformular eröffnet werden."
+          "q": "Was bedeuten die angezeigten Status?",
+          "a": "Mögliche Status: Ausstehend, Abgeholt, Unterwegs, In Zustellung, Zugestellt, Zustellung fehlgeschlagen, Retourniert. Jede Änderung wird mit Zeitstempel und Ort auf Ihrer Verfolgungsseite angezeigt."
+        },
+        {
+          "q": "Meine Sendungsnummer wird nicht gefunden — was tun?",
+          "a": "Prüfen Sie zunächst das Format (TS + 9 Ziffern + 2 Buchstaben). Wenn alles passt, aber nichts erscheint, wenden Sie sich an den Absender — Ihr Paket wurde möglicherweise noch nicht in unserem System erfasst."
         },
         {
           "q": "Kann ich mehrere Pakete gleichzeitig verfolgen?",
-          "a": "Ja, in Ihrem Admin-Dashboard verwalten Sie alle Bestellungen und deren Verfolgungsereignisse parallel."
-        },
-        {
-          "q": "Stehen Ihre Leistungen auch Privatpersonen offen?",
-          "a": "Die öffentliche Sendungsverfolgung ja, ohne Registrierung. Für private Sendungen kontaktieren Sie uns – wir empfehlen Ihnen das passende Modell."
+          "a": "Ja. Jede Sendung hat eine eigene Verfolgungs-URL — öffnen Sie mehrere Tabs oder speichern Sie sie als Lesezeichen. Absender erhalten zusätzlich ein Dashboard mit allen Sendungen."
         },
         {
           "q": "Wie sind meine Daten geschützt?",
@@ -285,8 +328,6 @@
       "info": {
         "emailLabel": "E-Mail",
         "emailValue": "contact@trackship.com",
-        "phoneLabel": "Telefon",
-        "phoneValue": "+33 1 23 45 67 89",
         "addressLabel": "Adresse",
         "addressValue": "10 rue de la Logistique, 75001 Paris, Frankreich",
         "hoursLabel": "Öffnungszeiten",
@@ -297,7 +338,7 @@
   "footer": {
     "about": {
       "title": "Trackship",
-      "description": "Eine vollständige Lösung für Sendungsverfolgung und Versandmanagement, entwickelt für E-Merchants und Privatpersonen."
+      "description": "Mehrsprachiger, multi-spediteur und multimodaler Sendungsverfolgungsdienst. Eine klare URL pro Paket, Echtzeit-Updates."
     },
     "columns": {
       "services": "Leistungen",
@@ -305,10 +346,10 @@
       "company": "Unternehmen"
     },
     "links": {
-      "express": "Expresszustellung",
-      "international": "Internationale Sendungen",
-      "ecommerce": "E-Commerce-Lösungen",
-      "custom": "Maßgeschneiderter Transport",
+      "realtime": "Echtzeit-Verfolgung",
+      "global": "Weltweite Abdeckung",
+      "receipts": "Professionelle Belege",
+      "multilingual": "Mehrsprachige Verfolgung",
       "track": "Paket verfolgen",
       "faq": "FAQ",
       "contact": "Kontakt aufnehmen",
@@ -324,12 +365,6 @@
       "placeholder": "Ihre E-Mail-Adresse",
       "submit": "Abonnieren",
       "success": "Vielen Dank, Sie sind angemeldet!"
-    },
-    "social": {
-      "twitter": "Twitter",
-      "linkedin": "LinkedIn",
-      "facebook": "Facebook",
-      "instagram": "Instagram"
     },
     "rights": "Alle Rechte vorbehalten.",
     "legal": "Impressum"
