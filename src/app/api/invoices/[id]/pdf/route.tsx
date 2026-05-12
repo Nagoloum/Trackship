@@ -3,12 +3,12 @@ import type { NextRequest } from "next/server";
 
 import { ReceiptPdf } from "@/lib/invoice-pdf";
 import { getCategoryLabel, type InvoiceLocale } from "@/lib/invoice-strings";
-import { normalizeOrderItems } from "@/lib/order-items";
 import {
   generateBarcodeDataUrl,
   generateQrDataUrl,
   publicTrackingUrl,
 } from "@/lib/qr-barcode";
+import { buildReceiptOrder, RECEIPT_ORDER_COLUMNS } from "@/lib/receipt-order";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 
@@ -36,11 +36,7 @@ export async function GET(
     .select(
       `
         invoice_number, language, issued_at,
-        orders (
-          code, recipient_name, recipient_email, recipient_phone, recipient_address,
-          origin, origin_country, destination, destination_country, weight_kg,
-          declared_value, items, current_status
-        )
+        orders ( ${RECEIPT_ORDER_COLUMNS} )
       `
     )
     .eq("id", id)
@@ -60,7 +56,6 @@ export async function GET(
     generateBarcodeDataUrl(order.code),
   ]);
   const lang = invoice.language as InvoiceLocale;
-  const items = normalizeOrderItems(order.items);
 
   const buffer = await renderToBuffer(
     <ReceiptPdf
@@ -69,23 +64,7 @@ export async function GET(
         language: invoice.language,
         issued_at: invoice.issued_at,
       }}
-      order={{
-        code: order.code,
-        recipient_name: order.recipient_name,
-        recipient_email: order.recipient_email,
-        recipient_phone: order.recipient_phone,
-        recipient_address: order.recipient_address,
-        origin: order.origin,
-        origin_country: order.origin_country,
-        destination: order.destination,
-        destination_country: order.destination_country,
-        weight_kg: order.weight_kg != null ? Number(order.weight_kg) : null,
-        declared_value:
-          order.declared_value != null ? Number(order.declared_value) : null,
-        current_status: order.current_status,
-        items,
-        categoryLabel: (k) => getCategoryLabel(k, lang),
-      }}
+      order={buildReceiptOrder(order, (k) => getCategoryLabel(k, lang))}
       qrDataUrl={qrDataUrl}
       barcodeDataUrl={barcodeDataUrl}
       trackingUrl={trackingUrl}

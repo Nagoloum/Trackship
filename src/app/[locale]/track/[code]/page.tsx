@@ -1,5 +1,6 @@
 import {
   ArrowLeft,
+  Clock,
   Download,
   FileText,
   ImageIcon,
@@ -10,6 +11,7 @@ import {
   PackageSearch,
   QrCode,
   Search,
+  Send,
   User,
   Weight,
 } from "lucide-react";
@@ -35,6 +37,7 @@ import { StatusBadge } from "@/components/status-badge";
 import { TrackingTimeline } from "@/components/tracking-timeline";
 import { COMPANY } from "@/lib/company";
 import { normalizeOrderItems } from "@/lib/order-items";
+import { recipientAddressLines, resolveSender } from "@/lib/receipt-order";
 import { generateQrDataUrl, publicTrackingUrl } from "@/lib/qr-barcode";
 import { lookupTracking } from "@/lib/tracking-lookup";
 import { normalizeTrackingCode } from "@/lib/tracking-code";
@@ -129,6 +132,30 @@ export default async function TrackingDetailPage({
                     label={td("recipient")}
                     value={order.recipient_name}
                   />
+                  {recipientAddressLines(order).length > 0 && (
+                    <DetailRow
+                      icon={<MapPin className="h-4 w-4" />}
+                      label={td("recipientAddress")}
+                      value={recipientAddressLines(order).join(" · ")}
+                    />
+                  )}
+                  {order.recipient_delivery_hours && (
+                    <DetailRow
+                      icon={<Clock className="h-4 w-4" />}
+                      label={td("deliveryHours")}
+                      value={order.recipient_delivery_hours}
+                    />
+                  )}
+                  {(() => {
+                    const sender = resolveSender(order);
+                    return (
+                      <DetailRow
+                        icon={<Send className="h-4 w-4" />}
+                        label={td("sender")}
+                        value={[sender.name, ...sender.lines].join(" · ")}
+                      />
+                    );
+                  })()}
                   <DetailRow
                     icon={<Package className="h-4 w-4" />}
                     label={td("createdAt")}

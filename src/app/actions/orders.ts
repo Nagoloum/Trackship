@@ -15,6 +15,15 @@ type OrderInput = {
   recipient_phone: string | null;
   recipient_email: string | null;
   recipient_address: string | null;
+  recipient_address_line2: string | null;
+  recipient_city: string | null;
+  recipient_state: string | null;
+  recipient_postal_code: string | null;
+  recipient_delivery_hours: string | null;
+  sender_name: string | null;
+  sender_address: string | null;
+  sender_phone: string | null;
+  sender_email: string | null;
   origin: string;
   origin_country: string;
   destination: string;
@@ -76,6 +85,15 @@ function parseFormData(formData: FormData): OrderInput | string {
     recipient_phone: optional("recipient_phone"),
     recipient_email: optional("recipient_email"),
     recipient_address: optional("recipient_address"),
+    recipient_address_line2: optional("recipient_address_line2"),
+    recipient_city: optional("recipient_city"),
+    recipient_state: optional("recipient_state"),
+    recipient_postal_code: optional("recipient_postal_code"),
+    recipient_delivery_hours: optional("recipient_delivery_hours"),
+    sender_name: optional("sender_name"),
+    sender_address: optional("sender_address"),
+    sender_phone: optional("sender_phone"),
+    sender_email: optional("sender_email"),
     origin,
     origin_country,
     destination,

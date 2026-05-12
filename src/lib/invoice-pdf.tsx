@@ -14,7 +14,11 @@ import {
   getStatusLabel,
   type InvoiceLocale,
 } from "@/lib/invoice-strings";
-import type { OrderItem } from "@/lib/order-items";
+import {
+  recipientAddressLines,
+  resolveSender,
+  type ReceiptOrder,
+} from "@/lib/receipt-order";
 
 export type ReceiptPdfData = {
   /** Sequential admin-issued number. Omit for the public download — the
@@ -24,24 +28,7 @@ export type ReceiptPdfData = {
   issued_at: string;
 };
 
-export type OrderPdfData = {
-  code: string;
-  recipient_name: string;
-  recipient_email: string | null;
-  recipient_phone: string | null;
-  recipient_address: string | null;
-  origin: string;
-  origin_country: string;
-  destination: string;
-  destination_country: string;
-  weight_kg: number | null;
-  declared_value: number | null;
-  current_status: string;
-  /** Optional list of items in the parcel — rendered as a table when set. */
-  items?: OrderItem[];
-  /** Localised category label resolver. */
-  categoryLabel?: (key: string) => string;
-};
+export type OrderPdfData = ReceiptOrder;
 
 const colors = {
   primary: "#1F3FA8",
@@ -400,21 +387,38 @@ export function ReceiptPdf({
           <View style={styles.recipientCol}>
             <Text style={styles.partyTitle}>{t.billTo}</Text>
             <Text style={styles.partyName}>{order.recipient_name}</Text>
-            {order.recipient_address && (
-              <Text style={styles.partyLine}>{order.recipient_address}</Text>
-            )}
+            {recipientAddressLines(order).map((line, i) => (
+              <Text key={i} style={styles.partyLine}>
+                {line}
+              </Text>
+            ))}
             {order.recipient_email && (
               <Text style={styles.partyMutedLine}>{order.recipient_email}</Text>
             )}
             {order.recipient_phone && (
               <Text style={styles.partyMutedLine}>{order.recipient_phone}</Text>
             )}
-            <Text style={[styles.partyTitle, { marginTop: 8 }]}>{t.sender}</Text>
-            <Text style={styles.partyName}>{COMPANY.name}</Text>
-            <Text style={styles.partyLine}>
-              {COMPANY.city}, {COMPANY.country}
-            </Text>
-            <Text style={styles.partyMutedLine}>{COMPANY.email}</Text>
+            {order.recipient_delivery_hours && (
+              <Text style={styles.partyMutedLine}>
+                {t.deliveryHours}: {order.recipient_delivery_hours}
+              </Text>
+            )}
+            {(() => {
+              const sender = resolveSender(order);
+              return (
+                <>
+                  <Text style={[styles.partyTitle, { marginTop: 8 }]}>
+                    {t.sender}
+                  </Text>
+                  <Text style={styles.partyName}>{sender.name}</Text>
+                  {sender.lines.map((line, i) => (
+                    <Text key={i} style={styles.partyLine}>
+                      {line}
+                    </Text>
+                  ))}
+                </>
+              );
+            })()}
           </View>
 
           <View style={styles.qrCol}>

@@ -2,7 +2,6 @@ import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
 
 import { getCategoryLabel, type InvoiceLocale } from "@/lib/invoice-strings";
-import { normalizeOrderItems } from "@/lib/order-items";
 import {
   RECEIPT_PNG_SIZE,
   ReceiptPngLayout,
@@ -12,6 +11,7 @@ import {
   generateQrDataUrl,
   publicTrackingUrl,
 } from "@/lib/qr-barcode";
+import { buildReceiptOrder } from "@/lib/receipt-order";
 import { lookupTracking } from "@/lib/tracking-lookup";
 
 export const runtime = "nodejs";
@@ -51,24 +51,9 @@ export async function GET(
         // No invoiceNumber — the public download omits the admin sequence.
         language={language}
         issuedAt={order.created_at}
-        order={{
-          code: order.code,
-          recipient_name: order.recipient_name,
-          recipient_email: order.recipient_email,
-          recipient_phone: order.recipient_phone,
-          recipient_address: order.recipient_address,
-          origin: order.origin,
-          origin_country: order.origin_country,
-          destination: order.destination,
-          destination_country: order.destination_country,
-          weight_kg:
-            order.weight_kg != null ? Number(order.weight_kg) : null,
-          declared_value:
-            order.declared_value != null ? Number(order.declared_value) : null,
-          current_status: order.current_status,
-          items: normalizeOrderItems(order.items),
-          categoryLabel: (k) => getCategoryLabel(k, language as InvoiceLocale),
-        }}
+        order={buildReceiptOrder(order, (k) =>
+          getCategoryLabel(k, language as InvoiceLocale)
+        )}
         qrDataUrl={qrDataUrl}
         barcodeDataUrl={barcodeDataUrl}
         trackingUrl={trackingUrl}

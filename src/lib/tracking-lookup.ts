@@ -18,6 +18,15 @@ export type TrackingOrder = {
   recipient_email: string | null;
   recipient_phone: string | null;
   recipient_address: string | null;
+  recipient_address_line2: string | null;
+  recipient_city: string | null;
+  recipient_state: string | null;
+  recipient_postal_code: string | null;
+  recipient_delivery_hours: string | null;
+  sender_name: string | null;
+  sender_address: string | null;
+  sender_phone: string | null;
+  sender_email: string | null;
   origin: string;
   origin_country: string;
   destination: string;
@@ -56,6 +65,15 @@ export async function lookupTracking(
         recipient_email,
         recipient_phone,
         recipient_address,
+        recipient_address_line2,
+        recipient_city,
+        recipient_state,
+        recipient_postal_code,
+        recipient_delivery_hours,
+        sender_name,
+        sender_address,
+        sender_phone,
+        sender_email,
         origin,
         origin_country,
         destination,
@@ -91,6 +109,15 @@ export async function lookupTracking(
     recipient_email: order.recipient_email,
     recipient_phone: order.recipient_phone,
     recipient_address: order.recipient_address,
+    recipient_address_line2: order.recipient_address_line2,
+    recipient_city: order.recipient_city,
+    recipient_state: order.recipient_state,
+    recipient_postal_code: order.recipient_postal_code,
+    recipient_delivery_hours: order.recipient_delivery_hours,
+    sender_name: order.sender_name,
+    sender_address: order.sender_address,
+    sender_phone: order.sender_phone,
+    sender_email: order.sender_email,
     origin: order.origin,
     origin_country: order.origin_country,
     destination: order.destination,

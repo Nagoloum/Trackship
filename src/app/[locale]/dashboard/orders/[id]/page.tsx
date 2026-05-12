@@ -1,6 +1,8 @@
 import {
   ArrowLeft,
   ArrowRight,
+  Building2,
+  Clock,
   Edit3,
   FileText,
   ImageIcon,
@@ -8,6 +10,7 @@ import {
   MapPin,
   Package,
   Phone,
+  Send,
   User,
 } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -24,6 +27,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { deleteReceiptAction } from "@/app/actions/invoices";
 import { deleteOrderAction, deleteTrackingEventAction } from "@/app/actions/orders";
 import { normalizeOrderItems } from "@/lib/order-items";
+import { recipientAddressLines, resolveSender } from "@/lib/receipt-order";
 import { cn } from "@/lib/utils";
 
 export default async function OrderDetailPage({
@@ -51,6 +55,15 @@ export default async function OrderDetailPage({
         recipient_email,
         recipient_phone,
         recipient_address,
+        recipient_address_line2,
+        recipient_city,
+        recipient_state,
+        recipient_postal_code,
+        recipient_delivery_hours,
+        sender_name,
+        sender_address,
+        sender_phone,
+        sender_email,
         origin,
         origin_country,
         destination,
@@ -143,6 +156,9 @@ export default async function OrderDetailPage({
           >
             {order.destination} ({order.destination_country})
           </DetailRow>
+          <DetailRow icon={<User className="h-4 w-4" />} label={td("recipient")}>
+            {order.recipient_name}
+          </DetailRow>
           {order.recipient_email && (
             <DetailRow icon={<Mail className="h-4 w-4" />} label="Email">
               <span className="break-all">{order.recipient_email}</span>
@@ -153,13 +169,26 @@ export default async function OrderDetailPage({
               {order.recipient_phone}
             </DetailRow>
           )}
-          {order.recipient_address && (
+          {recipientAddressLines(order).length > 0 && (
             <DetailRow
-              icon={<User className="h-4 w-4" />}
+              icon={<MapPin className="h-4 w-4" />}
               label={t("address")}
               full
             >
-              {order.recipient_address}
+              {recipientAddressLines(order).map((line, i) => (
+                <span key={i} className="block">
+                  {line}
+                </span>
+              ))}
+            </DetailRow>
+          )}
+          {order.recipient_delivery_hours && (
+            <DetailRow
+              icon={<Clock className="h-4 w-4" />}
+              label={t("deliveryHours")}
+              full
+            >
+              {order.recipient_delivery_hours}
             </DetailRow>
           )}
           {order.weight_kg != null && (
@@ -210,6 +239,42 @@ export default async function OrderDetailPage({
           )}
         </div>
       </section>
+
+      {/* Sender */}
+      {(() => {
+        const sender = resolveSender(order);
+        const isDefault = !order.sender_name;
+        return (
+          <section className="bg-card text-card-foreground rounded-xl border p-5 shadow-sm md:p-6">
+            <h2 className="mb-5 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider">
+              <Send className="h-4 w-4" />
+              {t("sender")}
+              {isDefault && (
+                <span className="text-muted-foreground bg-muted rounded-full px-2 py-0.5 text-[10px] font-medium normal-case tracking-normal">
+                  {t("senderDefault")}
+                </span>
+              )}
+            </h2>
+            <div className="grid gap-5 sm:grid-cols-2">
+              <DetailRow
+                icon={<Building2 className="h-4 w-4" />}
+                label={t("senderName")}
+              >
+                {sender.name}
+              </DetailRow>
+              {sender.lines.map((line, i) => (
+                <DetailRow
+                  key={i}
+                  icon={<MapPin className="h-4 w-4" />}
+                  label={t("senderInfo")}
+                >
+                  {line}
+                </DetailRow>
+              ))}
+            </div>
+          </section>
+        );
+      })()}
 
       {/* Items in the parcel */}
       {orderItems.length > 0 && (

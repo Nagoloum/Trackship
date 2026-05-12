@@ -18,6 +18,7 @@ export type InvoiceStrings = {
   destination: string;
   weight: string;
   declaredValue: string;
+  deliveryHours: string;
   qrCaption: string;
   scanNotice: string;
   vatNumber: string;
@@ -49,6 +50,7 @@ const STRINGS: Record<InvoiceLocale, InvoiceStrings> = {
     destination: "Destination",
     weight: "Poids",
     declaredValue: "Valeur déclarée",
+    deliveryHours: "Horaires de réception",
     qrCaption: "Scannez pour suivre votre colis",
     scanNotice:
       "Scannez le QR code pour consulter en temps réel le statut, la timeline et le détail de cette expédition. Le code-barres ci-dessus reproduit le numéro de suivi et peut être lu par un scanner logistique.",
@@ -79,6 +81,7 @@ const STRINGS: Record<InvoiceLocale, InvoiceStrings> = {
     destination: "Destination",
     weight: "Weight",
     declaredValue: "Declared value",
+    deliveryHours: "Delivery hours",
     qrCaption: "Scan to track your parcel",
     scanNotice:
       "Scan the QR code to view this shipment's real-time status, timeline and details. The barcode above encodes the tracking number and can be read by any logistics scanner.",
@@ -109,6 +112,7 @@ const STRINGS: Record<InvoiceLocale, InvoiceStrings> = {
     destination: "Destino",
     weight: "Peso",
     declaredValue: "Valor declarado",
+    deliveryHours: "Horario de atención",
     qrCaption: "Escanea para rastrear tu paquete",
     scanNotice:
       "Escanea el código QR para consultar en tiempo real el estado, la línea de tiempo y los detalles de este envío. El código de barras superior contiene el número de seguimiento y puede leerse con cualquier escáner logístico.",
@@ -139,6 +143,7 @@ const STRINGS: Record<InvoiceLocale, InvoiceStrings> = {
     destination: "Zielort",
     weight: "Gewicht",
     declaredValue: "Deklarierter Wert",
+    deliveryHours: "Annahmezeiten",
     qrCaption: "Scannen, um die Sendung zu verfolgen",
     scanNotice:
       "Scannen Sie den QR-Code, um den aktuellen Status, die Zeitleiste und alle Details dieser Sendung in Echtzeit aufzurufen. Der Barcode oben enthält die Sendungsnummer und kann von jedem Logistik-Scanner gelesen werden.",

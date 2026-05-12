@@ -5,7 +5,11 @@ import {
   getStatusLabel,
   type InvoiceLocale,
 } from "@/lib/invoice-strings";
-import type { OrderItem } from "@/lib/order-items";
+import {
+  recipientAddressLines,
+  resolveSender,
+  type ReceiptOrder,
+} from "@/lib/receipt-order";
 
 const COLORS = {
   primary: "#1F3FA8",
@@ -16,22 +20,7 @@ const COLORS = {
   white: "#FFFFFF",
 };
 
-export type ReceiptPngOrder = {
-  code: string;
-  recipient_name: string;
-  recipient_email?: string | null;
-  recipient_phone?: string | null;
-  recipient_address?: string | null;
-  origin: string;
-  origin_country: string;
-  destination: string;
-  destination_country: string;
-  weight_kg: number | null;
-  declared_value?: number | null;
-  current_status: string;
-  items?: OrderItem[];
-  categoryLabel?: (key: string) => string;
-};
+export type ReceiptPngOrder = ReceiptOrder;
 
 export type ReceiptPngProps = {
   /** Sequential admin number — when undefined, the line is hidden. */
@@ -236,11 +225,11 @@ export function ReceiptPngLayout({
           <span style={{ fontSize: 22, fontWeight: 700 }}>
             {order.recipient_name}
           </span>
-          {order.recipient_address && (
-            <span style={{ fontSize: 16, marginTop: 4 }}>
-              {order.recipient_address}
+          {recipientAddressLines(order).map((line, i) => (
+            <span key={i} style={{ fontSize: 16, marginTop: i === 0 ? 4 : 2 }}>
+              {line}
             </span>
-          )}
+          ))}
           {order.recipient_email && (
             <span style={{ color: COLORS.muted, fontSize: 15, marginTop: 2 }}>
               {order.recipient_email}
@@ -249,6 +238,11 @@ export function ReceiptPngLayout({
           {order.recipient_phone && (
             <span style={{ color: COLORS.muted, fontSize: 15, marginTop: 2 }}>
               {order.recipient_phone}
+            </span>
+          )}
+          {order.recipient_delivery_hours && (
+            <span style={{ color: COLORS.muted, fontSize: 15, marginTop: 2 }}>
+              {t.deliveryHours}: {order.recipient_delivery_hours}
             </span>
           )}
 
@@ -265,13 +259,28 @@ export function ReceiptPngLayout({
           >
             {t.sender}
           </span>
-          <span style={{ fontSize: 22, fontWeight: 700 }}>{COMPANY.name}</span>
-          <span style={{ fontSize: 16, marginTop: 4 }}>
-            {COMPANY.city}, {COMPANY.country}
-          </span>
-          <span style={{ color: COLORS.muted, fontSize: 15, marginTop: 2 }}>
-            {COMPANY.email}
-          </span>
+          {(() => {
+            const sender = resolveSender(order);
+            return (
+              <>
+                <span style={{ fontSize: 22, fontWeight: 700 }}>
+                  {sender.name}
+                </span>
+                {sender.lines.map((line, i) => (
+                  <span
+                    key={i}
+                    style={{
+                      fontSize: 16,
+                      marginTop: i === 0 ? 4 : 2,
+                      color: i === 0 ? COLORS.text : COLORS.muted,
+                    }}
+                  >
+                    {line}
+                  </span>
+                ))}
+              </>
+            );
+          })()}
         </div>
 
         {/* QR column */}

@@ -13,7 +13,16 @@ create table if not exists public.orders (
   recipient_name text not null,
   recipient_phone text,
   recipient_email text,
-  recipient_address text,
+  recipient_address text,                        -- address line 1
+  recipient_address_line2 text,                  -- address line 2 / complement
+  recipient_city text,
+  recipient_state text,                          -- state / province / region
+  recipient_postal_code text,
+  recipient_delivery_hours text,                 -- "horario de atención"
+  sender_name text,                              -- per-shipment sender (falls back to COMPANY)
+  sender_address text,
+  sender_phone text,
+  sender_email text,
   origin text not null,
   origin_country text not null,                  -- ISO 3166-1 alpha-2
   destination text not null,
@@ -214,3 +223,50 @@ set items = jsonb_build_array(
 )
 where (items is null or items = '[]'::jsonb)
   and (product_category is not null or product_description is not null);
+
+-- Structured recipient address fields + per-shipment sender. All optional so
+-- existing rows stay valid; `recipient_address` keeps acting as address line 1.
+do $$ begin
+  alter table public.orders add column recipient_address_line2 text;
+exception when duplicate_column then null;
+end $$;
+
+do $$ begin
+  alter table public.orders add column recipient_city text;
+exception when duplicate_column then null;
+end $$;
+
+do $$ begin
+  alter table public.orders add column recipient_state text;
+exception when duplicate_column then null;
+end $$;
+
+do $$ begin
+  alter table public.orders add column recipient_postal_code text;
+exception when duplicate_column then null;
+end $$;
+
+do $$ begin
+  alter table public.orders add column recipient_delivery_hours text;
+exception when duplicate_column then null;
+end $$;
+
+do $$ begin
+  alter table public.orders add column sender_name text;
+exception when duplicate_column then null;
+end $$;
+
+do $$ begin
+  alter table public.orders add column sender_address text;
+exception when duplicate_column then null;
+end $$;
+
+do $$ begin
+  alter table public.orders add column sender_phone text;
+exception when duplicate_column then null;
+end $$;
+
+do $$ begin
+  alter table public.orders add column sender_email text;
+exception when duplicate_column then null;
+end $$;
