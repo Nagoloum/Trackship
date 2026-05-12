@@ -9,6 +9,7 @@ import {
   Mail,
   MapPin,
   Package,
+  Percent,
   Phone,
   Send,
   User,
@@ -27,7 +28,11 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { deleteReceiptAction } from "@/app/actions/invoices";
 import { deleteOrderAction, deleteTrackingEventAction } from "@/app/actions/orders";
 import { normalizeOrderItems } from "@/lib/order-items";
-import { recipientAddressLines, resolveSender } from "@/lib/receipt-order";
+import {
+  recipientAddressLines,
+  resolveSender,
+  vatBreakdown,
+} from "@/lib/receipt-order";
 import { cn } from "@/lib/utils";
 
 export default async function OrderDetailPage({
@@ -70,6 +75,7 @@ export default async function OrderDetailPage({
         destination_country,
         weight_kg,
         declared_value,
+        vat_rate,
         items,
         current_status,
         notes,
@@ -210,6 +216,37 @@ export default async function OrderDetailPage({
               })}
             </DetailRow>
           )}
+          {(() => {
+            const vat = vatBreakdown(order);
+            if (!vat) return null;
+            return (
+              <>
+                <DetailRow
+                  icon={<Percent className="h-4 w-4" />}
+                  label={t("vat")}
+                >
+                  {format.number(vat.rate, {
+                    style: "percent",
+                    maximumFractionDigits: 2,
+                  })}{" "}
+                  ·{" "}
+                  {format.number(vat.vat, {
+                    style: "currency",
+                    currency: "EUR",
+                  })}
+                </DetailRow>
+                <DetailRow
+                  icon={<Package className="h-4 w-4" />}
+                  label={t("total")}
+                >
+                  {format.number(vat.total, {
+                    style: "currency",
+                    currency: "EUR",
+                  })}
+                </DetailRow>
+              </>
+            );
+          })()}
           <DetailRow
             icon={<ArrowRight className="h-4 w-4" />}
             label={td("createdAt")}

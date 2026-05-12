@@ -8,6 +8,7 @@ import {
 import {
   recipientAddressLines,
   resolveSender,
+  vatBreakdown,
   type ReceiptOrder,
 } from "@/lib/receipt-order";
 
@@ -356,14 +357,24 @@ export function ReceiptPngLayout({
           label={t.weight}
           value={order.weight_kg != null ? `${order.weight_kg} kg` : "—"}
         />
-        <DetailCell
-          label={t.declaredValue}
-          value={
-            order.declared_value != null
-              ? `${Number(order.declared_value).toFixed(2)} €`
-              : "—"
-          }
-        />
+        {(() => {
+          const vat = vatBreakdown(order);
+          return (
+            <DetailCell
+              label={t.declaredValue}
+              value={
+                order.declared_value != null
+                  ? `${Number(order.declared_value).toFixed(2)} €`
+                  : "—"
+              }
+              sub={
+                vat && vat.rate > 0
+                  ? `${t.vat} ${+(vat.rate * 100).toFixed(2)}% · ${t.total} ${vat.total.toFixed(2)} €`
+                  : undefined
+              }
+            />
+          );
+        })()}
         <DetailCell
           label={t.issueDate}
           value={formatInvoiceDate(issuedAt, locale)}
@@ -505,7 +516,15 @@ export function ReceiptPngLayout({
   );
 }
 
-function DetailCell({ label, value }: { label: string; value: string }) {
+function DetailCell({
+  label,
+  value,
+  sub,
+}: {
+  label: string;
+  value: string;
+  sub?: string;
+}) {
   return (
     <div
       style={{
@@ -531,6 +550,11 @@ function DetailCell({ label, value }: { label: string; value: string }) {
       <span style={{ fontSize: 18, fontWeight: 700, marginTop: 6 }}>
         {value}
       </span>
+      {sub && (
+        <span style={{ color: COLORS.muted, fontSize: 12, marginTop: 4 }}>
+          {sub}
+        </span>
+      )}
     </div>
   );
 }

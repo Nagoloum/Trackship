@@ -9,6 +9,7 @@ import {
   MapPin,
   Package,
   PackageSearch,
+  Percent,
   QrCode,
   Search,
   Send,
@@ -37,7 +38,11 @@ import { StatusBadge } from "@/components/status-badge";
 import { TrackingTimeline } from "@/components/tracking-timeline";
 import { COMPANY } from "@/lib/company";
 import { normalizeOrderItems } from "@/lib/order-items";
-import { recipientAddressLines, resolveSender } from "@/lib/receipt-order";
+import {
+  recipientAddressLines,
+  resolveSender,
+  vatBreakdown,
+} from "@/lib/receipt-order";
 import { generateQrDataUrl, publicTrackingUrl } from "@/lib/qr-barcode";
 import { lookupTracking } from "@/lib/tracking-lookup";
 import { normalizeTrackingCode } from "@/lib/tracking-code";
@@ -190,6 +195,33 @@ export default async function TrackingDetailPage({
                       })}
                     />
                   )}
+                  {(() => {
+                    const vat = vatBreakdown(order);
+                    if (!vat) return null;
+                    return (
+                      <>
+                        <DetailRow
+                          icon={<Percent className="h-4 w-4" />}
+                          label={td("vat")}
+                          value={`${format.number(vat.rate, {
+                            style: "percent",
+                            maximumFractionDigits: 2,
+                          })} · ${format.number(vat.vat, {
+                            style: "currency",
+                            currency: "EUR",
+                          })}`}
+                        />
+                        <DetailRow
+                          icon={<Package className="h-4 w-4" />}
+                          label={td("totalWithVat")}
+                          value={format.number(vat.total, {
+                            style: "currency",
+                            currency: "EUR",
+                          })}
+                        />
+                      </>
+                    );
+                  })()}
                 </CardContent>
               </Card>
 

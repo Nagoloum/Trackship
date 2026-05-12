@@ -18,6 +18,8 @@ export type InvoiceStrings = {
   destination: string;
   weight: string;
   declaredValue: string;
+  vat: string;
+  total: string;
   deliveryHours: string;
   qrCaption: string;
   scanNotice: string;
@@ -50,6 +52,8 @@ const STRINGS: Record<InvoiceLocale, InvoiceStrings> = {
     destination: "Destination",
     weight: "Poids",
     declaredValue: "Valeur déclarée",
+    vat: "TVA",
+    total: "Total TTC",
     deliveryHours: "Horaires de réception",
     qrCaption: "Scannez pour suivre votre colis",
     scanNotice:
@@ -81,6 +85,8 @@ const STRINGS: Record<InvoiceLocale, InvoiceStrings> = {
     destination: "Destination",
     weight: "Weight",
     declaredValue: "Declared value",
+    vat: "VAT",
+    total: "Total incl. VAT",
     deliveryHours: "Delivery hours",
     qrCaption: "Scan to track your parcel",
     scanNotice:
@@ -112,6 +118,8 @@ const STRINGS: Record<InvoiceLocale, InvoiceStrings> = {
     destination: "Destino",
     weight: "Peso",
     declaredValue: "Valor declarado",
+    vat: "IVA",
+    total: "Total con IVA",
     deliveryHours: "Horario de atención",
     qrCaption: "Escanea para rastrear tu paquete",
     scanNotice:
@@ -143,6 +151,8 @@ const STRINGS: Record<InvoiceLocale, InvoiceStrings> = {
     destination: "Zielort",
     weight: "Gewicht",
     declaredValue: "Deklarierter Wert",
+    vat: "USt.",
+    total: "Gesamt inkl. USt.",
     deliveryHours: "Annahmezeiten",
     qrCaption: "Scannen, um die Sendung zu verfolgen",
     scanNotice:

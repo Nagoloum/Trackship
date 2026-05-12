@@ -43,6 +43,7 @@ export type OrderFormDefaults = {
   destination_country?: string;
   weight_kg?: number | null;
   declared_value?: number | null;
+  vat_rate?: number | null;
   items?: OrderItem[];
   current_status?: string;
   notes?: string | null;
@@ -254,6 +255,17 @@ export function OrderForm({
           label={t("declaredValue")}
           defaultValue={defaults.declared_value ?? ""}
           placeholder="120.00"
+        />
+        <Field
+          id="vat_rate"
+          name="vat_rate"
+          type="number"
+          step="0.1"
+          min="0"
+          label={t("vatRate")}
+          defaultValue={defaults.vat_rate != null ? defaults.vat_rate * 100 : 20}
+          placeholder="20"
+          help={t("vatRateHelp")}
         />
       </Section>
 

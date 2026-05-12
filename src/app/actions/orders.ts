@@ -30,6 +30,7 @@ type OrderInput = {
   destination_country: string;
   weight_kg: number | null;
   declared_value: number | null;
+  vat_rate: number | null;
   items: OrderItem[];
   current_status: string;
   notes: string | null;
@@ -100,6 +101,12 @@ function parseFormData(formData: FormData): OrderInput | string {
     destination_country,
     weight_kg: num("weight_kg"),
     declared_value: num("declared_value"),
+    // The form sends a percentage (e.g. 20) — store it as a fraction (0.20).
+    vat_rate: (() => {
+      const pct = num("vat_rate");
+      if (pct == null) return null;
+      return Math.max(0, pct) / 100;
+    })(),
     items,
     current_status,
     notes: optional("notes"),

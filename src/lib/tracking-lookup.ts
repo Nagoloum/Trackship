@@ -33,6 +33,7 @@ export type TrackingOrder = {
   destination_country: string;
   weight_kg: number | null;
   declared_value: number | null;
+  vat_rate: number | null;
   /** Multi-item parcel contents (JSONB array, normalised at the call site). */
   items: unknown;
   current_status: string;
@@ -80,6 +81,7 @@ export async function lookupTracking(
         destination_country,
         weight_kg,
         declared_value,
+        vat_rate,
         items,
         current_status,
         created_at,
@@ -124,6 +126,7 @@ export async function lookupTracking(
     destination_country: order.destination_country,
     weight_kg: order.weight_kg,
     declared_value: order.declared_value,
+    vat_rate: order.vat_rate,
     items: order.items,
     current_status: order.current_status,
     created_at: order.created_at,

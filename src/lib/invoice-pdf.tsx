@@ -17,6 +17,7 @@ import {
 import {
   recipientAddressLines,
   resolveSender,
+  vatBreakdown,
   type ReceiptOrder,
 } from "@/lib/receipt-order";
 
@@ -459,6 +460,22 @@ export function ReceiptPdf({
                 ? `${Number(order.declared_value).toFixed(2)} €`
                 : "—"}
             </Text>
+            {(() => {
+              const vat = vatBreakdown(order);
+              if (!vat || vat.rate <= 0) return null;
+              return (
+                <Text
+                  style={{
+                    marginTop: 2,
+                    color: colors.muted,
+                    fontSize: 6.5,
+                  }}
+                >
+                  {t.vat} {+(vat.rate * 100).toFixed(2)}% · {t.total}{" "}
+                  {vat.total.toFixed(2)} €
+                </Text>
+              );
+            })()}
           </View>
           <View style={styles.detailCell}>
             <Text style={styles.detailLabel}>{t.issueDate}</Text>

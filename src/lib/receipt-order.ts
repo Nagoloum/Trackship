@@ -26,6 +26,8 @@ export type ReceiptOrder = {
   destination_country: string;
   weight_kg: number | null;
   declared_value: number | null;
+  /** VAT rate applied to the declared value, as a fraction (e.g. 0.20). */
+  vat_rate: number | null;
   current_status: string;
   items: OrderItem[];
   /** Localised category-label resolver (out of React i18n context). */
@@ -38,7 +40,7 @@ export const RECEIPT_ORDER_COLUMNS =
   "recipient_address_line2, recipient_city, recipient_state, recipient_postal_code, " +
   "recipient_delivery_hours, sender_name, sender_address, sender_phone, sender_email, " +
   "origin, origin_country, destination, destination_country, weight_kg, declared_value, " +
-  "items, current_status";
+  "vat_rate, items, current_status";
 
 /** Build a {@link ReceiptOrder} from a raw `orders` row (DB or lookup result). */
 export function buildReceiptOrder(
@@ -75,6 +77,7 @@ export function buildReceiptOrder(
     destination_country: String(row.destination_country ?? ""),
     weight_kg: numv("weight_kg"),
     declared_value: numv("declared_value"),
+    vat_rate: numv("vat_rate"),
     current_status: String(row.current_status ?? "pending"),
     items: normalizeOrderItems(row.items),
     categoryLabel,
@@ -100,6 +103,21 @@ export function resolveSender(order: {
     name: COMPANY.name,
     lines: [`${COMPANY.city}, ${COMPANY.country}`, COMPANY.email],
   };
+}
+
+/**
+ * VAT breakdown for the declared value. Returns `null` when no declared value
+ * is set. `rate` is a fraction (0.20 → 20%); a missing rate is treated as 0.
+ */
+export function vatBreakdown(order: {
+  declared_value: number | null;
+  vat_rate: number | null;
+}): { rate: number; net: number; vat: number; total: number } | null {
+  if (order.declared_value == null) return null;
+  const rate = order.vat_rate != null ? order.vat_rate : 0;
+  const net = Number(order.declared_value);
+  const vat = net * rate;
+  return { rate, net, vat, total: net + vat };
 }
 
 /** Lines making up the recipient's postal address (line 1, line 2, postcode+city, state). */

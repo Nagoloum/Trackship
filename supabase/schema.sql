@@ -29,6 +29,7 @@ create table if not exists public.orders (
   destination_country text not null,             -- ISO 3166-1 alpha-2 (used in code)
   weight_kg numeric,
   declared_value numeric,
+  vat_rate numeric default 0.20,                 -- VAT applied to declared_value (fraction, e.g. 0.20)
   current_status text not null default 'pending',
   notes text,
   created_at timestamptz not null default now(),
@@ -268,5 +269,11 @@ end $$;
 
 do $$ begin
   alter table public.orders add column sender_email text;
+exception when duplicate_column then null;
+end $$;
+
+-- VAT rate applied to the declared value (stored as a fraction, e.g. 0.20).
+do $$ begin
+  alter table public.orders add column vat_rate numeric default 0.20;
 exception when duplicate_column then null;
 end $$;
