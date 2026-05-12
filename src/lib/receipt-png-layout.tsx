@@ -359,30 +359,40 @@ export function ReceiptPngLayout({
         />
         {(() => {
           const vat = vatBreakdown(order);
+          const hasVat = !!vat && vat.rate > 0;
+          const declared =
+            order.declared_value != null
+              ? `${Number(order.declared_value).toFixed(2)} €`
+              : "—";
           return (
-            <DetailCell
-              label={t.declaredValue}
-              value={
-                order.declared_value != null
-                  ? `${Number(order.declared_value).toFixed(2)} €`
-                  : "—"
-              }
-              sub={
-                vat && vat.rate > 0
-                  ? `${t.vat} ${+(vat.rate * 100).toFixed(2)}% · ${t.total} ${vat.total.toFixed(2)} €`
-                  : undefined
-              }
-            />
+            <>
+              <DetailCell label={t.declaredValue} value={declared} />
+              {hasVat ? (
+                <>
+                  <DetailCell
+                    label={`${t.vat} ${+(vat!.rate * 100).toFixed(2)}%`}
+                    value={`${vat!.vat.toFixed(2)} €`}
+                  />
+                  <DetailCell
+                    label={t.total}
+                    value={`${vat!.total.toFixed(2)} €`}
+                  />
+                </>
+              ) : (
+                <>
+                  <DetailCell
+                    label={t.issueDate}
+                    value={formatInvoiceDate(issuedAt, locale)}
+                  />
+                  <DetailCell
+                    label={t.status}
+                    value={getStatusLabel(order.current_status, locale)}
+                  />
+                </>
+              )}
+            </>
           );
         })()}
-        <DetailCell
-          label={t.issueDate}
-          value={formatInvoiceDate(issuedAt, locale)}
-        />
-        <DetailCell
-          label={t.status}
-          value={getStatusLabel(order.current_status, locale)}
-        />
       </div>
 
       {/* Items list (compact grid) */}
@@ -516,15 +526,7 @@ export function ReceiptPngLayout({
   );
 }
 
-function DetailCell({
-  label,
-  value,
-  sub,
-}: {
-  label: string;
-  value: string;
-  sub?: string;
-}) {
+function DetailCell({ label, value }: { label: string; value: string }) {
   return (
     <div
       style={{
@@ -550,11 +552,6 @@ function DetailCell({
       <span style={{ fontSize: 18, fontWeight: 700, marginTop: 6 }}>
         {value}
       </span>
-      {sub && (
-        <span style={{ color: COLORS.muted, fontSize: 12, marginTop: 4 }}>
-          {sub}
-        </span>
-      )}
     </div>
   );
 }

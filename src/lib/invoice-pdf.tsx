@@ -460,35 +460,47 @@ export function ReceiptPdf({
                 ? `${Number(order.declared_value).toFixed(2)} €`
                 : "—"}
             </Text>
-            {(() => {
-              const vat = vatBreakdown(order);
-              if (!vat || vat.rate <= 0) return null;
+          </View>
+          {(() => {
+            const vat = vatBreakdown(order);
+            const hasVat = !!vat && vat.rate > 0;
+            if (hasVat) {
               return (
-                <Text
-                  style={{
-                    marginTop: 2,
-                    color: colors.muted,
-                    fontSize: 6.5,
-                  }}
-                >
-                  {t.vat} {+(vat.rate * 100).toFixed(2)}% · {t.total}{" "}
-                  {vat.total.toFixed(2)} €
-                </Text>
+                <>
+                  <View style={styles.detailCell}>
+                    <Text style={styles.detailLabel}>
+                      {t.vat} {+(vat!.rate * 100).toFixed(2)}%
+                    </Text>
+                    <Text style={styles.detailValue}>
+                      {vat!.vat.toFixed(2)} €
+                    </Text>
+                  </View>
+                  <View style={styles.detailCell}>
+                    <Text style={styles.detailLabel}>{t.total}</Text>
+                    <Text style={styles.detailValue}>
+                      {vat!.total.toFixed(2)} €
+                    </Text>
+                  </View>
+                </>
               );
-            })()}
-          </View>
-          <View style={styles.detailCell}>
-            <Text style={styles.detailLabel}>{t.issueDate}</Text>
-            <Text style={styles.detailValueSmall}>
-              {formatInvoiceDate(receipt.issued_at, locale)}
-            </Text>
-          </View>
-          <View style={styles.detailCell}>
-            <Text style={styles.detailLabel}>{t.status}</Text>
-            <Text style={styles.detailValueSmall}>
-              {getStatusLabel(order.current_status, locale)}
-            </Text>
-          </View>
+            }
+            return (
+              <>
+                <View style={styles.detailCell}>
+                  <Text style={styles.detailLabel}>{t.issueDate}</Text>
+                  <Text style={styles.detailValueSmall}>
+                    {formatInvoiceDate(receipt.issued_at, locale)}
+                  </Text>
+                </View>
+                <View style={styles.detailCell}>
+                  <Text style={styles.detailLabel}>{t.status}</Text>
+                  <Text style={styles.detailValueSmall}>
+                    {getStatusLabel(order.current_status, locale)}
+                  </Text>
+                </View>
+              </>
+            );
+          })()}
         </View>
 
         {/* Items table */}
