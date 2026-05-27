@@ -53,6 +53,7 @@ export default async function EditOrderPage({
         mode="edit"
         defaults={{
           id: order.id,
+          code: order.code,
           recipient_name: order.recipient_name,
           recipient_email: order.recipient_email,
           recipient_phone: order.recipient_phone,

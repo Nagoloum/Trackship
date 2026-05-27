@@ -6,12 +6,12 @@ import {
   useEffect,
   useId,
   useRef,
-  useState,
   type FormEvent,
   type KeyboardEvent,
 } from "react";
 
 import { usePathname } from "@/i18n/navigation";
+import { useChatbotStore, type ChatMessage } from "@/stores/chatbot-store";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -31,107 +31,32 @@ const TOPICS: TopicKey[] = [
   "not_found",
 ];
 
-/**
- * Each topic owns a flat list of multilingual keywords (lowercase, no accents).
- * Free-text input is matched against this list to pick the topic. The keyword
- * set is intentionally permissive — better to over-match than to fall back to
- * the unknown answer.
- */
 const TOPIC_KEYWORDS: Record<TopicKey, string[]> = {
   how_to_track: [
-    "track",
-    "tracker",
-    "tracking",
-    "suivre",
-    "suivi",
-    "comment",
-    "rastrear",
-    "rastreo",
-    "seguimiento",
-    "verfolg",
-    "wie",
-    "how",
-    "where",
-    "look up",
-    "find my",
+    "track", "tracker", "tracking", "suivre", "suivi", "comment",
+    "rastrear", "rastreo", "seguimiento", "verfolg", "wie", "how",
+    "where", "look up", "find my",
   ],
   format: [
-    "format",
-    "code",
-    "numero",
-    "número",
-    "numero de suivi",
-    "numbre",
-    "number",
-    "nummer",
-    "looks like",
-    "ressemble",
-    "exemple",
-    "ejemplo",
-    "beispiel",
-    "ts9",
-    "ts 9",
+    "format", "code", "numero", "número", "numero de suivi", "numbre",
+    "number", "nummer", "looks like", "ressemble", "exemple", "ejemplo",
+    "beispiel", "ts9", "ts 9",
   ],
   statuses: [
-    "status",
-    "statut",
-    "estado",
-    "signifie",
-    "signifient",
-    "significa",
-    "significan",
-    "mean",
-    "means",
-    "meaning",
-    "bedeut",
-    "etape",
-    "étape",
+    "status", "statut", "estado", "signifie", "signifient", "significa",
+    "significan", "mean", "means", "meaning", "bedeut", "etape", "étape",
   ],
   delivery_time: [
-    "time",
-    "temps",
-    "long",
-    "longtemps",
-    "delai",
-    "délai",
-    "delay",
-    "tiempo",
-    "dias",
-    "días",
-    "duracion",
-    "duración",
-    "tage",
-    "lange",
-    "deliver",
-    "livraison",
-    "livre",
-    "livré",
-    "entrega",
-    "zustell",
-    "lieferung",
-    "duration",
+    "time", "temps", "long", "longtemps", "delai", "délai", "delay",
+    "tiempo", "dias", "días", "duracion", "duración", "tage", "lange",
+    "deliver", "livraison", "livre", "livré", "entrega", "zustell",
+    "lieferung", "duration",
   ],
   not_found: [
-    "not found",
-    "introuvable",
-    "pas trouve",
-    "pas trouvé",
-    "missing",
-    "perdu",
-    "lost",
-    "no encontr",
-    "no encuentro",
-    "nicht gefunden",
-    "fehlt",
-    "kein",
-    "aucune commande",
+    "not found", "introuvable", "pas trouve", "pas trouvé", "missing",
+    "perdu", "lost", "no encontr", "no encuentro", "nicht gefunden",
+    "fehlt", "kein", "aucune commande",
   ],
-};
-
-type Message = {
-  id: string;
-  role: "bot" | "user";
-  content: string;
 };
 
 function stripDiacritics(value: string) {
@@ -156,43 +81,32 @@ const nextId = () => `msg-${++messageCounter}-${Date.now().toString(36)}`;
 export function Chatbot() {
   const t = useTranslations("chatbot");
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [input, setInput] = useState("");
+  const { open, messages, input, setOpen, setInput, pushMessage } = useChatbotStore();
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const titleId = useId();
 
-  // The chatbot is for public visitors only — hide on admin routes.
-  // Computed AFTER hooks to satisfy the Rules of Hooks.
   const hidden =
     pathname.startsWith("/dashboard") || pathname.startsWith("/login");
 
-  // Initial greeting on first open.
   useEffect(() => {
     if (open && messages.length === 0) {
-      setMessages([{ id: nextId(), role: "bot", content: t("welcome") }]);
+      pushMessage({ id: nextId(), role: "bot", content: t("welcome") });
     }
-  }, [open, messages.length, t]);
+  }, [open, messages.length, t, pushMessage]);
 
-  // Autoscroll to last message.
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages, open]);
 
-  // Focus input when opening.
   useEffect(() => {
     if (open) {
       const id = window.setTimeout(() => inputRef.current?.focus(), 80);
       return () => window.clearTimeout(id);
     }
   }, [open]);
-
-  function pushMessage(message: Message) {
-    setMessages((prev) => [...prev, message]);
-  }
 
   function answerFor(topic: TopicKey | null): string {
     if (topic) return t(`answers.${topic}`);
@@ -226,12 +140,11 @@ export function Chatbot() {
 
   return (
     <>
-      {/* Floating trigger */}
       <button
         type="button"
         aria-label={t("trigger")}
         aria-expanded={open}
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => setOpen(!open)}
         className={cn(
           "bg-primary text-primary-foreground fixed right-5 bottom-5 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-transform hover:scale-105 focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none",
           open && "scale-95"
@@ -240,7 +153,6 @@ export function Chatbot() {
         {open ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
       </button>
 
-      {/* Panel */}
       {open && (
         <div
           role="dialog"
@@ -317,7 +229,7 @@ export function Chatbot() {
   );
 }
 
-function ChatBubble({ message }: { message: Message }) {
+function ChatBubble({ message }: { message: ChatMessage }) {
   const isBot = message.role === "bot";
   return (
     <div className={cn("flex gap-2", !isBot && "flex-row-reverse")}>

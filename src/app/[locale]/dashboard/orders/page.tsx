@@ -2,6 +2,7 @@ import { ArrowRight, Plus } from "lucide-react";
 import { getFormatter, getTranslations, setRequestLocale } from "next-intl/server";
 
 import { Link } from "@/i18n/navigation";
+import { CsvToolbar } from "@/components/dashboard/csv-toolbar";
 import { StatusBadge } from "@/components/status-badge";
 import { buttonVariants } from "@/components/ui/button";
 import {
@@ -58,13 +59,16 @@ export default async function OrdersPage({
           </h1>
           <p className="text-muted-foreground mt-1 text-sm">{t("subtitle")}</p>
         </div>
-        <Link
-          href="/dashboard/orders/new"
-          className={cn(buttonVariants({ size: "default" }), "gap-2 self-start sm:self-auto")}
-        >
-          <Plus className="h-4 w-4" />
-          {t("create")}
-        </Link>
+        <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
+          <CsvToolbar />
+          <Link
+            href="/dashboard/orders/new"
+            className={cn(buttonVariants({ size: "default" }), "gap-2")}
+          >
+            <Plus className="h-4 w-4" />
+            {t("create")}
+          </Link>
+        </div>
       </div>
 
       {error && (

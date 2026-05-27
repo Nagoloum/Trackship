@@ -2,9 +2,10 @@
 
 import { AlertCircle, Eye, EyeOff, LogIn } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useActionState, useState } from "react";
+import { useActionState } from "react";
 
 import { loginAction, type LoginState } from "@/app/actions/auth";
+import { useUiStore } from "@/stores/ui-store";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -15,7 +16,7 @@ export function LoginForm({ from }: { from?: string }) {
   const t = useTranslations("auth.login");
   const locale = useLocale();
   const [state, formAction, pending] = useActionState(loginAction, INITIAL_STATE);
-  const [showPassword, setShowPassword] = useState(false);
+  const { loginShowPassword, toggleLoginShowPassword } = useUiStore();
 
   const errorMessage =
     state.status === "error"
@@ -49,7 +50,7 @@ export function LoginForm({ from }: { from?: string }) {
           <Input
             id="login-password"
             name="password"
-            type={showPassword ? "text" : "password"}
+            type={loginShowPassword ? "text" : "password"}
             autoComplete="current-password"
             required
             placeholder={t("passwordPlaceholder")}
@@ -57,13 +58,13 @@ export function LoginForm({ from }: { from?: string }) {
           />
           <button
             type="button"
-            onClick={() => setShowPassword((v) => !v)}
-            aria-label={showPassword ? t("hidePassword") : t("showPassword")}
-            aria-pressed={showPassword}
+            onClick={toggleLoginShowPassword}
+            aria-label={loginShowPassword ? t("hidePassword") : t("showPassword")}
+            aria-pressed={loginShowPassword}
             className="text-muted-foreground hover:text-foreground focus-visible:ring-ring absolute inset-y-0 right-0 flex items-center justify-center px-3 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 rounded-r-md"
             tabIndex={0}
           >
-            {showPassword ? (
+            {loginShowPassword ? (
               <EyeOff className="h-4 w-4" aria-hidden />
             ) : (
               <Eye className="h-4 w-4" aria-hidden />

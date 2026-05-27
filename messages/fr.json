@@ -472,6 +472,7 @@
       "detail": {
         "info": "Informations",
         "edit": "Modifier",
+        "emailButton": "Envoyer un email",
         "address": "Adresse",
         "deliveryHours": "Horaires de réception",
         "sender": "Expéditeur",
@@ -485,12 +486,16 @@
       },
       "form": {
         "sections": {
+          "tracking": "Numéro de suivi",
           "recipient": "Destinataire",
           "sender": "Expéditeur",
           "product": "Contenu du colis",
           "shipment": "Expédition",
           "status": "Statut & notes"
         },
+        "trackingCode": "Numéro de suivi",
+        "trackingCodeHelp": "Format : TS + 9 chiffres + 2 lettres majuscules (ex : TS123456789FR). Doit être unique.",
+        "swapSenderRecipient": "Inverser expéditeur / destinataire",
         "productCategory": "Catégorie du produit",
         "productDescription": "Description",
         "productDescriptionPlaceholder": "Ex : iPhone 15 Pro 256 Go bleu",
@@ -545,8 +550,20 @@
           "invalid_items": "Articles de la commande invalides.",
           "code_collision": "Impossible de générer un numéro de suivi unique. Réessayez.",
           "missing_id": "Identifiant manquant.",
+          "invalid_tracking_code": "Format du numéro de suivi invalide (TS + 9 chiffres + 2 lettres).",
+          "code_already_exists": "Ce numéro de suivi est déjà utilisé par une autre commande.",
           "server": "Erreur serveur. Réessayez dans un instant."
         }
+      },
+      "csv": {
+        "export": "Exporter CSV",
+        "import": "Importer CSV",
+        "importing": "Import en cours…",
+        "importSuccess": "{count} commande(s) importée(s).",
+        "importErrors": "erreur(s)",
+        "importError_no_file": "Aucun fichier sélectionné.",
+        "importError_empty_file": "Fichier CSV vide ou sans données.",
+        "importError_server": "Erreur lors de l'import."
       },
       "events": {
         "addTitle": "Ajouter un événement de suivi",

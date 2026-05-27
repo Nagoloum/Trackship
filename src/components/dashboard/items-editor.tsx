@@ -2,8 +2,9 @@
 
 import { Plus, Trash2 } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useMemo, useState } from "react";
+import { useMemo, useRef } from "react";
 
+import { useItemsEditorStore } from "@/stores/items-editor-store";
 import { Button } from "@/components/ui/button";
 import { FormSelect } from "@/components/ui/form-select";
 import { Input } from "@/components/ui/input";
@@ -11,12 +12,6 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import type { OrderItem } from "@/lib/order-items";
 import { PRODUCT_CATEGORIES } from "@/lib/product-categories";
-
-const EMPTY_ITEM: OrderItem = {
-  category: null,
-  description: null,
-  quantity: 1,
-};
 
 export function ItemsEditor({
   defaultItems,
@@ -28,34 +23,20 @@ export function ItemsEditor({
   const t = useTranslations("dashboard.orders.form");
   const tCategory = useTranslations("productCategory");
 
-  // Items are managed locally as an array of editable rows; the array is
-  // serialised as JSON into a single hidden input named `items` so the
-  // server action can parse it without flat indexing tricks.
-  const [items, setItems] = useState<OrderItem[]>(
-    defaultItems && defaultItems.length > 0
-      ? defaultItems
-      : [{ ...EMPTY_ITEM }]
-  );
+  const { items, hydrate, updateItem, removeItem, addItem } = useItemsEditorStore();
+
+  // Hydrate the store once from props on first render
+  const hydratedRef = useRef(false);
+  if (!hydratedRef.current) {
+    hydrate(defaultItems);
+    hydratedRef.current = true;
+  }
 
   const categoryOptions = useMemo(
-    () =>
-      PRODUCT_CATEGORIES.map((c) => ({ value: c, label: tCategory(c) })),
+    () => PRODUCT_CATEGORIES.map((c) => ({ value: c, label: tCategory(c) })),
     [tCategory]
   );
 
-  const update = (index: number, patch: Partial<OrderItem>) => {
-    setItems((prev) => prev.map((it, i) => (i === index ? { ...it, ...patch } : it)));
-  };
-  const remove = (index: number) => {
-    setItems((prev) =>
-      prev.length === 1 ? [{ ...EMPTY_ITEM }] : prev.filter((_, i) => i !== index)
-    );
-  };
-  const add = () => {
-    setItems((prev) => [...prev, { ...EMPTY_ITEM }]);
-  };
-
-  // Serialize cleanly: null for empty strings, integer quantity ≥ 1.
   const serialised = JSON.stringify(
     items.map((it) => ({
       category: it.category || null,
@@ -82,7 +63,7 @@ export function ItemsEditor({
                 id={`item-${i}-category`}
                 name={`__item_${i}_category`}
                 value={item.category ?? ""}
-                onChange={(v) => update(i, { category: v || null })}
+                onChange={(v) => updateItem(i, { category: v || null })}
                 options={categoryOptions}
                 placeholder={tCategory("_placeholder")}
               />
@@ -97,7 +78,7 @@ export function ItemsEditor({
                 rows={1}
                 value={item.description ?? ""}
                 onChange={(e) =>
-                  update(i, { description: e.target.value || null })
+                  updateItem(i, { description: e.target.value || null })
                 }
                 placeholder={t("productDescriptionPlaceholder")}
               />
@@ -112,7 +93,7 @@ export function ItemsEditor({
                 step={1}
                 value={item.quantity}
                 onChange={(e) =>
-                  update(i, {
+                  updateItem(i, {
                     quantity: Math.max(1, Math.floor(Number(e.target.value) || 1)),
                   })
                 }
@@ -124,7 +105,7 @@ export function ItemsEditor({
                 type="button"
                 variant="ghost"
                 size="sm"
-                onClick={() => remove(i)}
+                onClick={() => removeItem(i)}
                 className="text-destructive hover:bg-destructive/10 gap-1.5"
                 disabled={items.length === 1 && !item.category && !item.description}
               >
@@ -140,7 +121,7 @@ export function ItemsEditor({
         type="button"
         variant="outline"
         size="sm"
-        onClick={add}
+        onClick={addItem}
         className="gap-2"
       >
         <Plus className="h-4 w-4" />

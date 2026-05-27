@@ -485,12 +485,16 @@
       },
       "form": {
         "sections": {
+          "tracking": "Tracking number",
           "recipient": "Recipient",
           "sender": "Sender",
           "product": "Parcel contents",
           "shipment": "Shipment",
           "status": "Status & notes"
         },
+        "trackingCode": "Tracking number",
+        "trackingCodeHelp": "Format: TS + 9 digits + 2 uppercase letters (e.g. TS123456789FR). Must be unique.",
+        "swapSenderRecipient": "Swap sender / recipient",
         "productCategory": "Product category",
         "productDescription": "Description",
         "productDescriptionPlaceholder": "e.g. iPhone 15 Pro 256 GB blue",
@@ -545,8 +549,20 @@
           "invalid_items": "Invalid order items.",
           "code_collision": "Failed to generate a unique tracking number. Try again.",
           "missing_id": "Missing ID.",
+          "invalid_tracking_code": "Invalid tracking number format (TS + 9 digits + 2 letters).",
+          "code_already_exists": "This tracking number is already used by another order.",
           "server": "Server error. Please try again in a moment."
         }
+      },
+      "csv": {
+        "export": "Export CSV",
+        "import": "Import CSV",
+        "importing": "Importing…",
+        "importSuccess": "{count} order(s) imported.",
+        "importErrors": "error(s)",
+        "importError_no_file": "No file selected.",
+        "importError_empty_file": "Empty or headerless CSV file.",
+        "importError_server": "Import error."
       },
       "events": {
         "addTitle": "Add a tracking event",

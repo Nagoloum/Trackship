@@ -1,14 +1,15 @@
 "use client";
 
-import { ArrowLeft, Save } from "lucide-react";
+import { ArrowLeftRight, ArrowLeft, Save } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useActionState, useMemo } from "react";
+import { useActionState, useMemo, useRef } from "react";
 
 import {
   createOrderAction,
   updateOrderAction,
   type OrderState,
 } from "@/app/actions/orders";
+import { useOrderFormStore } from "@/stores/order-form-store";
 import { ItemsEditor } from "@/components/dashboard/items-editor";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { FormSelect } from "@/components/ui/form-select";
@@ -24,6 +25,7 @@ const INITIAL_STATE: OrderState = { status: "idle" };
 
 export type OrderFormDefaults = {
   id?: string;
+  code?: string;
   recipient_name?: string;
   recipient_email?: string | null;
   recipient_phone?: string | null;
@@ -62,6 +64,28 @@ export function OrderForm({
   const action = mode === "create" ? createOrderAction : updateOrderAction;
   const [state, formAction, pending] = useActionState(action, INITIAL_STATE);
 
+  // Hydrate the Zustand store once from props on first render
+  const { fields, hydrate, setField, swap } = useOrderFormStore();
+  const hydratedRef = useRef(false);
+  if (!hydratedRef.current) {
+    hydrate({
+      recipient_name: defaults.recipient_name ?? "",
+      recipient_email: defaults.recipient_email ?? "",
+      recipient_phone: defaults.recipient_phone ?? "",
+      recipient_address: defaults.recipient_address ?? "",
+      sender_name: defaults.sender_name ?? "",
+      sender_email: defaults.sender_email ?? "",
+      sender_phone: defaults.sender_phone ?? "",
+      sender_address: defaults.sender_address ?? "",
+    });
+    hydratedRef.current = true;
+  }
+
+  const set =
+    (key: Parameters<typeof setField>[0]) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+      setField(key, e.target.value);
+
   const errorMessage =
     state.status === "error"
       ? (() => {
@@ -89,62 +113,72 @@ export function OrderForm({
         <input type="hidden" name="id" value={defaults.id} />
       )}
 
+      {/* Tracking code – editable in edit mode only */}
+      {mode === "edit" && (
+        <div className="bg-card text-card-foreground rounded-xl border p-5 shadow-sm md:p-6">
+          <h2 className="mb-5 text-sm font-semibold uppercase tracking-wider">
+            {t("sections.tracking")}
+          </h2>
+          <div className="space-y-2">
+            <Label htmlFor="code">{t("trackingCode")}</Label>
+            <Input
+              id="code"
+              name="code"
+              defaultValue={defaults.code ?? ""}
+              placeholder="TS123456789FR"
+              pattern="^TS\d{9}[A-Z]{2}$"
+              className="font-mono uppercase"
+              autoCapitalize="characters"
+              maxLength={14}
+            />
+            <p className="text-muted-foreground text-xs">{t("trackingCodeHelp")}</p>
+          </div>
+        </div>
+      )}
+
       <Section title={t("sections.recipient")}>
-        <Field
-          id="recipient_name"
-          name="recipient_name"
-          label={t("recipientName")}
-          defaultValue={defaults.recipient_name}
-          required
-          full
-        />
-        <Field
-          id="recipient_email"
-          name="recipient_email"
-          type="email"
-          label={t("recipientEmail")}
-          defaultValue={defaults.recipient_email ?? ""}
-        />
-        <Field
-          id="recipient_phone"
-          name="recipient_phone"
-          label={t("recipientPhone")}
-          defaultValue={defaults.recipient_phone ?? ""}
-        />
-        <Field
-          id="recipient_address"
-          name="recipient_address"
-          label={t("recipientAddress")}
-          defaultValue={defaults.recipient_address ?? ""}
-          placeholder={t("recipientAddressPlaceholder")}
-          full
-        />
-        <Field
-          id="recipient_address_line2"
-          name="recipient_address_line2"
-          label={t("recipientAddressLine2")}
-          defaultValue={defaults.recipient_address_line2 ?? ""}
-          placeholder={t("recipientAddressLine2Placeholder")}
-          full
-        />
-        <Field
-          id="recipient_postal_code"
-          name="recipient_postal_code"
-          label={t("recipientPostalCode")}
-          defaultValue={defaults.recipient_postal_code ?? ""}
-        />
-        <Field
-          id="recipient_city"
-          name="recipient_city"
-          label={t("recipientCity")}
-          defaultValue={defaults.recipient_city ?? ""}
-        />
-        <Field
-          id="recipient_state"
-          name="recipient_state"
-          label={t("recipientState")}
-          defaultValue={defaults.recipient_state ?? ""}
-        />
+        <div className="space-y-2 sm:col-span-2">
+          <Label htmlFor="recipient_name">
+            {t("recipientName")} <span className="text-destructive">*</span>
+          </Label>
+          <Input
+            id="recipient_name"
+            name="recipient_name"
+            value={fields.recipient_name}
+            onChange={set("recipient_name")}
+            required
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="recipient_email">{t("recipientEmail")}</Label>
+          <Input
+            id="recipient_email"
+            name="recipient_email"
+            type="email"
+            value={fields.recipient_email}
+            onChange={set("recipient_email")}
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="recipient_phone">{t("recipientPhone")}</Label>
+          <Input
+            id="recipient_phone"
+            name="recipient_phone"
+            value={fields.recipient_phone}
+            onChange={set("recipient_phone")}
+          />
+        </div>
+        <div className="space-y-2 sm:col-span-2">
+          <Label htmlFor="recipient_address">{t("recipientAddress")}</Label>
+          <Textarea
+            id="recipient_address"
+            name="recipient_address"
+            rows={3}
+            value={fields.recipient_address}
+            onChange={set("recipient_address")}
+            placeholder={t("recipientAddressPlaceholder")}
+          />
+        </div>
         <Field
           id="recipient_delivery_hours"
           name="recipient_delivery_hours"
@@ -154,38 +188,62 @@ export function OrderForm({
         />
       </Section>
 
+      {/* Swap button */}
+      <div className="flex justify-center">
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          className="gap-2"
+          onClick={swap}
+        >
+          <ArrowLeftRight className="h-4 w-4" />
+          {t("swapSenderRecipient")}
+        </Button>
+      </div>
+
       <Section title={t("sections.sender")}>
         <p className="text-muted-foreground -mt-2 mb-1 text-xs sm:col-span-2">
           {t("senderHelp")}
         </p>
-        <Field
-          id="sender_name"
-          name="sender_name"
-          label={t("senderName")}
-          defaultValue={defaults.sender_name ?? ""}
-          full
-        />
-        <Field
-          id="sender_email"
-          name="sender_email"
-          type="email"
-          label={t("senderEmail")}
-          defaultValue={defaults.sender_email ?? ""}
-        />
-        <Field
-          id="sender_phone"
-          name="sender_phone"
-          label={t("senderPhone")}
-          defaultValue={defaults.sender_phone ?? ""}
-        />
-        <Field
-          id="sender_address"
-          name="sender_address"
-          label={t("senderAddress")}
-          defaultValue={defaults.sender_address ?? ""}
-          placeholder={t("senderAddressPlaceholder")}
-          full
-        />
+        <div className="space-y-2 sm:col-span-2">
+          <Label htmlFor="sender_name">{t("senderName")}</Label>
+          <Input
+            id="sender_name"
+            name="sender_name"
+            value={fields.sender_name}
+            onChange={set("sender_name")}
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="sender_email">{t("senderEmail")}</Label>
+          <Input
+            id="sender_email"
+            name="sender_email"
+            type="email"
+            value={fields.sender_email}
+            onChange={set("sender_email")}
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="sender_phone">{t("senderPhone")}</Label>
+          <Input
+            id="sender_phone"
+            name="sender_phone"
+            value={fields.sender_phone}
+            onChange={set("sender_phone")}
+          />
+        </div>
+        <div className="space-y-2 sm:col-span-2">
+          <Label htmlFor="sender_address">{t("senderAddress")}</Label>
+          <Input
+            id="sender_address"
+            name="sender_address"
+            value={fields.sender_address}
+            onChange={set("sender_address")}
+            placeholder={t("senderAddressPlaceholder")}
+          />
+        </div>
       </Section>
 
       <SectionPlain title={t("sections.product")}>
@@ -345,7 +403,6 @@ function Section({
   );
 }
 
-/** Variant of Section without the inner 2-col grid (used by ItemsEditor). */
 function SectionPlain({
   title,
   children,

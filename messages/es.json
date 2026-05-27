@@ -485,12 +485,16 @@
       },
       "form": {
         "sections": {
+          "tracking": "Número de seguimiento",
           "recipient": "Destinatario",
           "sender": "Remitente",
           "product": "Contenido del paquete",
           "shipment": "Envío",
           "status": "Estado y notas"
         },
+        "trackingCode": "Número de seguimiento",
+        "trackingCodeHelp": "Formato: TS + 9 dígitos + 2 letras mayúsculas (ej: TS123456789FR). Debe ser único.",
+        "swapSenderRecipient": "Intercambiar remitente / destinatario",
         "productCategory": "Categoría del producto",
         "productDescription": "Descripción",
         "productDescriptionPlaceholder": "Ej.: iPhone 15 Pro 256 GB azul",
@@ -545,8 +549,20 @@
           "invalid_items": "Artículos del pedido no válidos.",
           "code_collision": "No se pudo generar un número de seguimiento único. Inténtalo de nuevo.",
           "missing_id": "Falta el identificador.",
+          "invalid_tracking_code": "Formato de número de seguimiento inválido (TS + 9 dígitos + 2 letras).",
+          "code_already_exists": "Este número de seguimiento ya está en uso.",
           "server": "Error del servidor. Inténtalo de nuevo en un momento."
         }
+      },
+      "csv": {
+        "export": "Exportar CSV",
+        "import": "Importar CSV",
+        "importing": "Importando…",
+        "importSuccess": "{count} pedido(s) importado(s).",
+        "importErrors": "error(es)",
+        "importError_no_file": "No se ha seleccionado ningún archivo.",
+        "importError_empty_file": "Archivo CSV vacío.",
+        "importError_server": "Error durante la importación."
       },
       "events": {
         "addTitle": "Añadir un evento de seguimiento",

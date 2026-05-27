@@ -2,8 +2,9 @@
 
 import { Menu, Package, X } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
+import { useUiStore } from "@/stores/ui-store";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { Logo } from "@/components/logo";
 import { NavLink } from "@/components/nav-link";
@@ -29,15 +30,19 @@ const NAV_LINK_MOBILE_CLASSES =
 export function SiteHeader() {
   const t = useTranslations("nav");
   const tc = useTranslations("common");
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const {
+    siteHeaderMenuOpen: open,
+    setSiteHeaderMenuOpen: setOpen,
+    siteHeaderScrolled: scrolled,
+    setSiteHeaderScrolled: setScrolled,
+  } = useUiStore();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [setScrolled]);
 
   return (
     <header
@@ -70,7 +75,6 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-1">
-          {/* Track CTA — always visible. Short label on mobile, long on lg+. */}
           <Link
             href="/track"
             className={cn(buttonVariants({ size: "sm" }), "gap-2")}
@@ -85,7 +89,6 @@ export function SiteHeader() {
             <ThemeToggle />
           </div>
 
-          {/* Mobile toggles */}
           <div className="md:hidden">
             <ThemeToggle />
           </div>
@@ -95,7 +98,7 @@ export function SiteHeader() {
             className="md:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => setOpen(!open)}
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>

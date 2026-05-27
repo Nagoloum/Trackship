@@ -485,12 +485,16 @@
       },
       "form": {
         "sections": {
+          "tracking": "Sendungsnummer",
           "recipient": "Empfänger",
           "sender": "Absender",
           "product": "Paketinhalt",
           "shipment": "Versand",
           "status": "Status & Notizen"
         },
+        "trackingCode": "Sendungsnummer",
+        "trackingCodeHelp": "Format: TS + 9 Ziffern + 2 Großbuchstaben (z.B. TS123456789FR). Muss eindeutig sein.",
+        "swapSenderRecipient": "Absender / Empfänger tauschen",
         "productCategory": "Produktkategorie",
         "productDescription": "Beschreibung",
         "productDescriptionPlaceholder": "z. B. iPhone 15 Pro 256 GB blau",
@@ -545,8 +549,20 @@
           "invalid_items": "Ungültige Bestellartikel.",
           "code_collision": "Es konnte keine eindeutige Sendungsnummer erzeugt werden. Bitte erneut versuchen.",
           "missing_id": "Kennung fehlt.",
+          "invalid_tracking_code": "Ungültiges Sendungsnummer-Format (TS + 9 Ziffern + 2 Buchstaben).",
+          "code_already_exists": "Diese Sendungsnummer wird bereits verwendet.",
           "server": "Serverfehler. Bitte in Kürze erneut versuchen."
         }
+      },
+      "csv": {
+        "export": "CSV exportieren",
+        "import": "CSV importieren",
+        "importing": "Wird importiert…",
+        "importSuccess": "{count} Bestellung(en) importiert.",
+        "importErrors": "Fehler",
+        "importError_no_file": "Keine Datei ausgewählt.",
+        "importError_empty_file": "Leere CSV-Datei.",
+        "importError_server": "Importfehler."
       },
       "events": {
         "addTitle": "Sendungsereignis hinzufügen",

@@ -2,8 +2,8 @@
 
 import { Menu } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
 
+import { useUiStore } from "@/stores/ui-store";
 import { SidebarNav } from "@/components/dashboard/sidebar-nav";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,10 +16,10 @@ import {
 
 export function MobileSidebar() {
   const t = useTranslations("dashboard.topbar");
-  const [open, setOpen] = useState(false);
+  const { mobileSidebarOpen, setMobileSidebarOpen } = useUiStore();
 
   return (
-    <Sheet open={open} onOpenChange={setOpen}>
+    <Sheet open={mobileSidebarOpen} onOpenChange={setMobileSidebarOpen}>
       <SheetTrigger
         render={
           <Button
@@ -37,7 +37,7 @@ export function MobileSidebar() {
           <SheetTitle>{t("menu")}</SheetTitle>
         </SheetHeader>
         <div className="flex-1 overflow-y-auto">
-          <SidebarNav onNavigate={() => setOpen(false)} />
+          <SidebarNav onNavigate={() => setMobileSidebarOpen(false)} />
         </div>
       </SheetContent>
     </Sheet>

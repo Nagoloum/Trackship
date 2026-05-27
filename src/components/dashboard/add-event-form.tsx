@@ -2,7 +2,7 @@
 
 import { Plus } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useActionState, useEffect, useRef } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 
 import {
   addTrackingEventAction,
@@ -39,10 +39,12 @@ export function AddEventForm({
     INITIAL_STATE
   );
   const formRef = useRef<HTMLFormElement>(null);
+  const [eventAt, setEventAt] = useState(nowLocalInput);
 
   useEffect(() => {
     if (state.status === "success" && formRef.current) {
       formRef.current.reset();
+      setEventAt(nowLocalInput());
     }
   }, [state.status]);
 
@@ -82,7 +84,8 @@ export function AddEventForm({
             id="event-date"
             name="event_at"
             type="datetime-local"
-            defaultValue={nowLocalInput()}
+            value={eventAt}
+            onChange={(e) => setEventAt(e.target.value)}
           />
         </div>
 
