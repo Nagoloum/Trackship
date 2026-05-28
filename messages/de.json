@@ -472,6 +472,7 @@
       "detail": {
         "info": "Informationen",
         "edit": "Bearbeiten",
+        "bonExpeditionBtn": "Versandschein",
         "address": "Adresse",
         "deliveryHours": "Annahmezeiten",
         "sender": "Absender",
@@ -816,6 +817,43 @@
       "delivery_time": "Die Zustellzeiten hängen von der Route ab: 24-72 Std. für Inlandssendungen, 3-7 Werktage für internationale Sendungen. Ein geschätztes Datum wird auf der Verfolgungsseite angezeigt.",
       "not_found": "Prüfen Sie zunächst das Format (TS + 9 Ziffern + 2 Buchstaben). Stimmt es, erscheint aber keine Sendung, wenden Sie sich an den Absender — die Sendung wurde möglicherweise noch nicht in unserem System erfasst.",
       "unknown": "Ich habe Ihre Frage nicht verstanden. Folgende Themen kann ich beantworten — klicken Sie einfach auf eines:"
+    }
+  },
+  "bonExpedition": {
+    "title": "VERSANDSCHEIN",
+    "subtitle": "Offizielles Transportdokument",
+    "ref": "Ref.",
+    "emittedOn": "Ausgestellt am",
+    "currentStatus": "Aktueller Status",
+    "expeditor": "Absender",
+    "recipient": "Empfänger",
+    "transportMode": "Transportart",
+    "pickupDate": "Abholtermin",
+    "estimatedDelivery": "Voraussichtliche Lieferung",
+    "packageInfo": "Paketinformationen",
+    "weight": "Gewicht",
+    "declaredValue": "Deklarierter Wert",
+    "notes": "Bemerkungen",
+    "signatureCarrier": "Unterschrift Spediteur",
+    "signatureRecipient": "Unterschrift Empfänger",
+    "signaturePlaceholder": "Bei Lieferung unterschreiben",
+    "officialStamp": "Offizieller Stempel",
+    "itemsTitle": "Paketinhalt",
+    "itemCategory": "Kategorie",
+    "itemDescription": "Beschreibung",
+    "itemQty": "Menge",
+    "priceDetails": "Preisdetails",
+    "vat": "USt.",
+    "total": "Gesamt inkl. USt.",
+    "scanQr": "QR-Code scannen",
+    "print": "Drucken",
+    "back": "Zurück",
+    "transportModes": {
+      "road": "Straßentransport",
+      "air": "Lufttransport",
+      "sea": "Seetransport",
+      "rail": "Bahntransport",
+      "express": "Expresslieferung"
     }
   }
 }

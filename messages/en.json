@@ -472,6 +472,7 @@
       "detail": {
         "info": "Information",
         "edit": "Edit",
+        "bonExpeditionBtn": "Dispatch note",
         "address": "Address",
         "deliveryHours": "Delivery hours",
         "sender": "Sender",
@@ -816,6 +817,43 @@
       "delivery_time": "Delivery times depend on the route: 24-72 h for domestic shipments, 3-7 working days for international. An estimated date is shown on your tracking page.",
       "not_found": "First, double-check the format (TS + 9 digits + 2 letters). If it looks right but no order shows up, contact the sender — the parcel may not have been registered in our system yet.",
       "unknown": "I didn't quite understand. Here are the topics I can help with — feel free to click one:"
+    }
+  },
+  "bonExpedition": {
+    "title": "DISPATCH NOTE",
+    "subtitle": "Official transport document",
+    "ref": "Ref.",
+    "emittedOn": "Issued on",
+    "currentStatus": "Current status",
+    "expeditor": "Sender",
+    "recipient": "Recipient",
+    "transportMode": "Transport mode",
+    "pickupDate": "Pickup date",
+    "estimatedDelivery": "Estimated delivery",
+    "packageInfo": "Package info",
+    "weight": "Weight",
+    "declaredValue": "Declared value",
+    "notes": "Notes / Remarks",
+    "signatureCarrier": "Carrier signature",
+    "signatureRecipient": "Recipient signature",
+    "signaturePlaceholder": "To be signed upon delivery",
+    "officialStamp": "Official stamp",
+    "itemsTitle": "Parcel contents",
+    "itemCategory": "Category",
+    "itemDescription": "Description",
+    "itemQty": "Qty",
+    "priceDetails": "Price details",
+    "vat": "VAT",
+    "total": "Total incl. VAT",
+    "scanQr": "Scan to track parcel",
+    "print": "Print",
+    "back": "Back",
+    "transportModes": {
+      "road": "Road transport",
+      "air": "Air transport",
+      "sea": "Sea transport",
+      "rail": "Rail transport",
+      "express": "Express delivery"
     }
   }
 }

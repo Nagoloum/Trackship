@@ -472,6 +472,7 @@
       "detail": {
         "info": "Información",
         "edit": "Editar",
+        "bonExpeditionBtn": "Albarán",
         "address": "Dirección",
         "deliveryHours": "Horario de atención",
         "sender": "Remitente",
@@ -816,6 +817,43 @@
       "delivery_time": "Los tiempos dependen del trayecto: 24-72 h para envíos nacionales, 3-7 días laborables para internacionales. Verás una fecha estimada en la página de seguimiento.",
       "not_found": "Primero verifica el formato (TS + 9 dígitos + 2 letras). Si es correcto pero no aparece ningún pedido, contacta al remitente — puede que el envío aún no esté registrado en nuestro sistema.",
       "unknown": "No he entendido tu pregunta. Estos son los temas que conozco — haz clic en uno:"
+    }
+  },
+  "bonExpedition": {
+    "title": "ALBARÁN DE EXPEDICIÓN",
+    "subtitle": "Documento oficial de transporte",
+    "ref": "Ref.",
+    "emittedOn": "Emitido el",
+    "currentStatus": "Estado actual",
+    "expeditor": "Remitente",
+    "recipient": "Destinatario",
+    "transportMode": "Modo de transporte",
+    "pickupDate": "Fecha de recogida",
+    "estimatedDelivery": "Entrega estimada",
+    "packageInfo": "Información del paquete",
+    "weight": "Peso",
+    "declaredValue": "Valor declarado",
+    "notes": "Notas / Observaciones",
+    "signatureCarrier": "Firma del transportista",
+    "signatureRecipient": "Firma del destinatario",
+    "signaturePlaceholder": "Firmar en la entrega",
+    "officialStamp": "Sello oficial",
+    "itemsTitle": "Contenido del paquete",
+    "itemCategory": "Categoría",
+    "itemDescription": "Descripción",
+    "itemQty": "Cant.",
+    "priceDetails": "Detalles del precio",
+    "vat": "IVA",
+    "total": "Total con IVA",
+    "scanQr": "Escanear para rastrear",
+    "print": "Imprimir",
+    "back": "Volver",
+    "transportModes": {
+      "road": "Transporte terrestre",
+      "air": "Transporte aéreo",
+      "sea": "Transporte marítimo",
+      "rail": "Transporte ferroviario",
+      "express": "Entrega urgente"
     }
   }
 }

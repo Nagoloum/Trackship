@@ -11,6 +11,7 @@ import {
   Package,
   Percent,
   Phone,
+  Printer,
   Send,
   User,
 } from "lucide-react";
@@ -129,6 +130,13 @@ export default async function OrderDetailPage({
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
+          <Link
+            href={`/dashboard/orders/${order.id}/bon-expedition`}
+            className={cn(buttonVariants({ variant: "outline", size: "sm" }), "gap-2")}
+          >
+            <Printer className="h-4 w-4" />
+            {t("bonExpeditionBtn")}
+          </Link>
           <Link
             href={`/dashboard/orders/${order.id}/edit`}
             className={cn(buttonVariants({ variant: "outline", size: "sm" }), "gap-2")}

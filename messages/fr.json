@@ -472,6 +472,7 @@
       "detail": {
         "info": "Informations",
         "edit": "Modifier",
+        "bonExpeditionBtn": "Bon d'expédition",
         "emailButton": "Envoyer un email",
         "address": "Adresse",
         "deliveryHours": "Horaires de réception",
@@ -817,6 +818,43 @@
       "delivery_time": "Les délais dépendent du trajet : 24-72 h pour les envois nationaux, 3-7 jours ouvrés pour l'international. La date estimée s'affiche sur la page de suivi de votre colis.",
       "not_found": "Vérifiez d'abord la saisie (TS + 9 chiffres + 2 lettres). Si le format est correct mais aucune commande ne s'affiche, contactez l'expéditeur — il se peut que la commande n'ait pas encore été enregistrée dans notre système.",
       "unknown": "Je n'ai pas compris votre question. Voici les sujets que je connais — n'hésitez pas à cliquer sur l'un d'eux :"
+    }
+  },
+  "bonExpedition": {
+    "title": "BON D'EXPÉDITION",
+    "subtitle": "Document officiel de transport",
+    "ref": "Réf.",
+    "emittedOn": "Émis le",
+    "currentStatus": "Statut actuel",
+    "expeditor": "Expéditeur",
+    "recipient": "Destinataire",
+    "transportMode": "Mode de transport",
+    "pickupDate": "Date de prise en charge",
+    "estimatedDelivery": "Livraison estimée",
+    "packageInfo": "Informations colis",
+    "weight": "Poids",
+    "declaredValue": "Valeur déclarée",
+    "notes": "Notes / Observations",
+    "signatureCarrier": "Signature transporteur",
+    "signatureRecipient": "Signature destinataire",
+    "signaturePlaceholder": "À signer à la livraison",
+    "officialStamp": "Cachet officiel",
+    "itemsTitle": "Contenu du colis",
+    "itemCategory": "Catégorie",
+    "itemDescription": "Description",
+    "itemQty": "Qté",
+    "priceDetails": "Détails du prix",
+    "vat": "TVA",
+    "total": "Total TTC",
+    "scanQr": "Scanner pour suivre le colis",
+    "print": "Imprimer",
+    "back": "Retour",
+    "transportModes": {
+      "road": "Transport routier",
+      "air": "Transport aérien",
+      "sea": "Transport maritime",
+      "rail": "Transport ferroviaire",
+      "express": "Express / Messagerie"
     }
   }
 }
