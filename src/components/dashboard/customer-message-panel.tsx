@@ -26,6 +26,15 @@ function formatDate(value: string) {
   }).format(new Date(value));
 }
 
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 export function CustomerMessagePanel({
   recipientName,
   recipientEmail,
@@ -72,14 +81,35 @@ https://trackshipp.vercel.app/fr/`,
     [originCountry, receivedAt, recipientName, trackingCode, trackingUrl]
   );
 
-  const copyText = useMemo(
-    () =>
-      `À : ${recipientEmail ?? ""}\nObjet : ${SUBJECT}\n\n${message}`,
-    [message, recipientEmail]
+  const messageHtml = useMemo(
+    () => `<div>
+<p>Bonsoir ${escapeHtml(recipientName)},</p>
+<p>Nous vous confirmons que votre colis a bien été reçu et enregistré dans nos locaux par notre agence de transit TrackShip.</p>
+<p>Vous trouverez en pièce jointe le récépissé de dépôt correspondant à votre expédition pour confirmation et suivi administratif.</p>
+<p>📦 Numéro de suivi : <a href="${escapeHtml(trackingUrl)}">${escapeHtml(trackingCode)}</a></p>
+<p>📍 Provenance : ${escapeHtml(countryName(originCountry))}</p>
+<p>📅 Date de réception : ${escapeHtml(formatDate(receivedAt))}</p>
+<p>Vous pouvez suivre l’évolution de votre colis directement sur notre plateforme en ligne grâce à votre numéro de suivi.</p>
+<p>Notre équipe reste à votre disposition pour toute information complémentaire.</p>
+<p>Cordialement,</p>
+<p>Service Client – TrackShip</p>
+<p>trackshipp.contact@protonmail.com</p>
+<p><a href="https://trackshipp.vercel.app/fr/">https://trackshipp.vercel.app/fr/</a></p>
+</div>`,
+    [originCountry, receivedAt, recipientName, trackingCode, trackingUrl]
   );
 
   const copyMessage = async () => {
-    await navigator.clipboard.writeText(copyText);
+    if (typeof ClipboardItem !== "undefined") {
+      await navigator.clipboard.write([
+        new ClipboardItem({
+          "text/html": new Blob([messageHtml], { type: "text/html" }),
+          "text/plain": new Blob([message], { type: "text/plain" }),
+        }),
+      ]);
+    } else {
+      await navigator.clipboard.writeText(message);
+    }
     setCopied(true);
     window.setTimeout(() => setCopied(false), 1800);
   };
@@ -132,11 +162,51 @@ https://trackshipp.vercel.app/fr/`,
             <span className="text-muted-foreground">Objet</span>
             <span className="font-medium">{SUBJECT}</span>
           </div>
-          <textarea
-            readOnly
-            value={message}
-            className="border-input bg-background min-h-80 w-full resize-y rounded-lg border p-3 text-sm leading-relaxed outline-none"
-          />
+          <div className="border-input bg-background space-y-4 rounded-lg border p-3 text-sm leading-relaxed">
+            <p>Bonsoir {recipientName},</p>
+            <p>
+              Nous vous confirmons que votre colis a bien été reçu et
+              enregistré dans nos locaux par notre agence de transit TrackShip.
+            </p>
+            <p>
+              Vous trouverez en pièce jointe le récépissé de dépôt correspondant
+              à votre expédition pour confirmation et suivi administratif.
+            </p>
+            <p>
+              📦 Numéro de suivi :{" "}
+              <a
+                href={trackingUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary font-medium underline-offset-4 hover:underline"
+              >
+                {trackingCode}
+              </a>
+            </p>
+            <p>📍 Provenance : {countryName(originCountry)}</p>
+            <p>📅 Date de réception : {formatDate(receivedAt)}</p>
+            <p>
+              Vous pouvez suivre l’évolution de votre colis directement sur
+              notre plateforme en ligne grâce à votre numéro de suivi.
+            </p>
+            <p>
+              Notre équipe reste à votre disposition pour toute information
+              complémentaire.
+            </p>
+            <p>Cordialement,</p>
+            <p>Service Client – TrackShip</p>
+            <p>trackshipp.contact@protonmail.com</p>
+            <p>
+              <a
+                href="https://trackshipp.vercel.app/fr/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary underline-offset-4 hover:underline"
+              >
+                https://trackshipp.vercel.app/fr/
+              </a>
+            </p>
+          </div>
         </div>
       )}
     </section>
