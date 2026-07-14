@@ -19,6 +19,7 @@ import { notFound } from "next/navigation";
 import { getFormatter, getTranslations, setRequestLocale } from "next-intl/server";
 
 import { AddEventForm } from "@/components/dashboard/add-event-form";
+import { CustomerMessagePanel } from "@/components/dashboard/customer-message-panel";
 import { DeleteConfirmTranslated } from "@/components/dashboard/delete-confirm";
 import { GenerateReceipt } from "@/components/dashboard/generate-receipt";
 import { StatusBadge } from "@/components/status-badge";
@@ -151,6 +152,15 @@ export default async function OrderDetailPage({
           />
         </div>
       </div>
+
+      <CustomerMessagePanel
+        recipientName={order.recipient_name}
+        recipientEmail={order.recipient_email}
+        trackingCode={order.code}
+        originCountry={order.origin_country}
+        receivedAt={order.created_at}
+        trackingUrl={`${(process.env.NEXT_PUBLIC_APP_URL ?? "https://trackshipp.vercel.app").replace(/\/$/, "")}/${locale}/track/${order.code}`}
+      />
 
       {/* Order info */}
       <section className="bg-card text-card-foreground rounded-xl border p-5 shadow-sm md:p-6">
