@@ -83,27 +83,6 @@ export default async function DashboardHome({
           </div>
         ))}
       </div>
-
-      <div className="bg-card text-card-foreground rounded-xl border p-6 shadow-sm">
-        <h2 className="text-base font-semibold">{t("nextSteps.title")}</h2>
-        <p className="text-muted-foreground mt-1 text-sm">
-          {t("nextSteps.subtitle")}
-        </p>
-        <ul className="mt-4 space-y-2 text-sm">
-          <li className="flex gap-2">
-            <span className="text-primary">•</span>
-            <span>{t("nextSteps.items.orders")}</span>
-          </li>
-          <li className="flex gap-2">
-            <span className="text-primary">•</span>
-            <span>{t("nextSteps.items.invoices")}</span>
-          </li>
-          <li className="flex gap-2">
-            <span className="text-primary">•</span>
-            <span>{t("nextSteps.items.messages")}</span>
-          </li>
-        </ul>
-      </div>
     </div>
   );
 }
